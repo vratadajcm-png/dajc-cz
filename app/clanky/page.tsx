@@ -5,7 +5,7 @@ import { getAllArticles } from "@/lib/articles";
 export const metadata: Metadata = {
   title: "Novinky z oversize cargo",
   description:
-    "Novinky a postřehy ze světa nadrozměrné a těžké přepravy, doplňkově k platformě HaulBoard.eu.",
+    "Novinky a postřehy ze světa nadrozměrné a těžké přepravy, doplňkově k platformě DAJC.",
 };
 
 export default function ClankyPage() {
@@ -20,10 +20,10 @@ export default function ClankyPage() {
         Krátké zprávy a postřehy ze světa nadrozměrné a těžké přepravy,
         doplňkově k platformě{" "}
         <a
-          href="https://haulboard.eu"
+          href="https://dajc.eu"
           className="text-dajc-orange hover:underline"
         >
-          HaulBoard.eu
+          DAJC
         </a>
         .
       </p>

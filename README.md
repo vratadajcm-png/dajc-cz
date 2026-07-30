@@ -1,14 +1,15 @@
 # dajc.cz
 
 Reklamní/landing stránka pro **DAJC**, jejímž jediným cílem je propagovat
-platformu [HaulBoard.eu](https://haulboard.eu) a odkazovat na ni. Statický
-marketingový web — žádná databáze, žádná uživatelská logika, žádná vlastní
-aplikační funkčnost. Později přibude jednoduchý blog s články o oversize
-cargo (Markdown soubory v `content/articles/`).
+platformu [DAJC](https://dajc.eu) a odkazovat na ni. Statický marketingový
+web — žádná databáze, žádná uživatelská logika, žádná vlastní aplikační
+funkčnost. Později přibude jednoduchý blog s články o oversize cargo
+(Markdown soubory v `content/articles/`).
 
-> **Toto je oddělený projekt od HaulBoard core repa.** Neobsahuje a nesmí
-> obsahovat žádnou závislost na HaulBoard kódu ani sdílená npm workspaces —
-> jde o samostatný git repozitář nasazovaný nezávisle.
+> **Toto je oddělený projekt od hlavního aplikačního repozitáře DAJC.**
+> Neobsahuje a nesmí obsahovat žádnou závislost na kódu hlavní aplikace ani
+> sdílená npm workspaces — jde o samostatný git repozitář nasazovaný
+> nezávisle.
 
 ## Stack
 

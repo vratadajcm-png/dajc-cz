@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 
 const siteUrl = "https://dajc.cz";
 const description =
-  "DAJC propaguje HaulBoard.eu — jednotné digitální místo, kde se z nákladu stává řízená přepravní zakázka pro těžkou a nadrozměrnou přepravu.";
+  "DAJC — jednotné digitální místo, kde se z nákladu stává řízená přepravní zakázka pro těžkou a nadrozměrnou přepravu.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "DAJC — propagujeme HaulBoard.eu",
+    default: "DAJC — platforma pro těžkou a nadrozměrnou přepravu",
     template: "%s | DAJC",
   },
   description,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "DAJC — propagujeme HaulBoard.eu",
+    title: "DAJC — platforma pro těžkou a nadrozměrnou přepravu",
     description,
     url: siteUrl,
     siteName: "DAJC",

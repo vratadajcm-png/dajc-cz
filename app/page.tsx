@@ -9,7 +9,7 @@ const benefits = [
   {
     title: "Žádné provize z přepravy",
     description:
-      "HaulBoard.eu si neúčtuje procenta z vaší zakázky. Platíte za přístup k platformě, ne za to, kolik nákladu převezete.",
+      "DAJC si neúčtuje procenta z vaší zakázky. Platíte za přístup k platformě, ne za to, kolik nákladu převezete.",
   },
   {
     title: "Předplatné za organizaci, ne za náklad",
@@ -31,18 +31,17 @@ export default function Home() {
             className="h-auto w-[220px]"
           />
           <h1 className="mt-10 text-3xl font-bold sm:text-5xl">
-            Propagujeme HaulBoard.eu — platformu pro těžkou a nadrozměrnou
-            přepravu
+            DAJC — platforma pro těžkou a nadrozměrnou přepravu
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-white/80">
             Jednotné digitální místo, kde se z nákladu stává řízená přepravní
             zakázka.
           </p>
           <a
-            href="https://haulboard.eu"
+            href="https://dajc.eu"
             className="mt-10 inline-flex items-center justify-center rounded-full bg-dajc-orange px-8 py-4 text-lg font-semibold text-dajc-dark transition hover:brightness-110"
           >
-            Přejít na HaulBoard.eu
+            Přejít na DAJC
           </a>
         </div>
       </section>
@@ -50,7 +49,7 @@ export default function Home() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-center text-2xl font-bold text-dajc-navy sm:text-3xl">
-            Co je HaulBoard
+            Co je DAJC
           </h2>
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {benefits.map((benefit) => (
@@ -99,18 +98,18 @@ export default function Home() {
             <p>
               Kontakt:{" "}
               <a
-                href="mailto:team@haulboard.eu"
+                href="mailto:team@dajc.eu"
                 className="text-dajc-orange hover:underline"
               >
-                team@haulboard.eu
+                team@dajc.eu
               </a>
             </p>
             <p className="mt-1">
               <a
-                href="https://haulboard.eu"
+                href="https://dajc.eu"
                 className="text-dajc-orange hover:underline"
               >
-                haulboard.eu
+                dajc.eu
               </a>
             </p>
           </div>
