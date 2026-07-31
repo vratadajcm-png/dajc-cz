@@ -37,7 +37,7 @@
       "url": "https://www.asfinag.at",
       "type": "html-list",
       "enabled": false,
-      "note": "Zadny RSS/JSON/sitemap (vse 404, sitemap.xml 404). Ma jasnou sekci tiskovych zprav: /ueber-uns/presse/pressemeldungen/ s konkretnimi clanky. 'captcha' retezec na homepage je jen mtcaptcha.js pouzity u kontaktniho formulare, nejde o blokaci pristupu - stranka se normalne nacte (200, 112 kB HTML)."
+      "note": "Zadny RSS/JSON/sitemap (vse 404, sitemap.xml 404). Ma jasnou sekci tiskovych zprav: /ueber-uns/presse/pressemeldungen/ s konkretnimi clanky. 'captcha' retezec na homepage je jen mtcaptcha.js pouzity u kontaktniho formulare, nejde o blokaci pristupu - stranka se normalne nacte (200, 112 kB HTML). [Faze 1b, Cast B, 2026-07-31] ASFINAG zaroven funguje jako narodni dopravni informacni centrum pro AT - samostatny zdroj tohoto typu neni potreba evidovat zvlast."
     },
     {
       "id": "cz-md",
@@ -73,7 +73,7 @@
       "url": "https://www.gddkia.gov.pl",
       "type": "html-list",
       "enabled": false,
-      "note": "gddkia.gov.pl presmerovava na www.gov.pl/web/gddkia (portal Gov.pl). POZOR: /feed, /rss, /wp-json/wp/v2/posts a i vymyslene varianty (/web/gddkia/rss apod.) vsechny vraci HTTP 200, ALE Content-Type je vzdy text/html a telo je identicka HTML schranka portalu Gov.pl (SPA-style catch-all routing vraci 200 pro temer jakoukoliv cestu) - jde o false positive, zadny realny feed/API neexistuje. sitemap.xml 404. Je potreba najit konkretni sekci 'Aktualnosci' pod /web/gddkia/ a scrapovat ji jako html-list."
+      "note": "gddkia.gov.pl presmerovava na www.gov.pl/web/gddkia (portal Gov.pl). POZOR: /feed, /rss, /wp-json/wp/v2/posts a i vymyslene varianty (/web/gddkia/rss apod.) vsechny vraci HTTP 200, ALE Content-Type je vzdy text/html a telo je identicka HTML schranka portalu Gov.pl (SPA-style catch-all routing vraci 200 pro temer jakoukoliv cestu) - jde o false positive, zadny realny feed/API neexistuje. sitemap.xml 404. Je potreba najit konkretni sekci 'Aktualnosci' pod /web/gddkia/ a scrapovat ji jako html-list. [Faze 1b, Cast B, 2026-07-31] GDDKiA zaroven pokryva roli narodniho dopravniho informacniho centra pro PL - samostatny zdroj tohoto typu neni potreba evidovat zvlast."
     },
     {
       "id": "nl-rdw",
@@ -82,7 +82,7 @@
       "url": "https://www.rdw.nl",
       "type": "sitemap",
       "enabled": false,
-      "note": "Zadny RSS. sitemap.xml je platny a konkretni (obsahuje napr. /ontheffing-zero-emissie a jeji podstranky pro jednotlive obce - tematika vyjimek/povoleni). /wp-json/wp/v2/posts vraci 403 (ne 404) - naznacuje, ze WordPress API pravdepodobne existuje, ale je zablokovane pro verejny pristup; stoji za dalsi rucni proverenim, jestli existuje jina verejna cesta k datum."
+      "note": "Zadny RSS. sitemap.xml je platny a konkretni (obsahuje napr. /ontheffing-zero-emissie a jeji podstranky pro jednotlive obce - tematika vyjimek/povoleni). /wp-json/wp/v2/posts vraci 403 (ne 404) - naznacuje, ze WordPress API pravdepodobne existuje, ale je zablokovane pro verejny pristup; stoji za dalsi rucni proverenim, jestli existuje jina verejna cesta k datum. [Faze 1b, Cast B, 2026-07-31] Spolu s nl-rijkswaterstaat pokryva roli narodniho dopravniho informacniho zdroje pro NL - samostatny zaznam neni potreba."
     },
     {
       "id": "nl-rijkswaterstaat",
@@ -91,7 +91,7 @@
       "url": "https://www.rijkswaterstaat.nl",
       "type": "sitemap",
       "enabled": false,
-      "note": "Zadny RSS. sitemap.xml je platny a rozsahly (190 kB homepage, sitemap odkazuje i na /archief). Web ma sekci Actueel/Nieuws. Sitemap je obecny pro cely web, pro presnou detekci novych clanku bude potreba filtrovat podle URL vzoru novinek, ne pouzivat cely sitemap naslepo."
+      "note": "Zadny RSS. sitemap.xml je platny a rozsahly (190 kB homepage, sitemap odkazuje i na /archief). Web ma sekci Actueel/Nieuws. Sitemap je obecny pro cely web, pro presnou detekci novych clanku bude potreba filtrovat podle URL vzoru novinek, ne pouzivat cely sitemap naslepo. [Faze 1b, Cast B, 2026-07-31] Policejni zdroj pro NL evidovan samostatne jako nl-politie; dopravni info pokryva spolecne s nl-rdw."
     },
     {
       "id": "fr-bison-fute",
@@ -100,7 +100,7 @@
       "url": "https://www.bison-fute.gouv.fr",
       "type": "playwright",
       "enabled": false,
-      "note": "Zadny RSS/JSON/sitemap (vsechno 404). Homepage ma jen 1 staticky <p> tag oproti 53 odkazum a mnoho div bloku typu 'bf-sommaire', 'carteDepart', 'block-info-refresh' - silny signal, ze hlavni obsah (mapa, aktualni omezeni pro nakladni/nadmerne naklady) se dotahuje/renderuje pres JS. Doporuceni: overit v prohlizeci, pravdepodobne bude nutny Playwright."
+      "note": "Zadny RSS/JSON/sitemap (vsechno 404). Homepage ma jen 1 staticky <p> tag oproti 53 odkazum a mnoho div bloku typu 'bf-sommaire', 'carteDepart', 'block-info-refresh' - silny signal, ze hlavni obsah (mapa, aktualni omezeni pro nakladni/nadmerne naklady) se dotahuje/renderuje pres JS. Doporuceni: overit v prohlizeci, pravdepodobne bude nutny Playwright. [Faze 1b, Cast B, 2026-07-31] Policejni zdroj pro FR evidovan samostatne jako fr-police-nationale (dostupnost pres curl blokovana, WAF 403)."
     },
     {
       "id": "es-dgt",
@@ -109,7 +109,7 @@
       "url": "https://www.dgt.es",
       "type": "sitemap",
       "enabled": false,
-      "note": "Zadny RSS/JSON. sitemap.xml je platny a rozsahly (200, obsahuje i /nuestros-servicios/ apod.). Homepage ma slusne mnozstvi textoveho obsahu server-side (115 text-bearing tagu) - nevypada na JS-only. DGT ma typicky sekci Sala de Prensa pro tiskove zpravy, tu je potreba dohledat konkretne."
+      "note": "Zadny RSS/JSON. sitemap.xml je platny a rozsahly (200, obsahuje i /nuestros-servicios/ apod.). Homepage ma slusne mnozstvi textoveho obsahu server-side (115 text-bearing tagu) - nevypada na JS-only. DGT ma typicky sekci Sala de Prensa pro tiskove zpravy, tu je potreba dohledat konkretne. [Faze 1b, Cast B, 2026-07-31] DGT organizacne zastresuje i Agrupacion de Trafico Guardia Civil, takze zaroven pokryva roli 'policie pro dopravu' pro ES - samostatny zdroj tohoto typu neni potreba evidovat zvlast."
     },
     {
       "id": "no-vegvesen",
@@ -118,7 +118,7 @@
       "url": "https://www.vegvesen.no",
       "type": "atom",
       "enabled": false,
-      "note": "NEJSILNEJSI NALEZ ze vsech zdroju. /rss vraci realny Atom feed (Content-Type: application/atom+xml) s nazvem 'Nyheter fra Statens vegvesen' - 'Siste nyheter, pressemeldinger og kronikker fra Statens vegvesen' (posledni novinky, tiskove zpravy a clanky). Zdroj feedu: https://www.vegvesen.no/om-oss/presse/aktuelt/. Primy kandidat pro prvni funkcni verzi."
+      "note": "NEJSILNEJSI NALEZ ze vsech zdroju. /rss vraci realny Atom feed (Content-Type: application/atom+xml) s nazvem 'Nyheter fra Statens vegvesen' - 'Siste nyheter, pressemeldinger og kronikker fra Statens vegvesen' (posledni novinky, tiskove zpravy a clanky). Zdroj feedu: https://www.vegvesen.no/om-oss/presse/aktuelt/. Primy kandidat pro prvni funkcni verzi. [Faze 1b, Cast B, 2026-07-31] Statens vegvesen zaroven pokryva roli narodniho dopravniho informacniho centra pro NO - samostatny zdroj tohoto typu neni potreba evidovat zvlast."
     },
     {
       "id": "se-trafikverket",
@@ -127,7 +127,7 @@
       "url": "https://www.trafikverket.se",
       "type": "sitemap",
       "enabled": false,
-      "note": "Zadny RSS. sitemap.xml je platny, ale prvni polozky jsou stare projektove novinky z roku 2024 mimo chronologicke razeni - nevhodne pro jednoduchou detekci 'co je nove'. Homepage obsahuje <div id=\"app\"> (SPA shell, pravdepodobne Vue), ale zaroven i 10 realnych <p> tagu v surovem HTML - castecne se renderuje server-side. Pred zapnutim doporucuji rucne overit konkretni stranku s tiskovymi zpravami/aktualitami, jestli vyzaduje JS."
+      "note": "Zadny RSS. sitemap.xml je platny, ale prvni polozky jsou stare projektove novinky z roku 2024 mimo chronologicke razeni - nevhodne pro jednoduchou detekci 'co je nove'. Homepage obsahuje <div id=\"app\"> (SPA shell, pravdepodobne Vue), ale zaroven i 10 realnych <p> tagu v surovem HTML - castecne se renderuje server-side. Pred zapnutim doporucuji rucne overit konkretni stranku s tiskovymi zpravami/aktualitami, jestli vyzaduje JS. [Faze 1b, Cast B, 2026-07-31] Trafikverket zaroven pokryva roli narodniho dopravniho informacniho centra pro SE - samostatny zdroj tohoto typu neni potreba evidovat zvlast."
     },
     {
       "id": "se-transportstyrelsen",
@@ -137,6 +137,346 @@
       "type": "sitemap",
       "enabled": false,
       "note": "Zadny RSS. sitemap.xml je platny, ale prvni nalezena polozka byla stara stranka statistiky z roku 2007 - sitemap pravdepodobne neni serazeny podle data zmeny a je malo uzitecny pro detekci novych clanku bez filtrovani podle URL vzoru. Je potreba dohledat konkretni sekci aktualit/novinek."
+    },
+    {
+      "id": "sk-mindop",
+      "country": "SK",
+      "name": "Ministerstvo dopravy SR",
+      "url": "https://www.mindop.sk",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] Zadny RSS/feed/sitemap (vse 404). Homepage 200, 224 kB HTML, server-rendered. Zadna jasna sekce aktualit nalezena primym prochazenim - doporuceno rucne dohledat konkretni URL sekce tiskovych zprav pred zapnutim."
+    },
+    {
+      "id": "sk-ssc",
+      "country": "SK",
+      "name": "Slovenska sprava ciest (SSC)",
+      "url": "https://www.ssc.sk",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] Homepage odkazuje na externi RSS/Atom pres Feedburner (http://feeds.feedburner.com/sscsk), feed overen - vraci 200 text/xml. Homepage ma i sekce 'aktuality' a 'tlacove-spravy'. POZOR: Feedburner je stary Google produkt s nejistou dlouhodobou zivotnosti, pred zapnutim overit, ze feed stale aktivne publikuje."
+    },
+    {
+      "id": "sk-nds",
+      "country": "SK",
+      "name": "Narodna dialnicna spolocnost (NDS)",
+      "url": "https://www.ndsas.sk",
+      "type": "atom",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] Realny Atom feed primo na https://ndsas.sk/feed (200, application/xml, obsahuje aktualni polozky ke dni overeni). sitemap.xml take existuje (200, text/xml). Nejsilnejsi SK nalez v teto fazi."
+    },
+    {
+      "id": "hu-kozut",
+      "country": "HU",
+      "name": "Magyar Kozut Nonprofit Zrt.",
+      "url": "https://www.kozut.hu",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] WordPress web s funkcnim RSS na https://internet.kozut.hu/feed/ (200, application/rss+xml), i primo /rss a /feed na hlavni domene vraci 200 application/rss+xml. sitemap.xml take platny (200, application/xml)."
+    },
+    {
+      "id": "ro-cnadnr",
+      "country": "RO",
+      "name": "CNAIR - Compania Nationala de Administrare a Infrastructurii Rutiere",
+      "url": "https://www.cnadnr.ro",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] POZOR na domenu: www.cnair.ro NENI spravny zdroj - je to nesouvisejici komercni SaaS produkt ('Cloud Network Applications Integration Router'), ktery nahodou sdili zkratku CNAIR. Spravna domena narodni spravy silnic je cnadnr.ro (stary nazev CNADNR, stale pouzivana). Web je chranen anti-bot JS challenge (curl dostava stranku 'Verifying your browser...' se sha1 JS vypoctem, HTTP 503) - nelze automaticky overit RSS/sitemap, ale existence a identita webu potvrzena. Pred zapnutim nutne rucni overeni v prohlizeci."
+    },
+    {
+      "id": "it-anas",
+      "country": "IT",
+      "name": "ANAS S.p.A.",
+      "url": "https://www.stradeanas.it/it",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] Spojeni na stradeanas.it (185.121.36.88:443) opakovane timeoutuje z tohoto prostredi (pravdepodobne blokace datacenterovych/zahranicnich IP, ne padly web) - nelze primo overit RSS/sitemap pres curl. Domena a URL potvrzeny web searchem z vice nezavislych zdroju jako oficialni web ANAS. Pred zapnutim nutne rucni overeni v prohlizeci z bezne uzivatelske site."
+    },
+    {
+      "id": "be-wegenenverkeer",
+      "country": "BE",
+      "name": "Agentschap Wegen en Verkeer (Vlaanderen)",
+      "url": "https://wegenenverkeer.be",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] Zadny RSS/feed/sitemap (vse 404). Ma jasnou a aktivni sekci /nieuws s konkretnimi datovanymi clanky o uzavirkach a pracich na silnicich (napr. E17, E19)."
+    },
+    {
+      "id": "be-mobilite-wallonie",
+      "country": "BE",
+      "name": "SPW Mobilite et Infrastructures (Wallonie)",
+      "url": "https://mobilite.wallonie.be",
+      "type": "sitemap",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] Zadny RSS/feed. sitemap.xml je platny (200, text/xml). Pred zapnutim doporuceno dohledat konkretni URL vzor pro aktuality/tiskove zpravy v sitemape."
+    },
+    {
+      "id": "dk-vejdirektoratet",
+      "country": "DK",
+      "name": "Vejdirektoratet",
+      "url": "https://www.vejdirektoratet.dk",
+      "type": "playwright",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] POZOR: /rss, /feed i /sitemap.xml vraci HTTP 200, ale vsechny s Content-Type text/html a identickym telem - je to Next.js SPA catch-all (false positive), zadny realny feed neexistuje. Sekce /nyheder existuje (200), ale ma jen 2 <script> tagy a zadny __NEXT_DATA__ v HTML - obsah novinek se zjevne dotahuje az klientskym JS/API volanim po nacteni stranky. Doporuceni: Playwright nebo rucni dohledani interniho API endpointu."
+    },
+    {
+      "id": "fi-fintraffic",
+      "country": "FI",
+      "name": "Fintraffic",
+      "url": "https://www.fintraffic.fi/fi",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] Zadny RSS/feed (404), ale sitemap.xml platny. Homepage www.fintraffic.fi pouziva meta-refresh presmerovani na /fi (zajimave: bez -L ho curl nenasleduje automaticky, protoze jde o meta tag, ne HTTP presmerovani). Na /fi jsou realne sekce /fi/uutiset (novinky) a /fi/fintraffic/uutishuone (newsroom) s konkretnimi clanky."
+    },
+    {
+      "id": "fi-vayla",
+      "country": "FI",
+      "name": "Vaylavirasto",
+      "url": "https://vayla.fi",
+      "type": "atom",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] Realny Atom feed nalezen v <link> tagu na homepage: https://vayla.fi/etusivu/-/asset_publisher/u5RcGPuiQLSZ/rss (200, text/xml, title 'Vaylaviraston tiedotteet ja uutiset' - 'Tiskove zpravy a novinky Vaylaviraston'). sitemap.xml take existuje."
+    },
+    {
+      "id": "uk-nationalhighways",
+      "country": "UK",
+      "name": "National Highways",
+      "url": "https://nationalhighways.co.uk/about-us/media-centre/",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] Homepage samotna (nationalhighways.co.uk) ma velmi malo textoveho obsahu v surovem HTML a zadnou zminku 'news' - nejspis se vetsi cast obsahu resi klientsky. Konkretni Media centre sekce (/about-us/media-centre/) ale overena samostatne - 200, server-rendered (29 <p> tagu), dohledana pres web search."
+    },
+    {
+      "id": "uk-govuk-dft",
+      "country": "UK",
+      "name": "GOV.UK - Department for Transport (news & communications)",
+      "url": "https://www.gov.uk/search/news-and-communications.atom?organisations%5B%5D=department-for-transport",
+      "type": "atom",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] Overeno primo: 200, application/atom+xml. GOV.UK ma standardizovane Atom feedy pro kazdou vladni organizaci pres /search/news-and-communications.atom?organisations[]=<slug> - spolehlivy a dobre zdokumentovany vzor, snadno rozsiritelny i na dalsi UK organizace (napr. DVSA) v budoucnu."
+    },
+    {
+      "id": "cz-dopravniinfo",
+      "country": "CZ",
+      "name": "Dopravni informacni centrum CR",
+      "url": "https://dopravniinfo.gov.cz",
+      "type": "other",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A + Cast B, 2026-07-31] POZOR na domenu: puvodni dopravniinfo.cz presmerovava (301->200) na dopravniinfo.gov.cz. Homepage je ale jen 3569 B SPA shell (interaktivni dopravni mapa, ne clankovy web) - potvrzeno testem catch-all chovani (nahodna neexistujici cesta vraci identickou 200 odpoved jako /aktuality). sitemap.xml existuje, ale je trivialni a zastaraly (3 polozky, lastmod 2021, obsahuje wildcard '/*'). ZAVER: tohle je provozni mapova aplikace, ne zdroj clankovych 'novinek' - jako zdroj pro automaticke clanky nevhodny bez dalsiho API pruzkumu (mozna existuje samostatne data API k mape). Nenahrazuje potrebu policejniho zdroje - ten evidovan zvlast jako cz-policie."
+    },
+    {
+      "id": "de-autobahn",
+      "country": "DE",
+      "name": "Autobahn GmbH des Bundes",
+      "url": "https://www.autobahn.de",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast A, 2026-07-31] Homepage inzeruje RSS pres <link> tagy (/rss/aktuellles - POZOR, doslovny preklep 'aktuellles' primo v HTML zdroje autobahn.de - i opravena varianta /rss/aktuelles vraci 200, ale s Content-Type text/html, jde tedy o nefunkcni/rozbity odkaz na RSS, ne o realny feed). Realna sekce clanku ale existuje: /aktuelles/aktuell/<slug> s konkretnimi tiskovymi zpravami o stavbach a mostech. Nemecko nema jednotny federalni dopravne-informacni portal mimo Autobahn GmbH (pro dalnice) - zemske (Laender) urady jsou prilis rozdrobene na to, aby davalo smysl je vyjmenovavat jednotlive v teto fazi."
+    },
+    {
+      "id": "cz-policie",
+      "country": "CZ",
+      "name": "Policie CR - tiskove zpravy",
+      "url": "https://policie.gov.cz/tiskove-zpravy",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] POZOR na domenu: policie.cz presmerovava na policie.gov.cz. RSS <link> tag na homepage je rozbity (doslova 'SCRIPT/rss.aspx?nid=' - nevyresena sablonova promenna, ne funkcni URL). Cesta /tiskove-zpravy ale overena jako realna (200, 28 kB, odlisna od nahodne neexistujici cesty ktera vraci 404 - tedy neni to catch-all false positive)."
+    },
+    {
+      "id": "de-polizei-blaulicht",
+      "country": "DE",
+      "name": "Presseportal - Polizeipresse (Blaulicht)",
+      "url": "https://www.presseportal.de/blaulicht",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] presseportal.de/rss/blaulicht.rss2 overeno primo (200, application/xml). Toto je agregator tiskovych zprav vsech nemeckych policejnich sboru (spolkovych i zemskych) na jednom miste ('Blaulicht' = 'majak/modre svetlo') - efektivnejsi nez hledat 16 samostatnych zemskych policejnich portalu. Obecny web polizei.de (200) je spise informacni portal 'Polizei fuer dich', nema vlastni RSS/sitemap."
+    },
+    {
+      "id": "at-bmi-polizei",
+      "country": "AT",
+      "name": "Bundesministerium fuer Inneres (BMI) - Presse",
+      "url": "https://www.bmi.gv.at/presse/start.html",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] BMI zastresuje i policii (polizei.gv.at presmeruje/patri pod BMI, ale samostatne /news.aspx, /presse, /aktuelles na polizei.gv.at vracely 404). Skutecna funkcni tiskova sekce dohledana primo na bmi.gv.at/presse/start.html (200, nalezeno odkazem z homepage BMI)."
+    },
+    {
+      "id": "sk-minv-policia",
+      "country": "SK",
+      "name": "Ministerstvo vnitra SR - Policia (aktuality)",
+      "url": "https://www.minv.sk/?policia",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] Zadny RSS/sitemap. Homepage (200, 128 kB) ma odkazy na regionalni sekce aktualit (napr. ?aktuality-kosice, ?aktuality-nitra) - policia SR nema samostatnou domenu, funguje pod portalem minv.sk."
+    },
+    {
+      "id": "hu-police",
+      "country": "HU",
+      "name": "Rendorseg (Police.hu)",
+      "url": "https://www.police.hu/hu",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] Homepage police.hu presmerovava na /hu. Zadny RSS/sitemap, ale jasna sekce /hu/hirek-es-informaciok ('zpravy a informace') s konkretnimi clanky vcetne kategorie o prevenci nehod."
+    },
+    {
+      "id": "ro-politiaromana",
+      "country": "RO",
+      "name": "Politia Romana - comunicate",
+      "url": "https://politiaromana.ro/ro/stiri-si-media/comunicate",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] POZOR: /rss, /feed, /sitemap.xml i nahodna neexistujici cesta vsechny vraci HTTP 200 - jde o soft-404 (stranka vraci vlastni 'nenalezeno' sablonu s HTTP 200 misto 404, telo obsahuje doslova retezec '404' opakovane). Realna sekce komunikatu ale potvrzena pres konkretni odkazy z homepage: /ro/comunicate/... a /ro/stiri-si-media/comunicate."
+    },
+    {
+      "id": "pl-policja",
+      "country": "PL",
+      "name": "Policja.pl - Aktualnosci",
+      "url": "https://www.policja.pl",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] Realny funkcni RSS primo: https://www.policja.pl/dokumenty/rss/1-rss-1.rss (200, application/rss+xml, titulek 'Policja.pl - Aktualnosci'). Existuje i druhy feed 'Wazne informacje' (/dokumenty/rss/1-rss-o-4.rss). Jeden z nejcistsich nalezu v cele fazi 1b."
+    },
+    {
+      "id": "it-poliziadistato",
+      "country": "IT",
+      "name": "Polizia di Stato",
+      "url": "https://www.poliziadistato.it",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] POZOR: /rss, /feed, /sitemap.xml i nahodna neexistujici cesta vsechny vraci HTTP 200 (soft-404/catch-all vzor, podobne jako u politiaromana.ro) - zadny z techto tri neni realny feed. Realny obsah clanku potvrzen pres vzor URL /articolo/<id> nalezeny primo na homepage (desitky odkazu)."
+    },
+    {
+      "id": "nl-politie",
+      "country": "NL",
+      "name": "Politie.nl - Nieuws",
+      "url": "https://www.politie.nl/nieuws",
+      "type": "sitemap",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] sitemap.xml platny (200, application/xml). Sekce /nieuws potvrzena s konkretnimi datovanymi clanky (napr. /nieuws/2026/juli/29/...). /rss vraci 200, ale text/html - neni realny feed."
+    },
+    {
+      "id": "be-police",
+      "country": "BE",
+      "name": "Police Federale Belge - Actualites",
+      "url": "https://www.police.be/5998/fr/actualites",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] www.police.be vraci HTTP 403 na primy curl pozadavek (pravdepodobne WAF/anti-bot ochrana), ale existence a struktura webu (vcetne sekce Actualites/Presse s stovkami polozek) potvrzena pres web search z nezavislych zdroju. Pred zapnutim nutne rucni overeni v prohlizeci."
+    },
+    {
+      "id": "fr-police-nationale",
+      "country": "FR",
+      "name": "Police Nationale (interieur.gouv.fr)",
+      "url": "https://www.police-nationale.interieur.gouv.fr",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] Domena police-nationale.interieur.gouv.fr i obecna interieur.gouv.fr vraci HTTP 403 na primy curl pozadavek (WAF/anti-bot ochrana francouzskych vladnich webu je znama vec). Existence webu nezpochybnitelna (oficialni domena francouzskeho ministerstva vnitra), ale automaticke overeni RSS/sitemap/struktury nebylo mozne. Pred zapnutim nutne rucni overeni v prohlizeci."
+    },
+    {
+      "id": "dk-politi",
+      "country": "DK",
+      "name": "Politi.dk - Nyheder og presse",
+      "url": "https://politi.dk/presse",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] Zadny RSS (404), sitemap.xml selhalo spojeni pri testu. Realne sekce ale potvrzeny primo z homepage: /nyhedsliste a /presse, s konkretnimi datovanymi regionalnimi zpravami (napr. Koebenhavns Vestegns Politi, Oestjyllands Politi)."
+    },
+    {
+      "id": "se-polisen",
+      "country": "SE",
+      "name": "Polisen.se",
+      "url": "https://polisen.se",
+      "type": "sitemap",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] Zadny RSS/feed (404). sitemap.xml platny (200, text/xml)."
+    },
+    {
+      "id": "no-politiet",
+      "country": "NO",
+      "name": "Politiet.no - Nyheter og presse",
+      "url": "https://www.politiet.no/nyheter-og-presse",
+      "type": "sitemap",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] POZOR: /rss a /feed vraci 200 text/html, ale je to jen Next.js SPA shell (false positive), ne realny feed. sitemap.xml je ale platny (200, text/xml) a sekce /nyheter-og-presse potvrzena s konkretnimi datovanymi regionalnimi zpravami."
+    },
+    {
+      "id": "fi-poliisi",
+      "country": "FI",
+      "name": "Poliisi.fi",
+      "url": "https://poliisi.fi",
+      "type": "sitemap",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] Zadny RSS/feed (404). sitemap.xml platny (200, text/xml)."
+    },
+    {
+      "id": "uk-npcc",
+      "country": "UK",
+      "name": "National Police Chiefs' Council (NPCC) News",
+      "url": "https://news.npcc.police.uk",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1b, Cast B, 2026-07-31] Realny funkcni RSS primo: https://news.npcc.police.uk/feed/rss (200, application/xml). NPCC koordinuje mj. narodni 'Roads Policing' agendu napric anglickymi/velsskymi policejnimi sbory - vhodnejsi jednotny zdroj nez hledat desitky lokalnich policejnich sboru zvlast."
+    },
+    {
+      "id": "eu-esta",
+      "country": "EU",
+      "name": "ESTA - European Association of Abnormal Road Transport and Mobile Cranes",
+      "url": "https://estaeurope.eu",
+      "type": "odborne-medium",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1b, Cast C, 2026-07-31] DOPLNKOVY zdroj nizsi priority - odborna asociace, ne uredni zdroj; podle projektoveho pravidla slouzi jen jako radar, primarnim zdrojem v clanku musi zustat urad. Zalozena 1976 (v roce 2026 tedy 50 let existence), sdruzuje pres 100 clenskych asociaci/firem z 27 zemi v oboru tezke/nadrozmerne prepravy a mobilnich jerabu. Realny RSS potvrzen primo: https://estaeurope.eu/feed/ (200, application/rss+xml). sitemap.xml take existuje."
+    },
+    {
+      "id": "de-bsk",
+      "country": "DE",
+      "name": "BSK - Bundesverband Schwertransporte und Kranarbeiten e.V.",
+      "url": "https://www.bsk-ffm.de/news-events/news.html",
+      "type": "odborne-medium",
+      "enabled": false,
+      "priority": 3,
+      "note": "[Faze 1b, Cast C, 2026-07-31] DOPLNKOVY zdroj nizsi priority - narodni (nemecky) odborny svaz pro tezkou prepravu, jerabove prace a doprovodne vozidla, cca 500 clenskych firem (dle vlastni prezentace nejvetsi svaz sveho druhu v Evrope). Homepage www.bsk-ffm.de vraci prazdne telo s HTTP presmerovanim (bez -L) na /home.html - zadny RSS/sitemap, ale sekce /news-events/news.html potvrzena s konkretnimi datovanymi clanky (napr. BSK Awards 2025, Jahreshauptversammlung 2026)."
+    },
+    {
+      "id": "uk-heavytransportassociation",
+      "country": "UK",
+      "name": "The Heavy Transport Association (HTA)",
+      "url": "https://www.heavytransportassociation.org.uk",
+      "type": "odborne-medium",
+      "enabled": false,
+      "priority": 3,
+      "note": "[Faze 1b, Cast C, 2026-07-31] DOPLNKOVY zdroj nizsi priority - britska narodni clenska asociace pro tezkou/nadrozmernou prepravu, propojena s ESTA (odkaz na estaeurope.eu primo na homepage, funguje jako narodni clen sirsi evropske site). Zadny RSS/sitemap (vse 404). Ma stranky /Information, /Join, /Training - spise clenska/informacni prezentace nez pravidelne aktualizovany zpravodajsky web; vhodnost jako pravidelny zdroj 'novinek' je nejista, doporuceno rucne overit frekvenci publikovani pred zapnutim."
     }
   ]
 }
