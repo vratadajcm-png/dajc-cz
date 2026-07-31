@@ -1,0 +1,142 @@
+{
+  "_readme": "Faze 1 pruzkumu zdroju pro automaticke tydenni clanky o oversize cargo novinkach. Vse 'enabled: false' - nic se nespousti. Zjisteno rucne pres curl (ne odhadem) dne 2026-07-31. Pred zapnutim kazdeho zdroje doporucujeme rucne overit konkretni podstranku s novinkami/pravidly.",
+  "generated_at": "2026-07-31",
+  "phase": 1,
+  "sources": [
+    {
+      "id": "eu-ec-transport",
+      "country": "EU",
+      "name": "Evropska komise - Mobility and Transport (DG MOVE)",
+      "url": "https://transport.ec.europa.eu",
+      "type": "html-list",
+      "enabled": false,
+      "note": "Zadny RSS/Atom <link> tag na homepage. sitemap.xml existuje a je platny (200, urlset), ale pokryva cely web, ne jen novinky. Ma jasnou sekci /news-events/news_en s odkazy na jednotlive clanky (napr. 'european-commission-outlines-practical-steps-implementing-new-eu-rules-driving-licences...'). Doporuceni: scraping /news-events/news_en, ne sitemap."
+    },
+    {
+      "id": "eu-eurlex",
+      "country": "EU",
+      "name": "EUR-Lex (legislativni databaze EU)",
+      "url": "https://eur-lex.europa.eu",
+      "type": "html-list",
+      "enabled": false,
+      "note": "Zadny RSS na homepage/homepage.html. EUR-Lex ma znamou funkci 'Expert search' + emailove/RSS alerty, ale ty vyzaduji registrovany ucet a ulozene hledani - neni to verejny obecny feed zjistitelny crawlerem. sitemap.xml existuje, ale je to obecny sitemap cele pravni databaze, nevhodny pro detekci novych predpisu. Nizka priorita, komplexni zdroj - vyzaduje cilene dotazy (napr. CELEX kody pro nadmerne naklady), ne jednoduchy scraping."
+    },
+    {
+      "id": "de-vemags",
+      "country": "DE",
+      "name": "VEMAGS (Verfahrensmanagement Grossraum- und Schwertransporte)",
+      "url": "https://www.vemags.de",
+      "type": "html-list",
+      "enabled": false,
+      "note": "NIZKA DUVERA. Zadny RSS/JSON/sitemap (vse 404). Homepage obsahuje nevyrendrovane Fluid/TYPO3 template placeholdery (napr. '{$plugin.tx_news.settings.cssFile}'), coz naznacuje bud problem s cachovanim pri fetchi bez JS, nebo netypickou strukturu. Nenasel jsem jasnou 'Aktuelles/News' sekci v HTML. VEMAGS je primarne portal pro podavani zadosti o povoleni, ne nutne zpravodajsky web - relevance pro 'novinky' je nejista. Doporuceni: rucne prozkoumat v prohlizeci pred zapnutim, mozna nahradit jinym nemeckym zdrojem (napr. BAG - Bundesamt fur Guterverkehr)."
+    },
+    {
+      "id": "at-asfinag",
+      "country": "AT",
+      "name": "ASFINAG",
+      "url": "https://www.asfinag.at",
+      "type": "html-list",
+      "enabled": false,
+      "note": "Zadny RSS/JSON/sitemap (vse 404, sitemap.xml 404). Ma jasnou sekci tiskovych zprav: /ueber-uns/presse/pressemeldungen/ s konkretnimi clanky. 'captcha' retezec na homepage je jen mtcaptcha.js pouzity u kontaktniho formulare, nejde o blokaci pristupu - stranka se normalne nacte (200, 112 kB HTML)."
+    },
+    {
+      "id": "cz-md",
+      "country": "CZ",
+      "name": "Ministerstvo dopravy CR",
+      "url": "https://md.gov.cz",
+      "type": "html-list",
+      "enabled": false,
+      "note": "POZOR na domenu: mdcr.gov.cz neexistuje (DNS chyba), mdcr.cz presmerovava (302) na md.gov.cz - tohle je spravna aktualni domena. Zadny RSS/JSON/sitemap (404). Ma jasnou sekci /Media/Media-a-tiskove-zpravy/ s konkretnimi tiskovymi zpravami."
+    },
+    {
+      "id": "cz-rsd",
+      "country": "CZ",
+      "name": "Reditelstvi silnic a dalnic CR (RSD)",
+      "url": "https://www.rsd.cz",
+      "type": "sitemap",
+      "enabled": false,
+      "note": "POZOR: /rss vraci 200, ale NENI to zpravodajsky feed - je to HTML stranka podcastu hostovaneho na rss.com (img.rss.com/rsdcr/...), false positive na status kod. sitemap.xml je platny sitemapindex (Liferay CMS, vice dilcich sitemap s parametry p_l_id/layoutUuid). Pred pouzitim je potreba najit konkretni dilci sitemap/sekci pro aktuality, ne jen root sitemap."
+    },
+    {
+      "id": "cz-portal-vs",
+      "country": "CZ",
+      "name": "Portal verejne spravy",
+      "url": "https://portal.gov.cz",
+      "type": "sitemap",
+      "enabled": false,
+      "note": "Zadny RSS/JSON. sitemap.xml je platny (200, realny urlset). Retezec 'captcha' na strance nalezen, ale stranka se normalne nacetla (200, plny obsah) - jde pravdepodobne o widget/formular, ne o blokaci. POCHYBNOST O RELEVANCI: portal.gov.cz je spis rozcestnik/katalog sluzeb verejne spravy a odkazy na legislativu, ne primarni zdroj 'novinek' o nadmerne preprave - doporucuji zvazit vyrazeni z prvni faze nebo pouzit jen jako odkazovac na jine zdroje (napr. eSbirka)."
+    },
+    {
+      "id": "pl-gddkia",
+      "country": "PL",
+      "name": "GDDKiA (Generalna Dyrekcja Drog Krajowych i Autostrad)",
+      "url": "https://www.gddkia.gov.pl",
+      "type": "html-list",
+      "enabled": false,
+      "note": "gddkia.gov.pl presmerovava na www.gov.pl/web/gddkia (portal Gov.pl). POZOR: /feed, /rss, /wp-json/wp/v2/posts a i vymyslene varianty (/web/gddkia/rss apod.) vsechny vraci HTTP 200, ALE Content-Type je vzdy text/html a telo je identicka HTML schranka portalu Gov.pl (SPA-style catch-all routing vraci 200 pro temer jakoukoliv cestu) - jde o false positive, zadny realny feed/API neexistuje. sitemap.xml 404. Je potreba najit konkretni sekci 'Aktualnosci' pod /web/gddkia/ a scrapovat ji jako html-list."
+    },
+    {
+      "id": "nl-rdw",
+      "country": "NL",
+      "name": "RDW (Rijksdienst voor het Wegverkeer)",
+      "url": "https://www.rdw.nl",
+      "type": "sitemap",
+      "enabled": false,
+      "note": "Zadny RSS. sitemap.xml je platny a konkretni (obsahuje napr. /ontheffing-zero-emissie a jeji podstranky pro jednotlive obce - tematika vyjimek/povoleni). /wp-json/wp/v2/posts vraci 403 (ne 404) - naznacuje, ze WordPress API pravdepodobne existuje, ale je zablokovane pro verejny pristup; stoji za dalsi rucni proverenim, jestli existuje jina verejna cesta k datum."
+    },
+    {
+      "id": "nl-rijkswaterstaat",
+      "country": "NL",
+      "name": "Rijkswaterstaat",
+      "url": "https://www.rijkswaterstaat.nl",
+      "type": "sitemap",
+      "enabled": false,
+      "note": "Zadny RSS. sitemap.xml je platny a rozsahly (190 kB homepage, sitemap odkazuje i na /archief). Web ma sekci Actueel/Nieuws. Sitemap je obecny pro cely web, pro presnou detekci novych clanku bude potreba filtrovat podle URL vzoru novinek, ne pouzivat cely sitemap naslepo."
+    },
+    {
+      "id": "fr-bison-fute",
+      "country": "FR",
+      "name": "Bison Fute (informace o dopravnich omezenich)",
+      "url": "https://www.bison-fute.gouv.fr",
+      "type": "playwright",
+      "enabled": false,
+      "note": "Zadny RSS/JSON/sitemap (vsechno 404). Homepage ma jen 1 staticky <p> tag oproti 53 odkazum a mnoho div bloku typu 'bf-sommaire', 'carteDepart', 'block-info-refresh' - silny signal, ze hlavni obsah (mapa, aktualni omezeni pro nakladni/nadmerne naklady) se dotahuje/renderuje pres JS. Doporuceni: overit v prohlizeci, pravdepodobne bude nutny Playwright."
+    },
+    {
+      "id": "es-dgt",
+      "country": "ES",
+      "name": "DGT (Direccion General de Trafico)",
+      "url": "https://www.dgt.es",
+      "type": "sitemap",
+      "enabled": false,
+      "note": "Zadny RSS/JSON. sitemap.xml je platny a rozsahly (200, obsahuje i /nuestros-servicios/ apod.). Homepage ma slusne mnozstvi textoveho obsahu server-side (115 text-bearing tagu) - nevypada na JS-only. DGT ma typicky sekci Sala de Prensa pro tiskove zpravy, tu je potreba dohledat konkretne."
+    },
+    {
+      "id": "no-vegvesen",
+      "country": "NO",
+      "name": "Statens vegvesen",
+      "url": "https://www.vegvesen.no",
+      "type": "atom",
+      "enabled": false,
+      "note": "NEJSILNEJSI NALEZ ze vsech zdroju. /rss vraci realny Atom feed (Content-Type: application/atom+xml) s nazvem 'Nyheter fra Statens vegvesen' - 'Siste nyheter, pressemeldinger og kronikker fra Statens vegvesen' (posledni novinky, tiskove zpravy a clanky). Zdroj feedu: https://www.vegvesen.no/om-oss/presse/aktuelt/. Primy kandidat pro prvni funkcni verzi."
+    },
+    {
+      "id": "se-trafikverket",
+      "country": "SE",
+      "name": "Trafikverket",
+      "url": "https://www.trafikverket.se",
+      "type": "sitemap",
+      "enabled": false,
+      "note": "Zadny RSS. sitemap.xml je platny, ale prvni polozky jsou stare projektove novinky z roku 2024 mimo chronologicke razeni - nevhodne pro jednoduchou detekci 'co je nove'. Homepage obsahuje <div id=\"app\"> (SPA shell, pravdepodobne Vue), ale zaroven i 10 realnych <p> tagu v surovem HTML - castecne se renderuje server-side. Pred zapnutim doporucuji rucne overit konkretni stranku s tiskovymi zpravami/aktualitami, jestli vyzaduje JS."
+    },
+    {
+      "id": "se-transportstyrelsen",
+      "country": "SE",
+      "name": "Transportstyrelsen",
+      "url": "https://www.transportstyrelsen.se",
+      "type": "sitemap",
+      "enabled": false,
+      "note": "Zadny RSS. sitemap.xml je platny, ale prvni nalezena polozka byla stara stranka statistiky z roku 2007 - sitemap pravdepodobne neni serazeny podle data zmeny a je malo uzitecny pro detekci novych clanku bez filtrovani podle URL vzoru. Je potreba dohledat konkretni sekci aktualit/novinek."
+    }
+  ]
+}
