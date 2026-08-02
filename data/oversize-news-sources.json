@@ -25,10 +25,11 @@
       "id": "de-vemags",
       "country": "DE",
       "name": "VEMAGS (Verfahrensmanagement Grossraum- und Schwertransporte)",
-      "url": "https://www.vemags.de",
+      "url": "https://www.vemags.de/alle-meldungen/news/",
       "type": "html-list",
       "enabled": false,
-      "note": "NIZKA DUVERA. Zadny RSS/JSON/sitemap (vse 404). Homepage obsahuje nevyrendrovane Fluid/TYPO3 template placeholdery (napr. '{$plugin.tx_news.settings.cssFile}'), coz naznacuje bud problem s cachovanim pri fetchi bez JS, nebo netypickou strukturu. Nenasel jsem jasnou 'Aktuelles/News' sekci v HTML. VEMAGS je primarne portal pro podavani zadosti o povoleni, ne nutne zpravodajsky web - relevance pro 'novinky' je nejista. Doporuceni: rucne prozkoumat v prohlizeci pred zapnutim, mozna nahradit jinym nemeckym zdrojem (napr. BAG - Bundesamt fur Guterverkehr)."
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02 - PREHODNOCENO, Cast B] Puvodni homepage (vemags.de) mela nevyrendrovane TYPO3 placeholdery, ale verejna sekce /alle-meldungen/news/ (bez prihlaseni) je plne vyrenderovana (106 kB) a obsahuje realny seznam datovanych clanku (h3.news-title, konkretni data napr. 11.08.2026, 28.05.2026) - presne 'Vsechny novinky' o systemu samotnem, ne o jednotlivych zadostech. Zadny RSS/sitemap (oba 404) - jen html-list. Puvodni nizka duvera byla zpusobena testovanim spatne URL (homepage misto teto podstranky); ted vysoka priorita."
     },
     {
       "id": "at-asfinag",
@@ -717,6 +718,456 @@
       "enabled": false,
       "priority": 2,
       "note": "[Faze 1c, 2026-08-02] POZOR: bez User-Agent hlavicky web vraci HTTP 403 na VSECHNY cesty vcetne homepage (jednoducha bot ochrana, ne plnohodnotny WAF jako u Kypru) - s bezne prohlizecovou User-Agent hlavickou homepage funguje (200) a odhaluje realnou sekci /news/ s konkretnimi clanky (napr. 'TM invites private parking owners to open spaces to the public', kampan bezpecnosti silnicniho provozu). RSS a sitemap.xml ale vraceji 403 i s User-Agent hlavickou - zadny funkcni feed nenalezen, jen html-list pres /news/."
+    },
+    {
+      "id": "ch-fedpol",
+      "country": "CH",
+      "name": "fedpol - Bundesamt fur Polizei",
+      "url": "https://www.fedpol.admin.ch",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Homepage 302 presmerovava na /de (200). Realna sekce /de/medieninformationen potvrzena primo v navigaci. sitemap.xml take platny (200) - alternativa k html-list. ASTRA (ch-astra) uz castecne pokryva dopravni tematiku, fedpol je doplnkovy zdroj pro obecnou kriminalitu/bezpecnost vc. pripadu tykajicich se dopravy."
+    },
+    {
+      "id": "lu-police",
+      "country": "LU",
+      "name": "Police Grand-Ducale",
+      "url": "https://police.public.lu",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] police.public.lu presmerovava (302) na /fr.html (200). Realna sekce /fr/actualites/ potvrzena primo s konkretnimi datovanymi clanky z cervence 2026 (napr. kontroly v Remerschen, zahajeni prazdnin)."
+    },
+    {
+      "id": "pt-psp",
+      "country": "PT",
+      "name": "PSP - Policia de Seguranca Publica",
+      "url": "https://www.psp.pt",
+      "type": "manual",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] NELZE PRIMO OVERIT: pripojeni na www.psp.pt (i konkretni URL /Pages/homePage.aspx) konzistentne selhava (curl chyba 000 - zadna odpoved, ne HTTP chyba) z tohoto prostredi, na rozdil od bezneho DNS-timeoutu jde spis o TLS/sitovy problem. Existence webu a spravnost URL potvrzena pres web search (gov.pt/entidades/policia-de-seguranca-publica odkazuje na psp.pt). Pred zapnutim nutne rucni overeni v prohlizeci."
+    },
+    {
+      "id": "pt-gnr",
+      "country": "PT",
+      "name": "GNR - Guarda Nacional Republicana",
+      "url": "https://www.gnr.pt",
+      "type": "manual",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] POZOR: primy curl pozadavek dostava HTTP 200, ale telo je jen 244 bajtu s textem 'Request Rejected... Your support ID is...' - typicka hlaska F5 BIG-IP ASM WAF blokujici automatizovany pristup (ne skutecny obsah stranky). GNR je vojenska policie zodpovedna mj. za dohled nad silnicnim provozem mimo mesta (relevantni pro nadmerne naklady na venkovskych silnicich) - zajimavejsi zdroj nez PSP pro tema projektu, ale nutne rucni overeni v prohlizeci pred zapnutim."
+    },
+    {
+      "id": "gr-astynomia",
+      "country": "GR",
+      "name": "Elliniki Astynomia (Recka policie)",
+      "url": "https://www.astynomia.gr",
+      "type": "manual",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Web dusledne vraci HTTP 403 na kazdy pozadavek, i s bezne prohlizecovou User-Agent hlavickou - aktivni bot ochrana. Existence domeny nezpochybnitelna (astynomia.gr je oficialni a siroce znamy web recke policie). Pred zapnutim nutne rucni overeni v prohlizeci."
+    },
+    {
+      "id": "lt-policija",
+      "country": "LT",
+      "name": "Lietuvos policija",
+      "url": "https://policija.lrv.lt",
+      "type": "manual",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Web dusledne vraci HTTP 403 na primy curl pozadavek, i s bezne prohlizecovou User-Agent hlavickou - aktivni bot ochrana (WAF). Alternativni kratsi domena www.policija.lt presmerovava (302) primo na stejnou (blokovanou) policija.lrv.lt - potvrzuje spravnost URL. Pred zapnutim nutne rucni overeni v prohlizeci."
+    },
+    {
+      "id": "lv-vp",
+      "country": "LV",
+      "name": "Valsts policija (Statni policie Lotysska)",
+      "url": "https://www.vp.gov.lv",
+      "type": "manual",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] NELZE PRIMO OVERIT: opakovane pripojeni na www.vp.gov.lv (212.70.163.179:443) konzistentne timeoutuje z tohoto prostredi (stejny vzor jako u bg-api, me-msa a it-anas) - pravdepodobna blokace datacenterovych IP adres. Existence a spravnost domeny potvrzena pres web search z nezavislych zdroju (LV Wikipedia, oficialni kontaktni stranky). Pred zapnutim nutne rucni overeni v prohlizeci."
+    },
+    {
+      "id": "ee-politsei",
+      "country": "EE",
+      "name": "Politsei- ja Piirivalveamet (PPA)",
+      "url": "https://www.politsei.ee",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. Zadny RSS (404). Realna sekce /et/uudised/ potvrzena primo s konkretnimi aktualnimi clanky (napr. zmena prahu mobilnich radaru, zatceni v Tallinnu)."
+    },
+    {
+      "id": "si-policija",
+      "country": "SI",
+      "name": "Policija (Slovinska republika)",
+      "url": "https://www.policija.si",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200 (POZOR: server posila gzip-komprimovana data, curl vyzaduje --compressed flag, jinak vraci binarni smet). Zadna centralni RSS/sitemap sekce nalezena primo, ale existuje sit regionalnich 'sporocila-za-javnost' stranek podle jednotlivych policejnich uprav (napr. /o-slovenski-policiji/organiziranost/policijske-uprave/pu-celje/sporocila-za-javnost-pu-ce pro Celje, obdobne pro Koper/Kranj/Ljubljana/Maribor atd.) - decentralizovana struktura, pro souhrnny zdroj by bylo nutne bud kombinovat regiony, nebo dohledat centralni agregacni stranku."
+    },
+    {
+      "id": "hr-policija",
+      "country": "HR",
+      "name": "Policija (Ministarstvo unutarnjih poslova, Chorvatsko)",
+      "url": "https://www.policija.hr",
+      "type": "manual",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] NELZE OVERIT: TLS handshake selhava s chybou 'SEC_E_CERT_EXPIRED' - server prezentuje EXPIROVANY SSL certifikat. Muze jit o docasny provozni problem na strane webu (ne o blokaci pristupu). Existence domeny jako oficialniho webu chorvatske policie nezpochybnitelna. Pred zapnutim nutne rucni overeni v prohlizeci (a kontrola, zda si prohlizec take stezuje na certifikat, coz by potvrdilo realny problem na strane serveru, ne jen v tomto prostredi)."
+    },
+    {
+      "id": "bg-mvr",
+      "country": "BG",
+      "name": "MVR - Ministerstvo na vatreshnite raboti (Bulharske ministerstvo vnitra/policie)",
+      "url": "https://www.mvr.bg",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200 (216 kB) - na rozdil od bg-api (agencie silnic) toto spojeni NEbylo blokovano. Realna sekce /press/ potvrzena primo s vice kategoriemi (napr. 'aktualna-informacia', 'informacionen-bjuletin', 'patna-obstanovka' - doslova 'silnicni situace', primo relevantni pro tema projektu)."
+    },
+    {
+      "id": "rs-mup",
+      "country": "RS",
+      "name": "MUP - Ministarstvo unutrasnjih poslova (Srbske ministerstvo vnitra/policie)",
+      "url": "https://www.mup.gov.rs",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] www.mup.gov.rs presmerovava (302) na /wps/portal/sr/ (200, IBM WebSphere Portal). Realna sekce /wps/portal/sr/aktuelno/saopstenja ('Aktualne - Oznameni') potvrzena primo s konkretnimi clanky identifikovanymi GUID-y."
+    },
+    {
+      "id": "ba-police-note",
+      "country": "BA",
+      "name": "Policie v Bosne a Hercegovine - POZNAMKA (zadny jednotny zdroj)",
+      "url": "",
+      "type": "other",
+      "enabled": false,
+      "priority": 3,
+      "note": "[Faze 1d, 2026-08-02] ZADNY JEDNOTNY CELOSTATNI POLICEJNI ZDROJ PRO BiH NEEXISTUJE - policie je organizacne rozdrobena stejne jako sprava zeme: entita Republika Srpska ma vlastni MUP (mup.vladars.rs, 301 presmerovani, funkcni), entita Federace BiH ma vlastni FMUP (fmup.gov.ba, 302 presmerovani, funkcni) a navic FBiH ma 10 kantonalnich MUP jednotek, plus samostatny Brcko Distrikt. Statni uroven ma jen SIPA (Agencija za istrage i zastitu - Sluzba za informacije, vice FBI-like nez bezna policie) a Sluzbu za poslove sa strancima (cizinecka policie) - zadna z nich neni obdoba narodni dopravni policie. Pro tema projektu (nadmerna preprava) je pravdepodobne relevantnejsi jiz evidovane statni ministerstvo ba-mkt, ktere pokryva i silnicni infrastrukturu na celostatni urovni."
+    },
+    {
+      "id": "me-policija",
+      "country": "ME",
+      "name": "Uprava policije Crne Gore",
+      "url": "https://www.gov.me/mup/policija",
+      "type": "manual",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] NELZE PRIMO OVERIT: stejny vzor blokace jako u me-msa - spojeni na www.gov.me konzistentne timeoutuje z tohoto prostredi. Existence a spravnost URL (gov.me/mup/policija) potvrzena pres web search. Uprava policije spada organizacne pod Ministarstvo unutrasnjih poslova (MUP) na portalu gov.me, nema samostatnou domenu. Pred zapnutim nutne rucni overeni v prohlizeci."
+    },
+    {
+      "id": "mk-mvr",
+      "country": "MK",
+      "name": "MVR - Ministerstvo za vnatresni raboti (Severomakedonske ministerstvo vnitra/policie)",
+      "url": "https://mvr.gov.mk",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] www.mvr.gov.mk presmerovava (301) na mvr.gov.mk (200, 313 kB). Realna sekce /mk-MK/odnosi-so-javnost/soopstenija ('Vztahy s verejnosti - Oznameni') potvrzena primo v navigaci."
+    },
+    {
+      "id": "is-logreglan",
+      "country": "IS",
+      "name": "Logreglan (Islandska policie, pres island.is)",
+      "url": "https://island.is/s/logreglan",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] POZOR na strukturu: puvodni logreglan.is presmerovava (301) na jednotny vladni portal island.is/s/logreglan - Island centralizuje weby vsech statnich institucí pod jednu domenu island.is. Realna sekce /s/logreglan/frett ('Zpravy') potvrzena primo s konkretnimi datovanymi clanky (napr. dohled behem 'verslunarmannahelgin' - srpnoveho svatku, incident v Mosfellsdalu)."
+    },
+    {
+      "id": "ie-garda",
+      "country": "IE",
+      "name": "An Garda Siochana (Irska policie)",
+      "url": "https://www.garda.ie",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Homepage presmerovava (301) na /en/ (200). POZOR: /en/rss presmerovava primo na chybovou 403 stranku (odkaz na RSS je rozbity/neexistuje). Realna sekce /en/about-us/our-departments/office-of-corporate-communications/news-media/ potvrzena primo s konkretnimi datovanymi clanky (napr. Dublin Horse Show srpen 2026)."
+    },
+    {
+      "id": "cy-police",
+      "country": "CY",
+      "name": "Kyperska policie (gov.cy/police)",
+      "url": "https://www.gov.cy/police/",
+      "type": "manual",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Stejny vzor blokace jako u cy-mtcw: web dusledne vraci HTTP 403 s telem 'Azure WAF'. Cely gov.cy portal je zjevne chranen stejnym Azure WAF pravidlem pro vsechny podsekce. Pred zapnutim nutne rucni overeni v prohlizeci."
+    },
+    {
+      "id": "mt-pulizija",
+      "country": "MT",
+      "name": "Pulizija ta' Malta (Maltska policie)",
+      "url": "https://pulizija.gov.mt",
+      "type": "manual",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Na rozdil od mt-transport (kde staci User-Agent hlavicka), zde HTTP 403 pretrvava i s bezne prohlizecovou User-Agent hlavickou - silnejsi bot ochrana. Existence domeny jako oficialniho webu maltske policie nezpochybnitelna. Pred zapnutim nutne rucni overeni v prohlizeci."
+    },
+    {
+      "id": "al-arrsh",
+      "country": "AL",
+      "name": "ARRSH - Autoriteti Rrugor Shqiptar (Albansky silnicni urad)",
+      "url": "https://www.arrsh.gov.al",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. /feed funguje primo (200, application/rss+xml) - platny WordPress RSS feed. /rss a /sitemap.xml jen presmerovavaji (301) zpet na /feed."
+    },
+    {
+      "id": "al-asp",
+      "country": "AL",
+      "name": "ASP - Policia e Shtetit (Albanska statni policie)",
+      "url": "https://asp.gov.al",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. RSS <link> tag primo na homepage potvrzuje WordPress feed: https://asp.gov.al/feed/ (200, text/xml, nasleduje se z /feed). Take samostatny komentarovy feed existuje, ale neni relevantni."
+    },
+    {
+      "id": "ad-transports",
+      "country": "AD",
+      "name": "Govern d'Andorra - Ministeri de Transports",
+      "url": "https://www.govern.ad/ca/tematiques/accio-climatica/transports",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Puvodni URL http://www.transports.ad/ca presmerovava (301) primo na tuto stranku v ramci sjednoceneho portalu govern.ad (200, 652 kB). Obsahuje sekce 'Actualitat'/'Noticies'/'Premsa', ale zadny primo nalezeny RSS/sitemap - vyzaduje dalsi proverovani konkretni URL sekce novinek. Samostatna domena mobilitat.ad (dopravni info portal s kamerami/nehodami v realnem case) NEBYLA zarazena - je to provozni nastroj, ne zpravodajsky zdroj (zadny RSS/feed/sitemap, 404 na vsech)."
+    },
+    {
+      "id": "am-armroad",
+      "country": "AM",
+      "name": "Hayastani Avtomobilayin Chanaparner (Armenska sprava silnic)",
+      "url": "https://armroad.am",
+      "type": "manual",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] NELZE OVERIT: HTTPS pripojeni na armroad.am konzistentne timeoutuje (0 bajtu po 15s) z tohoto prostredi. HTTP (port 80) vraci 302 presmerovani primo zpet na HTTPS verzi, ktera je nedostupna - zacyklene. Existence domeny jako oficialniho armenskeho silnicniho uradu nezpochybnitelna. Pred zapnutim nutne rucni overeni v prohlizeci."
+    },
+    {
+      "id": "am-police",
+      "country": "AM",
+      "name": "Hayastani Hանրապետության Vostikanutyun (Armenska policie, pres police.mia.gov.am)",
+      "url": "https://police.mia.gov.am",
+      "type": "sitemap",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] www.police.am presmerovava (301) primo na police.mia.gov.am (200). POZOR: /feed a /rss oba vraceji HTTP 200, ale Content-Type je text/html a telo je jen nevyrendrovana JS-shell stranka (importmap) - NEJSOU to skutecne feedy, jde o SPA fallback. sitemap.xml je ale platny XML soubor (application/xml) s 597 zaznamy /articles/news/* vc. lastmod casovych razitek - pouzitelna alternativa k RSS."
+    },
+    {
+      "id": "az-aayda",
+      "country": "AZ",
+      "name": "AYDA - Azerbaycan Avtomobil Yollari Dovlet Agentliyi (Azerbajdzansky statni urad silnic)",
+      "url": "http://www.aayda.gov.az",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] POZOR: HTTPS verze (www.aayda.gov.az) selhava s chybou SEC_E_UNTRUSTED_ROOT - certifikatovy retezec zacina u nedoveryhodne autority. HTTP (port 80) funguje (200, 125 kB) a odhaluje realnou sekci /az/news/NNNN/ s konkretnimi clanky. Zadny RSS/feed/sitemap (vse 404). URL zaznamena zamerne jako http:// kvuli certifikatove chybe - pred zapnutim nutne rucni overeni certifikatu v prohlizeci."
+    },
+    {
+      "id": "ge-georoad",
+      "country": "GE",
+      "name": "Sakartvelos saavtomobilo giznebis departamenti (Gruzinska sprava silnic)",
+      "url": "https://www.georoad.ge",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. Zadny sitemap (404). Novinky jsou na starsim CMS pres query-string parametry (napr. '?lang=geo&act=news&func=menu&pid=...') - nestandardni struktura, obtizne parsovatelna, ale funkcni. Samostatny zdroj gruzinske policie nenalezen - bpg.gov.ge je pouze POHRANICNI policie (Border Police), tematicky blize celni sprave nez silnicni doprave, proto NEBYLA zarazena (mimo scope teto faze)."
+    },
+    {
+      "id": "xk-mmphi",
+      "country": "XK",
+      "name": "MMPHI - Ministria e Mjedisit, Planifikimit Hapesinor dhe Infrastruktures (Kosovske ministerstvo infrastruktury)",
+      "url": "https://mmphi.rks-gov.net",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. Zadny feed/rss/sitemap (vse 404). Novinky pres /News/NewsArticle?ArticleID=NNNN - funkcni, ale bez strojove citelneho seznamu/feedu."
+    },
+    {
+      "id": "xk-kosovopolice",
+      "country": "XK",
+      "name": "Policia e Kosoves (Kosovska policie)",
+      "url": "https://www.kosovopolice.com",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. RSS <link> tag primo na homepage potvrzuje WordPress feed https://www.kosovopolice.com/feed/ (200, application/rss+xml)."
+    },
+    {
+      "id": "kz-qaj",
+      "country": "KZ",
+      "name": "QazAvtoJol / KazAvtoZhol (Kazachsky statni drzitel silnic)",
+      "url": "https://qaj.kz",
+      "type": "sitemap",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] qaj.kz presmerovava (301) na kz.qaj.kz (200). /feed a /rss oba 404. sitemap.xml je platny (200, text/xml). Realna sekce /news/ potvrzena primo s konkretnimi kazasky psanymi clanky."
+    },
+    {
+      "id": "li-llv",
+      "country": "LI",
+      "name": "Amt fur Strassenverkehr (Lichtenstejnsky urad silnicni dopravy, pres llv.li)",
+      "url": "https://www.llv.li",
+      "type": "manual",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Web dusledne vraci HTTP 403 na kazdy pozadavek, i s bezne prohlizecovou User-Agent hlavickou i s pridanou Accept-Language hlavickou - aktivni bot ochrana. Existence domeny jako jednotneho portalu lichtenstejnske statni spravy (vc. Amt fur Strassenverkehr a Landespolizei) nezpochybnitelna. Pred zapnutim nutne rucni overeni v prohlizeci."
+    },
+    {
+      "id": "md-drumuri",
+      "country": "MD",
+      "name": "Administratia Nationala a Drumurilor (Moldavska narodni sprava silnic)",
+      "url": "https://drumuri.md",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. /feed i /rss oba funguji a nasledujou na platny RSS feed (200, application/rss+xml, finalni URL https://drumuri.md/feed/). /sitemap.xml presmerovava na jinou domenu (asfaltare.md/sitemaps.xml), ktera vraci 404 - nerelevantni, RSS staci."
+    },
+    {
+      "id": "by-belavtodor",
+      "country": "BY",
+      "name": "Belavtodor (Beloruska sprava silnic)",
+      "url": "https://belavtodor.by",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. RSS <link> tag primo na homepage potvrzuje WordPress feed https://belavtodor.by/feed/ (200, application/rss+xml). Ministerstvo dopravy (mintrans.gov.by) NEBYLO zarazeno jako samostatny zdroj - primy pozadavek konzistentne vraci HTTP 403 (bot ochrana), zatimco belavtodor.by (podrizena organizace spravujici silnice) je funkcni a tematicky relevantnejsi."
+    },
+    {
+      "id": "tr-kgm",
+      "country": "TR",
+      "name": "KGM - Karayollari Genel Mudurlugu (Turecka generalni sprava dalnic)",
+      "url": "https://www.kgm.gov.tr",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Homepage presmerovava (302) na /Sayfalar/KGM/SiteTr/Root/default.aspx (200). Zadny RSS/sitemap (oba 404). Sekce /Sayfalar/KGM/SiteTr/Duyurular/DuyuruDetay.aspx?Parameter=NNN ('Oznameni') potvrzena primo v odkazech - klasicka ASP.NET struktura bez feedu."
+    },
+    {
+      "id": "tr-kgm-zakazy-jizd",
+      "country": "TR",
+      "name": "KGM - Trafige Kapali Yollar (Turecky prehled uzavrenych/zakazanych silnic pro provoz)",
+      "url": "https://www.kgm.gov.tr/Sayfalar/KGM/SiteTr/YolDanisma/TrafigeKapaliYollar.aspx",
+      "type": "html-detail",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Samostatna podstranka KGM (stejna instituce jako tr-kgm) venovana vyhradne seznamu silnic uzavrenych/zakazanych pro provoz - analogie k sezonnim/prazdninovym zakazum jizd v jinych zemich. Homepage 200. Zadny RSS - jen html-detail, obsah se pravdepodobne meni bez samostatneho feedu."
+    },
+    {
+      "id": "ua-restoration",
+      "country": "UA",
+      "name": "Agentstvo vidnovlennya - Agentura pro obnovu a rozvoj infrastruktury Ukrajiny",
+      "url": "https://restoration.gov.ua",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. RSS <link> tag primo na homepage potvrzuje feed https://restoration.gov.ua/feed/ (200, application/rss+xml). Agentura spada pod Ministerstvo pro rozvoj komunit, uzemi a infrastruktury a je prime zodpovedna za silnicni infrastrukturu (vc. mostu, komunikaci). Puvodni kandidat mtu.gov.ua (ministerstvo) NEBYL zarazen - domena se vubec nerozresi (DNS chyba), pravdepodobne zastarala/nespravna URL."
+    },
+    {
+      "id": "ru-mintrans",
+      "country": "RU",
+      "name": "Ministerstvo transporta Rossijskoj Federacii",
+      "url": "https://mintrans.gov.ru",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. Zadny RSS/sitemap (oba 404). Sekce /press-center/branch-news a /press-center/news potvrzena primo v odkazech. Rosavtodor (rosavtodor.gov.ru, federalni silnicni agentura podrizena ministerstvu) NEBYL zarazen jako samostatny zdroj - HTTP i HTTPS pripojeni konzistentne timeoutuje z tohoto prostredi."
+    },
+    {
+      "id": "ax-regeringen",
+      "country": "AX",
+      "name": "Regeringen Aland - Infrastruktur och kommunikationer (Alandska vladni sprava infrastruktury)",
+      "url": "https://www.regeringen.ax/infrastruktur-kommunikationer",
+      "type": "sitemap",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. Zadny RSS <link> tag. sitemap.xml je platny sitemapindex (200, vice dilcich sitemap souboru). Sekce /nyheter/ s konkretnimi datovanymi clanky o dopravni tematice (napr. statistika taxisluzby, pruzkum osobni dopravy) potvrzena primo. Alandy jsou autonomni region Finska s vlastni spravou infrastruktury nezavislou na financke Vaylavirasto."
+    },
+    {
+      "id": "fo-landsverk",
+      "country": "FO",
+      "name": "Landsverk (Faerska sprava silnic)",
+      "url": "https://www.landsverk.fo",
+      "type": "sitemap",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. /feed a /rss oba 404. sitemap.xml je platny (200). Sekce /fo-fo/oell-tiðindi ('Vsechny novinky') potvrzena primo v navigaci - faerstina pouziva specialni znaky (ð), coz komplikuje jednoduche textove vyhledavani v HTML."
+    },
+    {
+      "id": "gl-naalakkersuisut",
+      "country": "GL",
+      "name": "Naalakkersuisut (Gronlandska samosprava - obecne zpravy vc. infrastruktury)",
+      "url": "https://naalakkersuisut.gl",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 3,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. Zadny RSS <link> tag nalezen primo. Sekce /Nyheder potvrzena primo s aktualnimi clanky, ale jde o VSEOBECNY vladni zpravodajsky portal, ne specificky o silnice/dopravu - zdrojovy dokument uvadi, ze mistni silnice v Gronsku spravuji jednotlive obce, ne centralni urad. Nizka priorita a nejista relevance pro tema nadmerne prepravy."
+    },
+    {
+      "id": "ic-carreteras",
+      "country": "ES-IC",
+      "name": "Gobierno de Canarias - Direccion General de Carreteras (Kanarske ostrovy)",
+      "url": "https://www.gobiernodecanarias.org/obraspublicas/carreteras/",
+      "type": "other",
+      "enabled": false,
+      "priority": 3,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200, ale pusobi jako staticky informacni web rezortu (planovaci dokumenty, normy, mapy hluku) bez jasne identifikovatelne sekce 'noticias/actualidad'. Zadny RSS/feed nalezen. Spanelsky celostatni DGT uz je v registru zaznamenan zvlast - toto by byl jen doplnkovy regionalni zdroj, nizka priorita kvuli nejasne strukture novinek."
+    },
+    {
+      "id": "ib-dgtransports",
+      "country": "ES-IB",
+      "name": "Govern de les Illes Balears - Direccio General de Transports (Baleary)",
+      "url": "https://www.caib.es/sites/dgtransports/",
+      "type": "manual",
+      "enabled": false,
+      "priority": 3,
+      "note": "[Faze 1d, 2026-08-02] NELZE OVERIT: vsechny testovane cesty na tomto konkretnim podportalu (/sites/dgtransports/, /ca/portada-1/) konzistentne vraceji HTTP 502 (Bad Gateway) - skutecna serverova chyba na strane webu, ne blokace. Hlavni domena caib.es je pritom dostupna (302 presmerovani funguje normalne). Pred zapnutim nutne opakovane rucni overeni, zda jde o docasny vypadek."
+    },
+    {
+      "id": "mc-gouv",
+      "country": "MC",
+      "name": "Gouvernement de Monaco (vc. Direction de la Surete Publique - monacka policie)",
+      "url": "https://www.gouv.mc",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. RSS <link> tagy primo na homepage potvrzuji dva platne feedy: /rss/feed/portail-gouv-actualites-fr (aktuality) a /rss/feed/portail-gouv-publications-fr (publikace). Monacka policie (Direction de la Surete Publique) nema samostatnou domenu, je organizacne clenena jako sekce portalu gouv.mc pod Departement de l'Interieur - stejny vzor jako u ME/MK."
+    },
+    {
+      "id": "sm-gov",
+      "country": "SM",
+      "name": "Governo di San Marino (statni portal)",
+      "url": "https://www.gov.sm",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1d, 2026-08-02] Homepage 200. Zadny feed/rss/sitemap (vse 404). Sekce /pub2/GovSM/Archivio-notizie.html ('Archiv zprav') potvrzena primo v odkazech. San Marino nema samostatny silnicni urad (male uzemi), portal pokryva i policejni/vnitrni zalezitosti."
+    },
+    {
+      "id": "va-press",
+      "country": "VA",
+      "name": "Holy See Press Office / Sala Stampa della Santa Sede (Vatikan)",
+      "url": "https://press.vatican.va",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 3,
+      "note": "[Faze 1d, 2026-08-02] Homepage (/content/salastampa/it.html) 200. Zadny RSS <link> tag, testovana prima RSS URL (bollettino.rss.xml) vraci 404. Vatikan nema vlastni silnicni sit ani statni policii v silnicnim smyslu (Corpo della Gendarmeria resi bezpecnost, doprava/celni vstup se resi prakticky pres Italii dle zdrojoveho dokumentu) - nizka priorita, spis obecny zpravodajsky zdroj pro pripad vyjimecnych udalosti."
+    },
+    {
+      "id": "fr-bison-fute-interdictions",
+      "country": "FR",
+      "name": "Bison Fute - Interdictions de circulation (Francouzsky prehled zakazu jizd pro nakladni vozidla)",
+      "url": "https://www2.bison-fute.gouv.fr/interdictions-de-circulation.html",
+      "type": "html-detail",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1d, 2026-08-02] Samostatna subdomena www2.bison-fute.gouv.fr (odlisna od jiz evidovaneho www.bison-fute.gouv.fr) venovana vyhradne prehledu zakazu jizd tezkych nakladnich vozidel (vikendove/svatecni/sezonni zakazy). Homepage 200. Zadny RSS/sitemap (oba 404). Konkretni stranka interdictions-de-circulation.html potvrzena primo v odkazech."
     }
   ]
 }
