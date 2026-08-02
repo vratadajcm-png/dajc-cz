@@ -13,8 +13,9 @@ const ROOT = path.resolve(__dirname, "..");
 const SOURCES_PATH = path.join(ROOT, "data", "oversize-news-sources.json");
 const REPORT_PATH = path.join(ROOT, "reports", "feed-read-test.json");
 
-const FETCH_TIMEOUT_MS = 15_000;
-const MAX_ITEMS_PER_SOURCE = 5;
+export const FETCH_TIMEOUT_MS = 15_000;
+export const MAX_ITEMS_PER_SOURCE = 5;
+export { SOURCES_PATH };
 
 // Notes v registru popisuji presnou, uz rucne overenou URL feedu (napr. "Realny
 // funkcni WordPress RSS feed overen primo: https://ndsas.sk/feed"), ale samotne
@@ -59,7 +60,7 @@ function extractCandidateUrlsFromNote(note) {
     .filter((u) => /feed|rss|atom/i.test(u));
 }
 
-function resolveFeedCandidates(source) {
+export function resolveFeedCandidates(source) {
   const known = KNOWN_FEED_URLS[source.id];
   const candidates = [];
   if (known) candidates.push(known);
@@ -125,6 +126,13 @@ function firstNonEmpty(...vals) {
   return vals.find((v) => v !== undefined && v !== null && v !== "") ?? null;
 }
 
+// Nektere feedy vraceji contentSnippet/summary s neodstranenymi HTML tagy
+// (zavisi na konkretnim RSS generatoru) - ocistit at je to citelny plain text.
+function stripHtml(text) {
+  if (!text) return text;
+  return text.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
 async function tryReadFeed(parser, url) {
   const res = await fetchWithTimeout(url, FETCH_TIMEOUT_MS);
   if (!res.ok) {
@@ -139,7 +147,7 @@ async function tryReadFeed(parser, url) {
   return feed;
 }
 
-async function processSource(parser, source) {
+export async function processSource(parser, source) {
   const candidates = resolveFeedCandidates(source);
   const isKnownInvalidXml = INVALID_XML_NOTE_PATTERN.test(source.note || "");
   const attempts = [];
@@ -153,6 +161,9 @@ async function processSource(parser, source) {
         title: firstNonEmpty(item.title),
         link: firstNonEmpty(item.link),
         pubDate: firstNonEmpty(item.pubDate, item.isoDate, item.updated, item.published),
+        // kratky vytah obsahu (pokud feed nejaky posyla) - uzitecne pro Fazi 3
+        // (generovani karty), report z Fazi 2 z toho jen tezi bohatsi diagnostiku.
+        contentSnippet: stripHtml(firstNonEmpty(item.contentSnippet, item.summary))?.slice(0, 1000) || null,
       }));
 
       if (items.length === 0) {
@@ -207,9 +218,22 @@ async function processSource(parser, source) {
   };
 }
 
-async function main() {
+export async function loadRegistry() {
   const raw = await readFile(SOURCES_PATH, "utf-8");
-  const registry = JSON.parse(raw);
+  return JSON.parse(raw);
+}
+
+export function makeParser() {
+  return new Parser({
+    timeout: FETCH_TIMEOUT_MS,
+    headers: {
+      "User-Agent": "Mozilla/5.0 (compatible; DajcFeedReadTest/1.0; +https://dajc.cz)",
+    },
+  });
+}
+
+async function main() {
+  const registry = await loadRegistry();
   const feedSources = registry.sources.filter(
     (s) => s.type === "rss" || s.type === "atom"
   );
@@ -219,12 +243,7 @@ async function main() {
     `Vyfiltrovano ${feedSources.length} zdroju typu rss/atom (ostatni typy - sitemap/html-list/manual/playwright - ignorovany, na rade v pozdejsi fazi).\n`
   );
 
-  const parser = new Parser({
-    timeout: FETCH_TIMEOUT_MS,
-    headers: {
-      "User-Agent": "Mozilla/5.0 (compatible; DajcFeedReadTest/1.0; +https://dajc.cz)",
-    },
-  });
+  const parser = makeParser();
 
   const results = [];
   for (const source of feedSources) {
@@ -290,9 +309,14 @@ async function main() {
   console.log(`\nKompletni vysledek ulozen do ${path.relative(ROOT, REPORT_PATH)}`);
 }
 
-main().catch((err) => {
-  // Toto by nemelo nikdy nastat (kazdy zdroj je izolovany v try/catch), ale
-  // pro jistotu at skript zretelne selze s chybou, ne tise.
-  console.error("Neocekavana chyba behu skriptu:", err);
-  process.exitCode = 1;
-});
+// Spustit main() jen pri primem `node scripts/read-feeds.mjs` - ne pri importu
+// z generate-test-card.mjs (Faze 3), ktery znovupouziva exportovane funkce.
+const isDirectRun = path.resolve(process.argv[1] || "") === path.resolve(__dirname, "read-feeds.mjs");
+if (isDirectRun) {
+  main().catch((err) => {
+    // Toto by nemelo nikdy nastat (kazdy zdroj je izolovany v try/catch), ale
+    // pro jistotu at skript zretelne selze s chybou, ne tise.
+    console.error("Neocekavana chyba behu skriptu:", err);
+    process.exitCode = 1;
+  });
+}
