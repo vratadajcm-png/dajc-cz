@@ -34,8 +34,10 @@ export default function Home() {
             DAJC — platforma pro těžkou a nadrozměrnou přepravu
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-white/80">
-            Jednotné digitální místo, kde se z nákladu stává řízená přepravní
-            zakázka.
+            Jedna přepravní zakázka. Jedno D-ID. Všechny její kroky, partneři
+            a dokumenty propojené – od plánování až po doručení napříč
+            Evropou. Jednotné digitální místo, kde se z nákladu stává řízená
+            přepravní zakázka.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
             <a
