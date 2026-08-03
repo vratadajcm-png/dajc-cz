@@ -37,12 +37,20 @@ export default function Home() {
             Jednotné digitální místo, kde se z nákladu stává řízená přepravní
             zakázka.
           </p>
-          <a
-            href="https://dajc.eu"
-            className="mt-10 inline-flex items-center justify-center rounded-full bg-dajc-orange px-8 py-4 text-lg font-semibold text-dajc-dark transition hover:brightness-110"
-          >
-            Přejít na DAJC
-          </a>
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+            <a
+              href="https://dajc.eu"
+              className="inline-flex items-center justify-center rounded-full bg-dajc-orange px-8 py-4 text-lg font-semibold text-dajc-dark transition hover:brightness-110"
+            >
+              Přejít na DAJC
+            </a>
+            <a
+              href="#novinky"
+              className="inline-flex items-center justify-center rounded-full border-2 border-dajc-orange px-8 py-4 text-lg font-semibold text-dajc-orange transition hover:bg-dajc-orange hover:text-dajc-dark"
+            >
+              Novinky v oversize
+            </a>
+          </div>
         </div>
       </section>
 
@@ -67,7 +75,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-slate-50 px-6 py-20">
+      <section id="novinky" className="scroll-mt-6 bg-slate-50 px-6 py-20">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <h2 className="text-2xl font-bold text-dajc-navy sm:text-3xl">
             Novinky z oversize cargo
