@@ -39,6 +39,9 @@ yarn-error.log*
 # generated reports (scripts/*.mjs test output)
 /reports/
 
+# testovaci obsah clanku (neni urceny k publikaci)
+/content/articles/test-sk-nds.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
