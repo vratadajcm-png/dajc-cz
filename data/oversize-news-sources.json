@@ -38,7 +38,7 @@
       "url": "https://www.asfinag.at",
       "type": "html-list",
       "enabled": false,
-      "note": "Zadny RSS/JSON/sitemap (vse 404, sitemap.xml 404). Ma jasnou sekci tiskovych zprav: /ueber-uns/presse/pressemeldungen/ s konkretnimi clanky. 'captcha' retezec na homepage je jen mtcaptcha.js pouzity u kontaktniho formulare, nejde o blokaci pristupu - stranka se normalne nacte (200, 112 kB HTML). [Faze 1b, Cast B, 2026-07-31] ASFINAG zaroven funguje jako narodni dopravni informacni centrum pro AT - samostatny zdroj tohoto typu neni potreba evidovat zvlast."
+      "note": "Zadny RSS/JSON/sitemap (vse 404, sitemap.xml 404). Ma jasnou sekci tiskovych zprav: /ueber-uns/presse/pressemeldungen/ s konkretnimi clanky. 'captcha' retezec na homepage je jen mtcaptcha.js pouzity u kontaktniho formulare, nejde o blokaci pristupu - stranka se normalne nacte (200, 112 kB HTML). [Faze 1b, Cast B, 2026-07-31] ASFINAG zaroven funguje jako narodni dopravni informacni centrum pro AT - samostatny zdroj tohoto typu neni potreba evidovat zvlast. [Faze 1f, 2026-08-05] Overeno i pro mytny/vinetovy system: ASFINAG ma primo na svem webu sekci /maut-vignette/ vc. /maut-vignette/go-maut/ (elektronicke myto pro tezka vozidla) - v Rakousku tedy neexistuje samostatny provozovatel mytneho/vinetoveho systemu odlisny od spravce dalnic, na rozdil od CZ/DE/SK/HU/PL, zadny novy zdroj neni potreba."
     },
     {
       "id": "cz-md",
@@ -119,7 +119,7 @@
       "url": "https://www.vegvesen.no",
       "type": "atom",
       "enabled": false,
-      "note": "NEJSILNEJSI NALEZ ze vsech zdroju. /rss vraci realny Atom feed (Content-Type: application/atom+xml) s nazvem 'Nyheter fra Statens vegvesen' - 'Siste nyheter, pressemeldinger og kronikker fra Statens vegvesen' (posledni novinky, tiskove zpravy a clanky). Zdroj feedu: https://www.vegvesen.no/om-oss/presse/aktuelt/. Primy kandidat pro prvni funkcni verzi. [Faze 1b, Cast B, 2026-07-31] Statens vegvesen zaroven pokryva roli narodniho dopravniho informacniho centra pro NO - samostatny zdroj tohoto typu neni potreba evidovat zvlast."
+      "note": "NEJSILNEJSI NALEZ ze vsech zdroju. /rss vraci realny Atom feed (Content-Type: application/atom+xml) s nazvem 'Nyheter fra Statens vegvesen' - 'Siste nyheter, pressemeldinger og kronikker fra Statens vegvesen' (posledni novinky, tiskove zpravy a clanky). Zdroj feedu: https://www.vegvesen.no/om-oss/presse/aktuelt/. Primy kandidat pro prvni funkcni verzi. [Faze 1b, Cast B, 2026-07-31] Statens vegvesen zaroven pokryva roli narodniho dopravniho informacniho centra pro NO - samostatny zdroj tohoto typu neni potreba evidovat zvlast. [Faze 1f, 2026-08-05] Overeno i pro mytny system: norsky AutoPASS (autopass.no, 200, ma vlastni sekci /no/kunde/nyheter2/) je system VLASTNENY primo Statens vegvesen (potvrzeno web searchem) - zadny samostatny zdroj tedy neni potreba. POZOR ale: samotne mytne brany/pokladny provozuje 5 regionalnich, kraji vlastnenych mytnych spolecnosti (bompengeselskap) - fragmentovane obdobne jako policie v BiH (viz ba-police-note) - jednotlive kraje NEBYLY z casovych duvodu zkoumany zvlast."
     },
     {
       "id": "se-trafikverket",
@@ -187,7 +187,7 @@
       "type": "html-list",
       "enabled": false,
       "priority": 1,
-      "note": "[Faze 1b, Cast A, 2026-07-31] POZOR na domenu: www.cnair.ro NENI spravny zdroj - je to nesouvisejici komercni SaaS produkt ('Cloud Network Applications Integration Router'), ktery nahodou sdili zkratku CNAIR. Spravna domena narodni spravy silnic je cnadnr.ro (stary nazev CNADNR, stale pouzivana). Web je chranen anti-bot JS challenge (curl dostava stranku 'Verifying your browser...' se sha1 JS vypoctem, HTTP 503) - nelze automaticky overit RSS/sitemap, ale existence a identita webu potvrzena. Pred zapnutim nutne rucni overeni v prohlizeci."
+      "note": "[Faze 1b, Cast A, 2026-07-31] POZOR na domenu: www.cnair.ro NENI spravny zdroj - je to nesouvisejici komercni SaaS produkt ('Cloud Network Applications Integration Router'), ktery nahodou sdili zkratku CNAIR. Spravna domena narodni spravy silnic je cnadnr.ro (stary nazev CNADNR, stale pouzivana). Web je chranen anti-bot JS challenge (curl dostava stranku 'Verifying your browser...' se sha1 JS vypoctem, HTTP 503) - nelze automaticky overit RSS/sitemap, ale existence a identita webu potvrzena. Pred zapnutim nutne rucni overeni v prohlizeci. [Faze 1f, 2026-08-05] Rumunsky vinetovy system (Rovinieta) NENI samostatna instituce - portal roviniete.ro je provozovan primo CNAIR (potvrzeno zminkou 'CNAIR' na strance) a na rozdil od hlavni domeny cnadnr.ro NENI blokovan anti-bot ochranou (200, funguje normalne). Ma dokonce vlastni funkcni archiv tiskovych zprav /ro/info/arhiva-comunicate-de-presa - stoji za zvazeni jako NAHRADNI pristupny zdroj pro tuto instituci misto blokovaneho cnadnr.ro, az bude tento zaznam pouzivan naostro."
     },
     {
       "id": "it-anas",
@@ -257,7 +257,7 @@
       "type": "html-list",
       "enabled": false,
       "priority": 1,
-      "note": "[Faze 1b, Cast A, 2026-07-31] Homepage samotna (nationalhighways.co.uk) ma velmi malo textoveho obsahu v surovem HTML a zadnou zminku 'news' - nejspis se vetsi cast obsahu resi klientsky. Konkretni Media centre sekce (/about-us/media-centre/) ale overena samostatne - 200, server-rendered (29 <p> tagu), dohledana pres web search."
+      "note": "[Faze 1b, Cast A, 2026-07-31] Homepage samotna (nationalhighways.co.uk) ma velmi malo textoveho obsahu v surovem HTML a zadnou zminku 'news' - nejspis se vetsi cast obsahu resi klientsky. Konkretni Media centre sekce (/about-us/media-centre/) ale overena samostatne - 200, server-rendered (29 <p> tagu), dohledana pres web search. [Faze 1f, 2026-08-05] Mytne v Anglii: jediny vyznamny narodni mytny bod na strategicke silnicni siti (Dartford Crossing/M25) provozuje primo National Highways, zadny samostatny koncesionar/mytna instituce neexistuje (na rozdil od drivejsiho zpoplatneneho Severn Bridge, ktery byl zestatnen a od 2018 bez myta) - zadny novy zdroj neni potreba."
     },
     {
       "id": "uk-govuk-dft",
@@ -517,7 +517,7 @@
       "type": "html-list",
       "enabled": false,
       "priority": 1,
-      "note": "[Faze 1c, 2026-08-02] POZOR na domenu: ypme.gov.gr, ypa.gr a mit.gov.gr vsechny DNS-nedostupne; spravna domena je yme.gov.gr (overeno i pres web search - gov.gr/org/yme). POZOR na RSS past: homepage ma <link> tag na /?format=feed&type=rss, feed skutecne existuje (200, application/rss+xml), ALE obsahuje jen nezkonfigurovany Joomla demo obsah ('Etiam pellentesque sem', 'Praesent leo turpis' - Lorem Ipsum placeholder polozky z /12-portfolio/) - NEPOUZITELNE jako zdroj novinek. Realna sekce nalezena primym prochazenim navigace: /nea-anakoinoseis ('Nea-Anakoinoseis' = Novinky-Oznameni), s desitkami konkretnich aktualnich polozek (vyberova rizeni, vysledky zkousek ADR, ucast na Cyber Europe 2026 atd.)."
+      "note": "[Faze 1c, 2026-08-02] POZOR na domenu: ypme.gov.gr, ypa.gr a mit.gov.gr vsechny DNS-nedostupne; spravna domena je yme.gov.gr (overeno i pres web search - gov.gr/org/yme). POZOR na RSS past: homepage ma <link> tag na /?format=feed&type=rss, feed skutecne existuje (200, application/rss+xml), ALE obsahuje jen nezkonfigurovany Joomla demo obsah ('Etiam pellentesque sem', 'Praesent leo turpis' - Lorem Ipsum placeholder polozky z /12-portfolio/) - NEPOUZITELNE jako zdroj novinek. Realna sekce nalezena primym prochazenim navigace: /nea-anakoinoseis ('Nea-Anakoinoseis' = Novinky-Oznameni), s desitkami konkretnich aktualnich polozek (vyberova rizeni, vysledky zkousek ADR, ucast na Cyber Europe 2026 atd.). [Faze 1f, 2026-08-05] Recka dalnicni sit NEMA jednotneho provozovatele - je rozdrobena mezi nekolik soukromych koncesionaru s vlastnimi mytnymi useky (napr. Nea Odos - overeno funkcni, 200; Egnatia Odos - samostatna domena s presmerovanim; Attiki Odos - spojeni z tohoto prostredi timeoutovalo). Sjednoceni/vyber jednoho reprezentativniho zdroje by vyzadoval samostatny hlubsi pruzkum, ktery presahuje rozsah teto faze - obdobna situace jako u policie v BiH (viz ba-police-note) nebo mytnych spolecnosti v Norsku (viz poznamka u no-vegvesen)."
     },
     {
       "id": "lt-vialietuva",
@@ -557,7 +557,7 @@
       "type": "html-list",
       "enabled": false,
       "priority": 1,
-      "note": "[Faze 1c, 2026-08-02] Homepage 200. Zadny RSS/sitemap (vse 404, vcetne variant sitemap_index.xml a sitemap-index.xml). Realna sekce /Sporocila_za_javnost/1/Splosne_novice/ ('Sdeleni pro verejnost - Obecne novinky') potvrzena primo s konkretnimi datovanymi polozkami z cervence 2026 (napr. prodlouzeny zakaz predjizdeni pro nakladni vozidla na A1/H4, postup vystavby 3. rozvojove osy)."
+      "note": "[Faze 1c, 2026-08-02] Homepage 200. Zadny RSS/sitemap (vse 404, vcetne variant sitemap_index.xml a sitemap-index.xml). Realna sekce /Sporocila_za_javnost/1/Splosne_novice/ ('Sdeleni pro verejnost - Obecne novinky') potvrzena primo s konkretnimi datovanymi polozkami z cervence 2026 (napr. prodlouzeny zakaz predjizdeni pro nakladni vozidla na A1/H4, postup vystavby 3. rozvojove osy). [Faze 1f, 2026-08-05] Overeno i pro vinetovy/mytny system: DARS ma primo na svem webu sekce /CESTNINJENJE a /Vinjetni_sistem/E-vinjeta (vc. napojeni na evinjeta.dars.si) - stejne jako u AT ASFINAG jde o stejnou instituci, ktera spravuje dalnice i vinetu/mytne dohromady, zadny samostatny zdroj neni potreba."
     },
     {
       "id": "si-mzi",
@@ -587,7 +587,7 @@
       "type": "html-list",
       "enabled": false,
       "priority": 1,
-      "note": "[Faze 1c, 2026-08-02] www.hac.hr presmerovava (302) na /hr (200). Zadny RSS/sitemap (oboje 404). Realna sekce /hr/odnosi-s-javnoscu/novosti ('Vztahy s verejnosti - Novinky') potvrzena primo (200, title 'Novosti | Hrvatske autoceste')."
+      "note": "[Faze 1c, 2026-08-02] www.hac.hr presmerovava (302) na /hr (200). Zadny RSS/sitemap (oboje 404). Realna sekce /hr/odnosi-s-javnoscu/novosti ('Vztahy s verejnosti - Novinky') potvrzena primo (200, title 'Novosti | Hrvatske autoceste'). [Faze 1f, 2026-08-05] Overeno i pro mytny system: HAC ma primo na svem webu sekci /hr/cestarina ('mytne') vc. cenika a caste otazky - stejne jako u AT/SI jde o stejnou instituci, ktera spravuje dalnice i vyber myta dohromady, zadny samostatny zdroj neni potreba."
     },
     {
       "id": "bg-api",
@@ -597,7 +597,7 @@
       "type": "manual",
       "enabled": false,
       "priority": 2,
-      "note": "[Faze 1c, 2026-08-02] NELZE PRIMO OVERIT: opakovane pripojeni na www.api.bg (62.73.114.195:443) konzistentne timeoutuje z tohoto prostredi (stejny vzor jako u it-anas ve Fazi 1b - pravdepodobna blokace datacenterovych/zahranicnich IP adres, ne padly web). Existence a struktura webu (vcetne konkretnich URL /bg/novini 'Novinky' a /bg/aktualna-putna-obstanovka 'Aktualni stav na silnicich') potvrzena pres web search z nezavislych zdroju (oficialni web podrizeny Ministerstvu regionalniho rozvoje a verejnych praci). Pred zapnutim nutne rucni overeni RSS/sitemap v prohlizeci z bezne uzivatelske site."
+      "note": "[Faze 1c, 2026-08-02] NELZE PRIMO OVERIT: opakovane pripojeni na www.api.bg (62.73.114.195:443) konzistentne timeoutuje z tohoto prostredi (stejny vzor jako u it-anas ve Fazi 1b - pravdepodobna blokace datacenterovych/zahranicnich IP adres, ne padly web). Existence a struktura webu (vcetne konkretnich URL /bg/novini 'Novinky' a /bg/aktualna-putna-obstanovka 'Aktualni stav na silnicich') potvrzena pres web search z nezavislych zdroju (oficialni web podrizeny Ministerstvu regionalniho rozvoje a verejnych praci). Pred zapnutim nutne rucni overeni RSS/sitemap v prohlizeci z bezne uzivatelske site. [Faze 1f, 2026-08-05] Bulharsky mytny/vinetovy system NENI samostatna instituce - portal bgtoll.bg je provozovan primo API (potvrzeno zminkou 'Agencija \"Patna infrastruktura\"' na strance) a na rozdil od www.api.bg NENI blokovan (200 s browser User-Agent hlavickou, bez UA vraci 403). Ma funkcni sekci /novini/aktualno s aktualnimi 2026 clanky primo relevantnimi pro tema projektu (napr. registrace prestupku tezkych nakladnich vozidel v predjizdecim pruhu od 1.7.2026) - stoji za zvazeni jako NAHRADNI pristupny zdroj pro tuto instituci misto nedostupneho www.api.bg, az bude tento zaznam pouzivan naostro."
     },
     {
       "id": "rs-mgsi",
@@ -1168,6 +1168,166 @@
       "enabled": false,
       "priority": 1,
       "note": "[Faze 1d, 2026-08-02] Samostatna subdomena www2.bison-fute.gouv.fr (odlisna od jiz evidovaneho www.bison-fute.gouv.fr) venovana vyhradne prehledu zakazu jizd tezkych nakladnich vozidel (vikendove/svatecni/sezonni zakazy). Homepage 200. Zadny RSS/sitemap (oba 404). Konkretni stranka interdictions-de-circulation.html potvrzena primo v odkazech."
+    },
+    {
+      "id": "cz-czechtoll",
+      "country": "CZ",
+      "name": "CzechToll (provozovatel elektronickeho mytneho systemu CR)",
+      "url": "https://www.czechtoll.cz/feed/",
+      "type": "rss",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovaneho cz-rsd/cz-md - CzechToll je konsorcium provozujici mytny system CR (naslednik Kapsch, od 2019/2020) na zaklade smlouvy se statem (SFDI). Realny funkcni WordPress RSS feed overen primo: https://www.czechtoll.cz/feed/ (200, application/rss+xml, aktualni polozky vc. 'Vyber mytneho za pul roku prekonal hranici 10 miliard korun' z 22.7.2026). POZOR na domenu: transakcni portal mytocz.eu (kde se registruji vozidla) vraci na kazdy pozadavek jen 244 B F5 BIG-IP WAF hlasku 'Request Rejected' (stejny vzor jako pt-gnr) - nepouzitelny jako zdroj, ale firemni web czechtoll.cz je funkcni nahrada. Vladni informacni portal myto.gov.cz je take blokovan stejnym WAF vzorem."
+    },
+    {
+      "id": "cz-edalnice",
+      "country": "CZ",
+      "name": "eDalnice.gov.cz (elektronicka dalnicni znamka CR)",
+      "url": "https://edalnice.gov.cz/cs/media",
+      "type": "playwright",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1f, 2026-08-05] Samostatny vinetovy system (odlisny od mytneho systemu, viz cz-czechtoll), provozovany statem pres SFDI. edalnice.cz presmerovava (301) na edalnice.gov.cz. sitemap.xml je platny (200, text/xml, 72 URL), ale zadna z nich neni clankova - obsahuje jen funkcni/produktove stranky. Stranka /cs/media ma spravny nadpis 'Clanky a tiskove zpravy' (potvrzeno primo v HTML, h1 tag), ale je to Next.js aplikace bez zadnych <a href> odkazu na jednotlive clanky v surovem HTML a bez zjistitelneho embedded JSON (__NEXT_DATA__ chybi, /api/media a podobne cesty 404) - obsah se zjevne dotahuje az klientskym JS/API volanim po nacteni stranky. Doporuceni: Playwright."
+    },
+    {
+      "id": "de-tollcollect",
+      "country": "DE",
+      "name": "Toll Collect (provozovatel LKW-Maut - nemecke elektronicke myto pro nakladni vozidla)",
+      "url": "https://www.toll-collect.de/de/toll_collect/rund_um_die_maut/meldungen/meldungen.html",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovaneho de-autobahn (ktery pokryva spravu a stavby dalnic, ne myto) a de-vemags (povolovani nadmernych preprav). Homepage 307->200 presmerovava na /de/. Zadny RSS/sitemap primo nalezen (/feed a /sitemap.xml obe 500). Realna sekce 'Aktuelles' na /de/toll_collect/rund_um_die_maut/meldungen/meldungen.html potvrzena primo (h1 'Aktuelles', desitky odkazu na jednotlive detailsseite_news_NNNNN.html clanky)."
+    },
+    {
+      "id": "it-autostrade",
+      "country": "IT",
+      "name": "Autostrade per l'Italia (nejvetsi dalnicni koncesionar)",
+      "url": "https://www.autostrade.it/it/comunicazione-e-media/comunicati-stampa-corporate",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovaneho it-anas (ANAS spravuje statni silnice a cast dalnic bez mytneho, Autostrade per l'Italia je soukromy koncesionar provozujici mytnou cast site vc. A1 Milano-Neapol). Homepage presmerovava (301->301) na /it/home. sitemap.xml je platny sitemapindex (Liferay CMS), ale s parametrizovanymi p_l_id/layoutUuid castmi jako u cz-rsd - neprime pouziti. Realne sekce potvrzeny primo v navigaci: /it/comunicazione-e-media/comunicati-stampa-corporate (korporatni tiskove zpravy, desitky konkretnich odkazu na 'bulletin/view/<uuid>') a /it/comunicazione-e-media/comunicati-stampa-viabilita (tiskove zpravy o sjizdnosti/dopravni situaci - primo relevantni pro tema projektu)."
+    },
+    {
+      "id": "es-abertis",
+      "country": "ES",
+      "name": "Abertis (nejvetsi spanelsky dalnicni koncesionar)",
+      "url": "https://www.abertis.com/actualidad/",
+      "type": "playwright",
+      "enabled": false,
+      "priority": 2,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovaneho es-dgt (DGT je statni dopravni urad, Abertis je soukromy koncesionar provozujici mj. AP-7 a dalsi mytne dalnice). Homepage 200 (1.27 MB). Zadny RSS/sitemap (oba 404). Navigacni odkazy /actualidad/ a /news/tag/nota-de-prensa (stitek 'tiskova zprava') i /news/tag/autopistas ('dalnice') existuji, ale samotne stranky neobsahuji v surovem HTML zadne odkazy na jednotlive clanky ani embedded JSON (zadny __NEXT_DATA__, /wp-json/wp/v2/posts 404) - vypada na Django-styl CMS ('jsi18n' skript) s obsahem tahanym pres AJAX. Doporuceni: Playwright."
+    },
+    {
+      "id": "pl-etoll",
+      "country": "PL",
+      "name": "e-TOLL (polsky elektronicky mytny system, KAS)",
+      "url": "https://www.etoll.gov.pl/artykuly",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovaneho pl-gddkia (GDDKiA spravuje silnicni sit, e-TOLL provozuje danova sprava KAS - Krajowa Administracja Skarbowa). Homepage 200 (472 kB). /rss a /sitemap.xml presmerovavaji (301) na varianty s koncovym lomitkem, ktere ale vraceji vlastni Next.js 404 stranku s HTTP 200 ('Ups strona, ktorej szukasz nie istnieje') - false positive, zadny realny feed/sitemap. Realna sekce /artykuly potvrzena primo s desitkami konkretnich, aktualnich clanku vc. dat v URL (napr. 'zmiana-formy-przekazywania-dokumentow-w-systemie-e-toll-od-1-kwietnia-2026-r', 'zmiana-listy-miejsc-obslugi-klienta-mok-od-1-maja-2026-r')."
+    },
+    {
+      "id": "sk-emyto",
+      "country": "SK",
+      "name": "e-Myto (slovensky elektronicky mytny system pro nakladni vozidla)",
+      "url": "https://www.emyto.sk/sk/elektronicke-myto/aktuality",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny provozni portal od jiz evidovaneho sk-nds (NDS je spravce/vyberce mytneho, skutecnym technickym provozovatelem systemu je SkyToll, verejny portal bezi na emyto.sk). POZOR na domenu: puvodni operatorska domena slovaktoll.sk ma nespravny/neplatny TLS certifikat (SEC_E_WRONG_PRINCIPAL) a i s obchazenim (-k) zobrazi jen genericky 'Default index' placeholder - nepouzitelna. www.emyto.sk funguje (200, 51 kB). Zadny RSS/sitemap (oba 404). Realna sekce /sk/elektronicke-myto/aktuality potvrzena primo s datovanymi polozkami (nejnovejsi news-20251218, predchozi kazde 1-2 mesice - nizsi frekvence publikovani)."
+    },
+    {
+      "id": "sk-eznamka",
+      "country": "SK",
+      "name": "eZnamka (slovensky elektronicky vinetovy system)",
+      "url": "https://eznamka.sk/sk/dialnicne-znamky/aktuality",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny system od sk-emyto (vinieta pro lehka vozidla vs. mytny system pro nakladni) i od sk-nds. www.eznamka.sk presmerovava (301->301) na eznamka.sk/sk/ (200, 56 kB). Realna sekce /sk/dialnicne-znamky/aktuality potvrzena primo s aktualnimi 2026 polozkami (napr. news_13072026, news_17062026 - format DDMMRRRR), vyssi frekvence publikovani nez e-Myto."
+    },
+    {
+      "id": "hu-hugo",
+      "country": "HU",
+      "name": "HU-GO (madarsky elektronicky mytny system, NUSZ)",
+      "url": "https://www.hu-go.hu/articles/category/aktulis",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovaneho hu-kozut (Magyar Kozut spravuje silnicni sit, HU-GO provozuje NUSZ - Nemzeti Utdijfizetesi Szolgaltato). Homepage 302 presmerovava primo na /articles/category/aktulis (POZOR: doslovny preklep 'aktulis' misto 'aktualis' primo v URL na strane provozovatele). Zadny RSS/sitemap (oba 404). Sekce potvrzena primo (200, 30 kB) s aktualnimi 2026 clanky primo relevantnimi pro tema projektu (napr. 'tajekoztatas a nehez tehergepjarmu forgalomra vonatkozo jogszabalyi rendelkezesekrol' - informace o pravnich predpisech pro provoz tezkych nakladnich vozidel, zmeny mytneho na useku M6 od kvetna 2026)."
+    },
+    {
+      "id": "be-viapass",
+      "country": "BE",
+      "name": "Viapass (belgicke kilometrovne pro nakladni vozidla)",
+      "url": "https://www.viapass.be/actualites/",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovanych be-wegenenverkeer (Vlaanderen) a be-mobilite-wallonie (Wallonie) - Viapass je mezistatni verejnopravni instituce (Vlamska, Valonska a Bruselska vlada spolecne) spravujici kilometrovne pro nakladni vozidla nad 3,5 t na cele belgicke silnicni siti. Homepage 200 (36 kB). Zadny RSS (404), sitemap.xml je ale platny (200, text/xml). Realna sekce /actualites/ potvrzena primo s aktualnimi 2026 clanky primo relevantnimi pro tema projektu (napr. 'prelevement-kilometrique-les-modifications-prevues-a-partir-du-1-juillet-2026' - zmeny kilometrovneho od 1.7.2026)."
+    },
+    {
+      "id": "nl-vrachtwagenheffing",
+      "country": "NL",
+      "name": "Vrachtwagenheffing (nizozemske pripravovane kilometrovne pro nakladni vozidla)",
+      "url": "https://www.vrachtwagenheffing.nl/vwh-nieuws",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovanych nl-rdw a nl-rijkswaterstaat - vrachtwagenheffing.nl je specializovany portal Rijkswaterstaat/ministerstva IenW venovany vyhradne pripravovanemu systemu kilometrovneho pro nakladni vozidla (system jeste neni v ostrem provozu, dle clanku 'minister-karremans-vrachtwagenheffing-kan-bijna-van-start' se spusteni blizi v roce 2026). Homepage 200 (56 kB). Zadny RSS (404), sitemap.xml je platny (200, application/xml). Realna sekce /vwh-nieuws potvrzena primo s aktualnimi 2026 clanky (napr. 'eurowag-toegelaten-als-dienstaanbieder-voor-vrachtwagenheffing', 'nieuwe-apparatuur-voor-controle-vrachtwagenheffing')."
+    },
+    {
+      "id": "ch-bazg",
+      "country": "CH",
+      "name": "BAZG - Bundesamt fur Zoll und Grenzsicherheit (spravce LSVA - svycarske mytne pro tezka vozidla)",
+      "url": "https://www.bazg.admin.ch/de/medienmitteilungen-bazg",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovaneho ch-astra (ASTRA spravuje dalnice a vinetu pro osobni vozidla, BAZG - byvale Federalni celni sprava - vybira LSVA, vykonove zavisly poplatek za tezky provoz pro nakladni vozidla nad 3,5 t). Homepage 302 presmerovava na /de. Zadny primy RSS. sitemap.xml je platny (200, application/xml). Realna sekce /de/medienmitteilungen-bazg potvrzena primo (h1 'Medienmitteilungen', aktualni 2026 clanky) - POZOR: pokryva vsechny agendy BAZG (cla, hranicni kontrola, LSVA dohromady), ne jen LSVA specificky, takze bude potreba filtrovat/rozpoznavat relevantni clanky pri pouziti."
+    },
+    {
+      "id": "fr-vinci-autoroutes",
+      "country": "FR",
+      "name": "Vinci Autoroutes (nejvetsi francouzsky dalnicni koncesionar)",
+      "url": "https://www.vinci-autoroutes.com/fr/actualites/",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovanych fr-bison-fute a fr-bison-fute-interdictions (obe statni, provozni dopravni informace) - Vinci Autoroutes je soukromy koncesionar provozujici priblizne polovinu francouzske dalnicni site (ASF, Cofiroute, Escota) vc. vyberu myta. Homepage presmerovava (301) na /fr/. Zadny RSS/feed nalezen (/rss presmerovava na /rss/, ktera vraci 404; /fr/actualites/feed/ 404). Realna sekce /fr/actualites/ potvrzena primo s aktualnimi 2026 clanky vc. tydenniho dopravniho vyhledu (napr. 'deuxieme-week-end-de-chasse-croise-nos-previsions-trafic-du-7-au-10-aout-2026'). Samostatna sekce /fr/presse/ take existuje, ale s minimalnim obsahem v surovem HTML. DALSI KONCESIONARI (APRR, SANEF) NEBYLI zarazeni jednotlive kvuli casove narocnosti a fragmentaci - APRR napr. presmerovava primo na cestovni/planovaci subdomenu voyage.aprr.fr bez zjevne tiskove sekce; Vinci pokryva vetsinu site a slouzi jako reprezentativni zdroj tohoto typu."
+    },
+    {
+      "id": "pt-brisa",
+      "country": "PT",
+      "name": "Grupo Brisa / Via Verde (nejvetsi portugalsky dalnicni koncesionar a mytny system)",
+      "url": "https://grupobrisa.pt/noticias/",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovaneho pt-infraestruturas (IP spravuje statni silnicni a zeleznicni sit, Brisa je soukromy koncesionar provozujici vetsinu portugalskych dalnic vc. elektronickeho mytneho systemu Via Verde). Puvodni domena brisa.pt presmerovava (301) na grupobrisa.pt. www.viaverde.pt presmerovava (302) na /particulares (spotrebitelska sekce, ne zpravodajska). Zadny RSS/sitemap testovan primo, ale realna sekce /noticias/ potvrzena primo (200, 78-80 kB) s aktualnimi 2026 clanky vc. jednoho primo relevantniho pro tema projektu ('via-verde-lidera-nova-operacao-de-portagens-eletronicas-para-veiculos-pesados-nos-paises-baixos' - Via Verde vede novy provoz elektronickeho mytneho pro tezka vozidla v Nizozemsku)."
+    },
+    {
+      "id": "ie-eflow",
+      "country": "IE",
+      "name": "eFlow (provozovatel bezbarierove mytne brany M50 - jediny narodni mytny system v Irsku)",
+      "url": "https://www.eflow.ie/news",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovanych ie-tii (TII spravuje dalnicni sit vc. M50, eFlow je soukromy provozovatel mytneho systemu na tomto useku pod koncesi) a ie-govie-transport. Homepage 200 (42 kB). Realna sekce /news potvrzena primo (h2 'Latest News From eFlow') s aktualnimi 2026 clanky vc. 'm50-toll-rate-changes-2026'."
+    },
+    {
+      "id": "dk-sundogbaelt",
+      "country": "DK",
+      "name": "Sund & Baelt (provozovatel mostu/tunelu Storebaelt a Oresund vc. jejich mytneho)",
+      "url": "https://sundogbaelt.dk/nyheder-presse/nyheder/",
+      "type": "html-list",
+      "enabled": false,
+      "priority": 1,
+      "note": "[Faze 1f, 2026-08-05] Samostatny zdroj od jiz evidovaneho dk-vejdirektoratet (Vejdirektoratet spravuje danskou silnicni sit obecne, Sund & Baelt je statni spolecnost provozujici konkretne mostni/tunelove prechody Velkeho a Maleho Beltu a Oresundskeho spojeni vc. vyberu mytneho - kriticka infrastruktura pro nadmerne naklady kvuli vyskovym/vahovym omezenim na mostech). Homepage 200 (101 kB). Realna sekce /nyheder-presse/nyheder/ potvrzena primo s aktualnimi 2026 clanky (napr. 'natarbejde-spaerrer-kortvarigt-oresundsmotorvejen' - nocni prace kratkodobe uzavira Oresundskou dalnici, primo relevantni pro tema projektu)."
     }
   ]
 }
