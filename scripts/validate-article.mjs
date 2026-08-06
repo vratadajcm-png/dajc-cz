@@ -25,9 +25,17 @@
 // Nepouziva zadny API klic ani jina citliva data - jen cte lokalni JSON soubory.
 
 import { readFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DEFAULT_MAX_AGE_DAYS = 30;
-const MAX_AGE_DAYS = Number(process.env.WEEKLY_ARTICLE_MAX_AGE_DAYS) || DEFAULT_MAX_AGE_DAYS;
+// Exportovano - generate-weekly-article.mjs pouziva stejny prah uz pri vyberu
+// kandidatu (pred generovanim karty pres API), aby nevybiral kandidaty, ktere
+// by tady stejne spadly na freshness kontrole. Jeden zdroj pravdy, aby se
+// prahy postupem casu nerozjely.
+export const MAX_AGE_DAYS = Number(process.env.WEEKLY_ARTICLE_MAX_AGE_DAYS) || DEFAULT_MAX_AGE_DAYS;
 
 // Pocet let, o ktere smi zminovany rok v textu maximalne zaostavat za
 // aktualnim rokem, nez je oznacen za mozne zastaraly obsah. Napevno 2 (ne
@@ -115,26 +123,34 @@ function validateSourceIntegrity(article, manifest) {
 // 2016 s pubDate 2026-08-06), takze pubDate samo o sobe neni spolehlivy filtr
 // pri vyberu tematu (Faze 3 scoring), ale tady slouzi jako posledni blokujici
 // pojistka pred publikaci.
+// Vraci stari poskytnuteho pubDate ve dnech (zaokrouhleno dolu), nebo null,
+// pokud je pubDate prazdny/nenaparsovatelny. Exportovano - stejnou funkci
+// pouziva generate-weekly-article.mjs uz pri vyberu kandidatu, aby stary
+// kandidat vubec nebyl zvazovan (misto aby byl vybran, vygenerovan pres API
+// a az pak tady zamitnut).
+export function computeAgeDays(pubDate, now = Date.now()) {
+  if (!isNonEmptyString(pubDate)) return null;
+  const parsed = new Date(pubDate);
+  if (Number.isNaN(parsed.getTime())) return null;
+  return Math.floor((now - parsed.getTime()) / (24 * 60 * 60 * 1000));
+}
+
 function validateFreshness(article, manifest, maxAgeDays) {
   const problems = [];
   if (!manifest) return problems;
   if (manifest.length !== article.topics.length) return problems; // uz nahlaseno v validateSourceIntegrity
-
-  const now = Date.now();
-  const maxAgeMs = maxAgeDays * 24 * 60 * 60 * 1000;
 
   manifest.forEach((src, i) => {
     if (!isNonEmptyString(src.pubDate)) {
       problems.push(`topics[${i}] (zdroj "${src.sourceId}"): manifest neobsahuje pubDate - stari nelze overit.`);
       return;
     }
-    const parsed = new Date(src.pubDate);
-    if (Number.isNaN(parsed.getTime())) {
+    const ageDays = computeAgeDays(src.pubDate);
+    if (ageDays === null) {
       problems.push(`topics[${i}] (zdroj "${src.sourceId}"): pubDate "${src.pubDate}" se nepodarilo naparsovat jako datum.`);
       return;
     }
-    const ageDays = Math.floor((now - parsed.getTime()) / (24 * 60 * 60 * 1000));
-    if (now - parsed.getTime() > maxAgeMs) {
+    if (ageDays > maxAgeDays) {
       problems.push(
         `topics[${i}] (zdroj "${src.sourceId}", "${article.topics[i].title}"): puvodni polozka je stara ${ageDays} dni (pubDate "${src.pubDate}"), limit je ${maxAgeDays} dni.`
       );
@@ -237,7 +253,13 @@ async function main() {
   );
 }
 
-main().catch((err) => {
-  console.error("Neocekavana chyba behu validace:", err);
-  process.exitCode = 1;
-});
+// Spustit main() jen pri primem `node scripts/validate-article.mjs` - ne pri
+// importu MAX_AGE_DAYS/computeAgeDays z generate-weekly-article.mjs, ktery je
+// znovupouziva pri vyberu kandidatu. Stejny vzorec jako v generate-test-card.mjs.
+const isDirectRun = path.resolve(process.argv[1] || "") === path.resolve(__dirname, "validate-article.mjs");
+if (isDirectRun) {
+  main().catch((err) => {
+    console.error("Neocekavana chyba behu validace:", err);
+    process.exitCode = 1;
+  });
+}

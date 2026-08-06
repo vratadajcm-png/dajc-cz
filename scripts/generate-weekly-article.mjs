@@ -36,6 +36,7 @@ import {
   generateCard,
   sanityCheck,
 } from "./generate-test-card.mjs";
+import { MAX_AGE_DAYS, computeAgeDays } from "./validate-article.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -47,8 +48,28 @@ const LAST_PATH_FILE = path.join(REPORTS_DIR, "last-generated-article-path.txt")
 const DEFAULT_TOPIC_COUNT = 5;
 const TOPIC_COUNT = Number(process.env.WEEKLY_ARTICLE_TOPIC_COUNT) || DEFAULT_TOPIC_COUNT;
 
+// --- freshness filtr (Faze 5.1) ---------------------------------------------
+// Vyrazuje kandidaty starsi nez MAX_AGE_DAYS (nebo bez pouzitelneho pubDate)
+// JESTE PRED scoringem/vyberem - ne az po vygenerovani karty pres API. Duvod:
+// scoreCandidate hodnoti jen shodu klicovych slov, takze pomalu publikujici
+// zdroj (napr. cz-czechtoll) muze vyhrat vyber i kdyz je stary tydny, a bez
+// tohoto filtru by se to odhalilo az v validate-article.mjs - po zbytecnem
+// API volani a se selhanim celeho patecniho behu.
+//
+// Bezstavove: vyhodnocuje pubDate kazdeho kandidata znovu pri kazdem behu
+// (candidates prichazi cerstve z collectAllOkItems() vola RSS zive) - zadna
+// "pamet" mezi behy, zadne trvale blacklistovani zdroje. Pokud stejny zdroj
+// pristi tyden publikuje cerstvy clanek, projde bez problemu.
+//
+// MAX_AGE_DAYS je importovan z validate-article.mjs (ne duplikovan) - jeden
+// prah pro vyber i pro blokujici validaci, aby se casem nerozjely.
+export function isFreshEnough(candidate, maxAgeDays) {
+  const ageDays = computeAgeDays(candidate.pubDate);
+  return ageDays !== null && ageDays <= maxAgeDays;
+}
+
 // --- vyber top N kandidatu (rozsireni Faze 3, ktera brala jen nejlepsi 1) ---
-function selectTopCandidates(candidates, count) {
+export function selectTopCandidates(candidates, count) {
   const scored = candidates
     .map((c) => ({ candidate: c, ...scoreCandidate(c) }))
     .filter((s) => s.score > 0)
@@ -169,11 +190,19 @@ async function main() {
     return;
   }
 
-  const picked = selectTopCandidates(candidates, TOPIC_COUNT);
+  const freshCandidates = candidates.filter((c) => isFreshEnough(c, MAX_AGE_DAYS));
+  const staleDropped = candidates.length - freshCandidates.length;
+  if (staleDropped > 0) {
+    console.log(
+      `Vyrazeno ${staleDropped} kandidatu jako prilis starych nebo bez pouzitelneho pubDate (limit ${MAX_AGE_DAYS} dni) - nebudou zvazovani pro vyber.`
+    );
+  }
+
+  const picked = selectTopCandidates(freshCandidates, TOPIC_COUNT);
   if (picked.length === 0) {
     console.error(
-      "Zadna polozka tento tyden neobsahuje zadne z klicovych slov relevance (viz KEYWORDS v generate-test-card.mjs) - " +
-        "neni co publikovat. Zastavuji se bez generovani (radeji nic nez irelevantni obsah)."
+      "Zadna cerstva polozka tento tyden neobsahuje zadne z klicovych slov relevance (viz KEYWORDS v generate-test-card.mjs) - " +
+        "neni co publikovat. Zastavuji se bez generovani (radeji nic nez zastaraly/irelevantni obsah)."
     );
     process.exitCode = 1;
     return;
@@ -264,7 +293,13 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error("Neocekavana chyba behu skriptu:", err);
-  process.exitCode = 1;
-});
+// Spustit main() jen pri primem `node scripts/generate-weekly-article.mjs` -
+// ne pri importu isFreshEnough/selectTopCandidates (napr. pro test). Stejny
+// vzorec jako v generate-test-card.mjs / validate-article.mjs.
+const isDirectRun = path.resolve(process.argv[1] || "") === path.resolve(__dirname, "generate-weekly-article.mjs");
+if (isDirectRun) {
+  main().catch((err) => {
+    console.error("Neocekavana chyba behu skriptu:", err);
+    process.exitCode = 1;
+  });
+}
