@@ -1,0 +1,71 @@
+name: Týdenní publikace článku
+
+on:
+  schedule:
+    # Kazdy patek 06:00 UTC (8:00 v Praze v letnim case CEST, 7:00 v zimnim CET).
+    - cron: "0 6 * * 5"
+  workflow_dispatch: {}
+
+concurrency:
+  group: weekly-article-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repozitáře
+        uses: actions/checkout@v4
+
+      - name: Nastavit Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instalace závislostí
+        run: npm ci
+
+      - name: Vygenerovat týdenní článek
+        id: generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          node scripts/generate-weekly-article.mjs
+          echo "article_path=$(cat reports/last-generated-article-path.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Validovat vygenerovaný článek
+        run: node scripts/validate-article.mjs "${{ steps.generate.outputs.article_path }}" reports/weekly-article-manifest.json
+
+      - name: Shrnutí do GitHub Actions summary
+        run: |
+          node -e '
+            const fs = require("fs");
+            const article = JSON.parse(fs.readFileSync(process.argv[1], "utf-8"));
+            const countries = [...new Set(article.topics.map((t) => t.country))];
+            const lines = [
+              "## Týdenní přehled vygenerován",
+              "",
+              "- **Týden:** " + article.dateRange,
+              "- **Nadpis:** " + article.title,
+              "- **Počet témat:** " + article.topics.length,
+              "- **Země:** " + countries.join(", "),
+              "- **Soubor:** `" + process.argv[1] + "`",
+            ];
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join("\n") + "\n");
+          ' "${{ steps.generate.outputs.article_path }}"
+
+      - name: Commit a push nového článku
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "${{ steps.generate.outputs.article_path }}"
+          if git diff --staged --quiet; then
+            echo "Žádná změna k commitnutí (soubor je identický s poslední verzí)."
+          else
+            git commit -m "Týdenní přehled: ${{ steps.generate.outputs.article_path }}"
+            git push
+          fi

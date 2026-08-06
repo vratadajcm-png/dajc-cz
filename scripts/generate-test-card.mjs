@@ -15,10 +15,10 @@ const ROOT = path.resolve(__dirname, "..");
 const ENV_LOCAL_PATH = path.join(ROOT, ".env.local");
 const OUTPUT_PATH = path.join(ROOT, "reports", "test-card-output.json");
 
-const MODEL = "claude-sonnet-5";
+export const MODEL = "claude-sonnet-5";
 
 // --- .env.local (minimalisticky parser, zadna dalsi zavislost) ---------
-async function loadEnvLocal() {
+export async function loadEnvLocal() {
   let raw;
   try {
     raw = await readFile(ENV_LOCAL_PATH, "utf-8");
@@ -47,7 +47,7 @@ async function loadEnvLocal() {
 // Zamerne jednoducha a jen pro latinku - vetsina zdroju v registru pise
 // latinkou (CZ/SK/PL/DE/EN/FR/RO/SQ/LT/...), Cyrilice/rectina timhle
 // neprojde a skore 0 - u takoveho zdroje se pak vybira jen jako fallback.
-const KEYWORDS = [
+export const KEYWORDS = [
   // vysoka relevance - primo nadmerna/specialni preprava
   { w: 5, kw: "nadmern" },
   { w: 5, kw: "nadrozmer" },
@@ -91,7 +91,7 @@ const KEYWORDS = [
   { w: 1, kw: "doprav" },
 ];
 
-function normalize(text) {
+export function normalize(text) {
   if (!text) return "";
   return text
     .normalize("NFD")
@@ -99,7 +99,7 @@ function normalize(text) {
     .toLowerCase();
 }
 
-function scoreCandidate(candidate) {
+export function scoreCandidate(candidate) {
   const titleNorm = normalize(candidate.title);
   const snippetNorm = normalize(candidate.contentSnippet);
   let score = 0;
@@ -118,7 +118,7 @@ function scoreCandidate(candidate) {
   return { score, matched };
 }
 
-async function collectAllOkItems() {
+export async function collectAllOkItems() {
   const registry = await loadRegistry();
   const feedSources = registry.sources.filter(
     (s) => s.type === "rss" || s.type === "atom"
@@ -173,7 +173,7 @@ function selectBestCandidate(candidates) {
 
 // --- Claude ----------------------------------------------------------------
 
-const CARD_SCHEMA = {
+export const CARD_SCHEMA = {
   type: "object",
   properties: {
     country: { type: "string", description: "Kod zeme zdroje, presne jak byl dodan" },
@@ -195,7 +195,7 @@ const CARD_SCHEMA = {
   additionalProperties: false,
 };
 
-const SYSTEM_PROMPT = `Jsi editor zpravodajske karty pro web dajc.cz (oversize cargo preprava). Z JEDNE dodane RSS polozky vytvoris JEDNU kartu podle presneho JSON schematu.
+export const SYSTEM_PROMPT = `Jsi editor zpravodajske karty pro web dajc.cz (oversize cargo preprava). Z JEDNE dodane RSS polozky vytvoris JEDNU kartu podle presneho JSON schematu.
 
 KRITICKA PRAVIDLA:
 - Vsechen text (title, body, impact) pis v cestine, i kdyz je zdrojova polozka v jinem jazyce.
@@ -206,7 +206,7 @@ KRITICKA PRAVIDLA:
 - "country" opis presne tak, jak byl dodan.
 - Nevymysli zadne udalosti, cisla, data ani jmena, ktera v dodane polozce nejsou.`;
 
-async function generateCard(client, item) {
+export async function generateCard(client, item) {
   const userPayload = {
     country: item.country,
     title: item.title,
@@ -236,7 +236,7 @@ async function generateCard(client, item) {
   return response;
 }
 
-function sanityCheck(card, item) {
+export function sanityCheck(card, item) {
   const problems = [];
 
   if (card.source?.url !== item.link) {
@@ -353,7 +353,13 @@ async function main() {
   console.log(`\nUlozeno do ${path.relative(ROOT, OUTPUT_PATH)}`);
 }
 
-main().catch((err) => {
-  console.error("Neocekavana chyba behu skriptu:", err);
-  process.exitCode = 1;
-});
+// Spustit main() jen pri primem `node scripts/generate-test-card.mjs` - ne pri
+// importu exportovanych funkci/konstant z generate-weekly-article.mjs (Faze 5),
+// ktery je znovupouziva. Stejny vzorec jako v read-feeds.mjs (Faze 2).
+const isDirectRun = path.resolve(process.argv[1] || "") === path.resolve(__dirname, "generate-test-card.mjs");
+if (isDirectRun) {
+  main().catch((err) => {
+    console.error("Neocekavana chyba behu skriptu:", err);
+    process.exitCode = 1;
+  });
+}

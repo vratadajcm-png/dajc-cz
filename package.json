@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:weekly": "node scripts/generate-weekly-article.mjs",
+    "validate:article": "node scripts/validate-article.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",

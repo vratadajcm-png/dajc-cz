@@ -40,7 +40,7 @@ yarn-error.log*
 /reports/
 
 # testovaci obsah clanku (neni urceny k publikaci)
-/content/articles/test-sk-nds.json
+/content/articles/test-*.json
 
 # typescript
 *.tsbuildinfo
