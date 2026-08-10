@@ -8,10 +8,6 @@
 // fakta mimo dodana data". Rozdil oproti Fazi 3: misto jedne nejlepsi polozky
 // vybira top N kandidatu a navic sestavuje obalku clanku (title/dateRange/lead).
 //
-// "checklist" (Article.checklist) se ZAMERNE negeneruje - obsahova pravidla
-// pro nej jsou nerozhodnuta, viz OTAZKY.md. Schema ho ma jako volitelny, takze
-// jeho vynechani nic nerozbije.
-//
 // Vystup:
 //   content/articles/<ISO-datum>-tydenni-prehled.json  - hotovy clanek
 //   reports/weekly-article-manifest.json                - puvodni RSS polozky
@@ -143,6 +139,103 @@ KRITICKA PRAVIDLA:
 - "lead" je obecne uvedeni do tydne (2-4 vety) - nemusi vyjmenovat kazde tema zvlast, ale nesmi tvrdit nic, co temata neobsahuji.
 - Nezminuj konkretni cisla/data, pokud nejsou doslova v dodanych tematech.`;
 
+// --- treti Claude call: checklist odvozeny z CELEHO obsahu clanku ----------
+// Na rozdil od generateLead (title/lead) tady jde o akcni to-do polozky, ne
+// shrnuti - viz OTAZKY.md pro rozhodnuti a system prompt nize pro presna
+// kriteria. AI dostava stejna jiz vygenerovana temata jako generateLead
+// (dedi jejich grounding), ne syrova RSS data.
+const CHECKLIST_SCHEMA = {
+  type: "object",
+  properties: {
+    items: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          text: { type: "string", description: "Jedna akcni pripominka/to-do v cestine" },
+          topicIndices: {
+            type: "array",
+            items: { type: "integer" },
+            minItems: 1,
+            description: "0-based indexy do dodaneho pole temat, ze kterych tato polozka vychazi",
+          },
+        },
+        required: ["text", "topicIndices"],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ["items"],
+  additionalProperties: false,
+};
+
+const CHECKLIST_SYSTEM_PROMPT = `Jsi editor tydenniho prehledu pro web dajc.cz (oversize cargo preprava). Dostanes seznam jiz vytvorenych temat (country/title/body/impact/validity) tohoto tydne a z nich sestavis checklist akcnich pripominek podle presneho JSON schematu.
+
+KRITICKA PRAVIDLA:
+- Pis v cestine, akcni formulace ("Od pondeli plati...", "Zkontrolujte...") - NE prepis titulku tematu.
+- Kazda polozka smi vzniknout JEN parafrazi toho, co je doslova v body/impact/validity NEKTEREHO z dodanych temat. Zadne nove skutecnosti, cisla ani data, ktera tam nejsou.
+- "topicIndices" musi presne uvadet 0-based index/indexy tematu v dodanem poli, ze kterych polozka vychazi - nikdy nesmi byt prazdne.
+- Zadna syntaza napric tematy: polozka nesmi kombinovat dve temata do tvrzeni, ktere zadne z nich samostatne nerika. Pokud polozka cituje vice indexu, kazdy z nich musi tvrzeni samostatne podporovat.
+- Tema bez konkretni odvoditelne akce proste preskoc - checklist neni 1:1 seznam temat, jen vyber toho, co vyzaduje akci.
+- Maximalne 6 polozek.
+- Pokud zadne tema neobsahuje nic akcniho, vrat prazdne pole "items" - to je v poradku.`;
+
+async function generateChecklist(client, topics) {
+  const payload = topics.map((t) => ({ country: t.country, title: t.title, body: t.body, impact: t.impact, validity: t.validity }));
+  const response = await client.messages.create({
+    model: MODEL,
+    max_tokens: 1024,
+    // Sonnet 5 vychozi na adaptivni thinking i kdyz "thinking" neni zadan a
+    // max_tokens je spolecny strop pro thinking+odpoved - u jednoducheho
+    // vytahovani frazi z dodanych dat neni thinking potreba a jen orizne
+    // JSON (stop_reason: max_tokens). Vypnuto zamerne.
+    thinking: { type: "disabled" },
+    system: CHECKLIST_SYSTEM_PROMPT,
+    output_config: {
+      format: { type: "json_schema", schema: CHECKLIST_SCHEMA },
+    },
+    messages: [
+      {
+        role: "user",
+        content:
+          "Zde jsou temata tohoto tydenniho prehledu. Sestav z nich checklist podle schematu a instrukci v system promptu:\n\n" +
+          JSON.stringify(payload, null, 2),
+      },
+    ],
+  });
+  if (response.stop_reason === "refusal") {
+    throw new Error("Claude API odmitlo sestavit checklist (stop_reason: refusal).");
+  }
+  const textBlock = response.content.find((b) => b.type === "text");
+  if (!textBlock) {
+    throw new Error("Odpoved na checklist neobsahuje zadny text blok.");
+  }
+  return JSON.parse(textBlock.text);
+}
+
+// Overi, ze topicIndices kazde polozky odkazuji na existujici temata, a
+// vrati jen text validnich polozek. Nevalidni polozky se zahodi s varovanim
+// do konzole (stejny nekekajici vzor jako sanityCheck v generate-test-card.mjs)
+// - checklist je volitelne pole, takze zahozeni jedne polozky neni fatalni.
+export function extractValidChecklistItems(checklistResult, topicsLength) {
+  const validTexts = [];
+  const items = checklistResult?.items || [];
+  for (const item of items) {
+    const indices = item.topicIndices || [];
+    const allValid =
+      indices.length > 0 &&
+      indices.every((i) => Number.isInteger(i) && i >= 0 && i < topicsLength);
+    if (!allValid) {
+      console.log(
+        `  POZOR - checklist polozka "${item.text}" ma neplatne topicIndices (${JSON.stringify(item.topicIndices)}) - zahazuji.`
+      );
+      continue;
+    }
+    validTexts.push(item.text);
+  }
+  return validTexts;
+}
+
 async function generateLead(client, topics) {
   const payload = topics.map((t) => ({ country: t.country, title: t.title, body: t.body }));
   const response = await client.messages.create({
@@ -257,8 +350,17 @@ async function main() {
     return;
   }
 
-  console.log(`\nSestavuji title/lead z ${topics.length} vygenerovanych temat...`);
-  const envelope = await generateLead(client, topics);
+  console.log(`\nSestavuji title/lead a checklist z ${topics.length} vygenerovanych temat...`);
+  const [envelope, checklistResult] = await Promise.all([
+    generateLead(client, topics),
+    generateChecklist(client, topics),
+  ]);
+  const checklist = extractValidChecklistItems(checklistResult, topics.length);
+  console.log(
+    checklist.length > 0
+      ? `Checklist: ${checklist.length} polozek.`
+      : `Checklist: zadne tema neneslo konkretni akci, pole se vynecha.`
+  );
 
   const today = new Date();
   const dateRange = formatDateRange(today);
@@ -271,6 +373,7 @@ async function main() {
     dateRange,
     lead: envelope.lead,
     topics,
+    ...(checklist.length > 0 ? { checklist } : {}),
     draft: false,
   };
 
