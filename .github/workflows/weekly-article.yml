@@ -40,6 +40,11 @@ jobs:
       - name: Validovat vygenerovaný článek
         run: node scripts/validate-article.mjs "${{ steps.generate.outputs.article_path }}" reports/weekly-article-manifest.json
 
+      - name: Přeložit článek (DeepL)
+        env:
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
+        run: node scripts/translate-article.mjs "${{ steps.generate.outputs.article_path }}"
+
       - name: Shrnutí do GitHub Actions summary
         run: |
           node -e '

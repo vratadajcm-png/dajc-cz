@@ -31,6 +31,7 @@ import {
   MODEL,
   generateCard,
   sanityCheck,
+  normalize,
 } from "./generate-test-card.mjs";
 import { MAX_AGE_DAYS, computeAgeDays } from "./validate-article.mjs";
 
@@ -41,7 +42,11 @@ const REPORTS_DIR = path.join(ROOT, "reports");
 const MANIFEST_PATH = path.join(REPORTS_DIR, "weekly-article-manifest.json");
 const LAST_PATH_FILE = path.join(REPORTS_DIR, "last-generated-article-path.txt");
 
-const DEFAULT_TOPIC_COUNT = 5;
+// Strop, ne pevny pocet - stavajici logika uz umi vratit min, kdyz neni z
+// ceho vybirat (viz "picked.length" nize), takze skutecny pocet temat v
+// clanku je 0..20 podle dostupnosti cerstvych/validnich kandidatu, bez
+// umeleho doplnovani.
+const DEFAULT_TOPIC_COUNT = 20;
 const TOPIC_COUNT = Number(process.env.WEEKLY_ARTICLE_TOPIC_COUNT) || DEFAULT_TOPIC_COUNT;
 
 // --- freshness filtr (Faze 5.1) ---------------------------------------------
@@ -64,16 +69,159 @@ export function isFreshEnough(candidate, maxAgeDays) {
   return ageDays !== null && ageDays <= maxAgeDays;
 }
 
+// --- deduplikace kandidatu se stejnou faktickou zpravou --------------------
+// Bezi PRED scoringem/vyberem (na freshCandidates), aby dve verze te same
+// zpravy nikdy neobsadily dva sloty z pozadovaneho poctu temat najednou.
+// Motivovano realnym pripadem: cz-czechtoll publikuje tutez zpravu o mytnem
+// zvlast v cestine a zvlast v anglictine (dva ruzne odkazy/dva ruzne clanky
+// ve feedu) - proste porovnani URL zdroje to neodhali.
+//
+// Porovnava se jen uvnitr stejne zeme (candidate.country). Pouzivaji se dva
+// nezavisle signaly podobnosti, protoze duplicity mohou byt i mezijazykove:
+//  - slovni prekryv (Jaccard) na normalizovanem titulku - chyti duplicity ve
+//    stejnem jazyce,
+//  - cislovy fingerprint (castky, procenta) z titulku+snippetu - chyti i
+//    mezijazykove duplicity, kde slovni podobnost selze, ale fakta (cisla)
+//    jsou identicka.
+const TITLE_JACCARD_THRESHOLD = 0.5;
+const NUMBER_JACCARD_THRESHOLD = 0.6;
+const MIN_SHARED_NUMBERS = 2;
+
+function titleWordSet(text) {
+  // \p{L}\p{N} (Unicode-aware, ne jen a-z0-9) - zdroje obsahuji i cyrilici
+  // (by-belavtodor) a dalsi ne-latinkove znaky, ktere by jinak regex smazal
+  // beze zbytku a vsechny takove titulky by kolabovaly na stejnou (prazdnou
+  // nebo jen ciselnou) mnozinu token - viz test s "Транспортный вестник...".
+  return new Set(
+    normalize(text)
+      .replace(/[^\p{L}\p{N}\s]/gu, " ")
+      .split(/\s+/)
+      .filter((w) => w.length >= 4)
+  );
+}
+
+// Hole letopocty (1900-2099) se z fingerprintu vyrazuji - realny pripad:
+// periodicky bulletin (by-belavtodor "Транспортный вестник <datum>: ...")
+// ma datum vydani v kazdem titulku, takze ruzne polozky ze stejneho dne
+// sdilely tokeny "23.07"+"2026" a falesne se oznacily jako duplicita, i kdyz
+// slo o 4 ruzne zpravy. Rok sam o sobe nese skoro nulovou informaci o tom,
+// jestli jde o stejnou udalost - penezni castky/procenta/pocty ano.
+function isLikelyBareYear(token) {
+  return /^(19|20)\d{2}$/.test(token);
+}
+
+function numberSet(text) {
+  const matches = normalize(text).match(/\d+(?:[.,]\d+)?/g) || [];
+  return new Set(
+    matches
+      .map((n) => n.replace(",", "."))
+      .filter((n) => Number(n) >= 2 && !isLikelyBareYear(n)) // drobna cisla (1, "1." apod.) jsou moc casty sum
+  );
+}
+
+function jaccard(setA, setB) {
+  if (setA.size === 0 || setB.size === 0) return 0;
+  let intersection = 0;
+  for (const x of setA) if (setB.has(x)) intersection++;
+  return intersection / (setA.size + setB.size - intersection);
+}
+
+function isDuplicateCandidate(a, b) {
+  const titleSim = jaccard(titleWordSet(a.title), titleWordSet(b.title));
+  if (titleSim >= TITLE_JACCARD_THRESHOLD) return true;
+
+  const numsA = numberSet(`${a.title} ${a.contentSnippet || ""}`);
+  const numsB = numberSet(`${b.title} ${b.contentSnippet || ""}`);
+  let sharedCount = 0;
+  for (const n of numsA) if (numsB.has(n)) sharedCount++;
+  return sharedCount >= MIN_SHARED_NUMBERS && jaccard(numsA, numsB) >= NUMBER_JACCARD_THRESHOLD;
+}
+
+// Shlukovani je "single-linkage" (any-match): kandidat patri do prvniho
+// shluku, kde je duplicitni s KTERYMKOLIV jiz zarazenym clenem, ne jen s
+// prvnim. Z kazdeho shluku > 1 se ponecha jen jeden reprezentant - s
+// nejvyssim relevance skore, pri shode delsi snippet, pak drivejsi pubDate.
+export function deduplicateCandidates(candidates) {
+  const byCountry = new Map();
+  for (const c of candidates) {
+    const list = byCountry.get(c.country) || [];
+    list.push(c);
+    byCountry.set(c.country, list);
+  }
+
+  const kept = [];
+  const dropped = [];
+  for (const group of byCountry.values()) {
+    const clusters = [];
+    for (const candidate of group) {
+      const cluster = clusters.find((cl) =>
+        cl.some((existing) => isDuplicateCandidate(existing, candidate))
+      );
+      if (cluster) {
+        cluster.push(candidate);
+      } else {
+        clusters.push([candidate]);
+      }
+    }
+
+    for (const cluster of clusters) {
+      if (cluster.length === 1) {
+        kept.push(cluster[0]);
+        continue;
+      }
+      const ranked = cluster
+        .map((c) => ({
+          candidate: c,
+          score: scoreCandidate(c).score,
+          snippetLen: (c.contentSnippet || "").length,
+        }))
+        .sort((a, b) => {
+          if (b.score !== a.score) return b.score - a.score;
+          if (b.snippetLen !== a.snippetLen) return b.snippetLen - a.snippetLen;
+          return (a.candidate.pubDate || "").localeCompare(b.candidate.pubDate || "");
+        });
+      kept.push(ranked[0].candidate);
+      for (const r of ranked.slice(1)) dropped.push(r.candidate);
+    }
+  }
+
+  if (dropped.length > 0) {
+    console.log(`Deduplikace: odstraneno ${dropped.length} duplicitnich kandidatu (stejna zprava, jiny zdroj/jazyk):`);
+    for (const d of dropped) {
+      console.log(`  [${d.sourceId}, ${d.country}] "${d.title}"`);
+    }
+  }
+
+  // zachovat puvodni poradi vstupu, at je vystup deterministicky pro dalsi kroky
+  const keptSet = new Set(kept);
+  return candidates.filter((c) => keptSet.has(c));
+}
+
+// --- geograficka priorita ("sirsi stredni Evropa") -------------------------
+// Tvrde pravidlo, ne preference: KAZDY kandidat z CORE_COUNTRIES se v poradi
+// umisti pred KAZDYM kandidatem mimo tuto skupinu, bez ohledu na relevance
+// skore. Uvnitr kazde skupiny se stale radi podle skore jako driv. Pokud
+// zadny core kandidat neexistuje, chovani je shodne se stavajicim (jen
+// razeni podle skore).
+export const CORE_COUNTRIES = ["CZ", "SK", "PL", "AT", "DE", "HU"];
+
 // --- vyber top N kandidatu (rozsireni Faze 3, ktera brala jen nejlepsi 1) ---
 export function selectTopCandidates(candidates, count) {
   const scored = candidates
     .map((c) => ({ candidate: c, ...scoreCandidate(c) }))
-    .filter((s) => s.score > 0)
+    .filter((s) => s.score > 0);
+
+  const core = scored
+    .filter((s) => CORE_COUNTRIES.includes(s.candidate.country))
     .sort((a, b) => b.score - a.score);
+  const rest = scored
+    .filter((s) => !CORE_COUNTRIES.includes(s.candidate.country))
+    .sort((a, b) => b.score - a.score);
+  const ordered = [...core, ...rest];
 
   const seenLinks = new Set();
   const picked = [];
-  for (const s of scored) {
+  for (const s of ordered) {
     if (!s.candidate.link || seenLinks.has(s.candidate.link)) continue;
     seenLinks.add(s.candidate.link);
     picked.push(s);
@@ -291,7 +439,9 @@ async function main() {
     );
   }
 
-  const picked = selectTopCandidates(freshCandidates, TOPIC_COUNT);
+  const dedupedCandidates = deduplicateCandidates(freshCandidates);
+
+  const picked = selectTopCandidates(dedupedCandidates, TOPIC_COUNT);
   if (picked.length === 0) {
     console.error(
       "Zadna cerstva polozka tento tyden neobsahuje zadne z klicovych slov relevance (viz KEYWORDS v generate-test-card.mjs) - " +
