@@ -44,7 +44,7 @@ export default function Home() {
               href="https://dajc.eu"
               className="inline-flex items-center justify-center rounded-full bg-dajc-orange px-8 py-4 text-lg font-semibold text-dajc-dark transition hover:brightness-110"
             >
-              Přejít na DAJC
+              Otevřít platformu na dajc.eu
             </a>
             <a
               href="#novinky"
