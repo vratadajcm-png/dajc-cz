@@ -20,6 +20,73 @@ přípravy vynulovalo počet kandidátů na 0 (žádný zdroj aktuálně `true`)
 zastavilo by páteční automatizaci úplně. Samostatný úkol, mimo rozsah
 opravy `sk-nds`.
 
+## Zjištěno: sk-nds servíroval ~10 let starý obsah jako aktuální (vizuálně ověřeno) — a stejný zdrojový odkaz je STÁLE v živém článku
+
+Doplnění k odstranění `sk-nds` z registru (viz commit
+`23c67370c13e345ae35565c8da3dd5ad4f6810f6` a bod o mrtvém `enabled` flagu
+výše) — konkrétní důkaz, proč nešlo o drobný posun v datech, ale o
+systémový problém s `pubDate` u tohoto zdroje:
+
+Uživatel vizuálně ověřil tiskovou zprávu
+`https://ndsas.sk/press/spravy/odstartovali-sme-vystavbu-kysuckej-dialnice`
+("Začala výstavba diaľnice D3 na Kysuciach") — na fotografii ze zprávy je
+čitelné datum na základním kameni stavby: **24. ledna 2017**. Feed ji ale
+servíroval s `pubDate` vypadajícím jako aktuální (proto prošla přes
+freshness filtr při generování). Jde tedy o obsah starý téměř 10 let,
+prezentovaný jako čerstvý — potvrzuje to systémovou nespolehlivost
+`pubDate` u `sk-nds`, ne izolovanou chybu.
+
+**DŮLEŽITÉ — týká se živého obsahu:** tenhle přesný zdrojový odkaz je
+zdrojem tématu "Začala výstavba diaľnice D3 na Kysuciach", které zůstalo
+(jako jediné SK téma) v aktuálně publikovaném
+`content/articles/2026-08-10-tydenni-prehled.json` — bylo vyhodnoceno
+jako legitimní, protože text tématu (title/body/impact) neobsahuje žádný
+čtyřciferný rok (`validateNoStaleYears` ho tedy nezachytila) a obsahově
+nejde o osobní vozidlo/turistiku/trestní věc (`validateRelevance` ho
+taky nezachytila). Zjištěno 2026-08-11, po komitu, který `sk-nds` z
+registru odstranil — **živý článek dosud opraven nebyl**, čeká na
+samostatné rozhodnutí uživatele.
+
+## Vyřešeno: náhradní SK zdroj za sk-nds — cesmad.sk a cdb.sk prověřeny, žádný nepřidán
+
+Ověřeno 2026-08-11 stejnou metodou jako ostatní položky registru (reálné
+HTTP ověření přes curl, ne odhad):
+
+**`cdb.sk` (Cestná databanka, Slovenská správa ciest) — zamítnuto.**
+Skutečný RSS 2.0 feed existuje (`https://www.cdb.sk/rss.ashx?c=308420`,
+nalezen přes `<link rel="alternate">` na homepage), technicky funkční,
+validní `pubDate`. Obsah je ale mimo profil webu — jde o technický/
+geodatový portál a feed obsahuje jen administrativní oznámení o vlastní
+databázi ("Stav aktualizácie 2026", "Aktualizácia údajov CTEPK - 2026",
+"PF 2026" = novoroční přání), ne dopravní zpravodajství. Frekvence navíc
+jen ~2-4 položky ročně — nepoužitelné pro týdenní pipeline i kdyby byl
+obsah relevantní.
+
+**`cesmad.sk` (ČESMAD Slovakia, sdružení dopravců) — obsahově nejlepší
+SK kandidát, který jsme zatím auditovali, ale NEPŘIDÁN kvůli členskému
+paywallu.** Žádný RSS/Atom feed (vyžadovalo by `type: "html-list"`).
+Skutečná news sekce: `https://cesmad.sk/novinky-a-aktuality` →
+`https://cesmad.sk/kategoria/25-aktuality-2/...`. Titulky přesně na
+profil webu — např. "Dočasné dopravné obmedzenia pre vozidlá nad 12 t v
+Bulharsku", "Dodatočné letné zákazy jázd na diaľnici A10 Tauern v
+Rakúsku", "Dočasná výnimka z pravidiel o časoch jazdy a odpočinku vo
+Francúzsku". Data na listing stránce vypadají spolehlivě čerstvá
+(30.06.–07.08.2026 ke dni ověření 11.08.2026), žádná stopa po sk-nds
+bugu s falešně čerstvým `pubDate`.
+
+Zásadní blokátor: **plný text každého článku je za přihlášením**
+(ověřeno na 2 článcích, `302 → /user/login`, listing navíc zobrazuje
+ikonu zámku vedle data). Veřejně dostupný je jen listing — titulek,
+datum, cca 1-2větný excerpt, zdroj. Rozhodnutí, jestli pravidelně
+strojově číst i jen tenhle veřejný listing web sdružení, jehož byznys
+model je členský obsah, je otázka legitimity použití, ne technické
+proveditelnosti.
+
+**Rozhodnutí uživatele:** nepřidávat ani jeden zdroj teď. Registr
+zůstává bez náhradního SK zdroje za `sk-nds`, dokud se nenajde čistší
+alternativa nebo dokud uživatel sám neosloví ČESMAD kvůli svolení k
+použití obsahu.
+
 ## Otevřeno: homografy v KEYWORDS/CARGO_OVERRIDE_PHRASES (generate-test-card.mjs)
 
 Zjištěno 2026-08-11 při opravě substring kolizí (word-boundary matching
