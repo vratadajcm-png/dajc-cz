@@ -1,0 +1,568 @@
+{
+  "slug": "2026-08-10-tydenni-prehled",
+  "title": "Přehled týdne: dálniční stavby, mýtné a dopravní přestupky v Evropě",
+  "dateRange": "10.–16. srpna 2026",
+  "lead": "Tento týden přinesl zprávy z několika evropských zemí týkající se dopravní infrastruktury a bezpečnosti silnic. Na Slovensku odstartovala výstavba úseku dálnice D3 na Kysucích, blíží se konec platnosti elektronických dálničních známek pro rok 2016 a Národná diaľničná spoločnosť zveřejnila i tipy pro letní cestování a informace o zimní údržbě. V Česku vzrostl výběr mýtného za první pololetí, zatímco v Polsku řešili policisté případy řidičů porušujících soudní zákazy řízení. Doplňují to zprávy o zpoždění modernizace norského tunelu, litevském newsletteru k projektu Via Toll a albánském zadávacím řízení na mosty.",
+  "topics": [
+    {
+      "country": "SK",
+      "title": "Začala výstavba diaľnice D3 na Kysuciach",
+      "body": "Národná diaľničná spoločnosť odštartovala výstavbu úseku diaľnice D3 v dĺžke 5 673 m, ktorý zahŕňa 19 mostov, 2 križovatky, 11 km protihlukových stien a 6 km oplotenia. V súčasnosti je doprava v tejto oblasti vedená po cestách prvej triedy cez mesto Čadca a obec Svrčinovec, čo znižuje plynulosť dopravy.",
+      "impact": "Po dokončení diaľnice sa tranzitná doprava smerujúca na hraničné priechody s Českom a Poľskom presunie mimo mesta Čadca a obce Svrčinovec, čím sa skráti čas jazdy približne o 5 minút a zvýši sa plynulosť aj bezpečnosť prepravy.",
+      "source": {
+        "name": "Narodna dialnicna spolocnost (NDS)",
+        "url": "https://ndsas.sk/press/spravy/odstartovali-sme-vystavbu-kysuckej-dialnice"
+      }
+    },
+    {
+      "country": "CZ",
+      "title": "Výběr mýtného v ČR za první pololetí přesáhl 10 miliard korun",
+      "body": "Na dálnicích a zpoplatněných úsecích silnic I. třídy bylo v prvním pololetí letošního roku vybráno mýtné ve výši 10,07 miliardy korun, což je meziroční nárůst o 5,7 procenta. Více než polovinu (54 %) z celkové vybrané částky uhradili zahraniční dopravci, 88 procent mýtného pak zaplatili dopravci vozidly nad určitou hmotnostní kategorii.",
+      "source": {
+        "name": "CzechToll (provozovatel elektronickeho mytneho systemu CR)",
+        "url": "https://www.czechtoll.cz/vyber-mytneho-za-pul-roku-prekonal-hranici-10-miliard-korun-mezirocne-rostl-o-57-procenta/"
+      }
+    },
+    {
+      "country": "SK",
+      "title": "Blíži sa koniec platnosti elektronických diaľničných známok na rok 2016",
+      "body": "Národná diaľničná spoločnosť upozorňuje motoristov, že platnosť ročných elektronických diaľničných známok pre rok 2016 skončí 31. januára 2017. Novú známku (ročnú, 30-dňovú alebo 10-dňovú) je možné zakúpiť cez portál www.eznamka.sk, mobilnú aplikáciu alebo na čerpacích staniciach označených logom „eznámka“. Motoristi by mali pri kúpe skontrolovať správnosť zadaného EČV.",
+      "impact": "Vodiči musia mať zakúpenú platnú diaľničnú známku na rok 2017 najneskôr do 31. januára 2017, inak riskujú jazdu bez platnej známky na spoplatnených úsekoch diaľnic a rýchlostných ciest na Slovensku.",
+      "validity": "Platnosť ročných eDZ 2016 končí 31. januára 2017",
+      "source": {
+        "name": "Narodna dialnicna spolocnost (NDS)",
+        "url": "https://ndsas.sk/press/spravy/nezabudnite-na-kupu-novej-elektronickej-dialnicnej-znamky"
+      }
+    },
+    {
+      "country": "SK",
+      "title": "Rady pre cestovanie autom po Slovensku počas dovoleniek",
+      "body": "Národná diaľničná spoločnosť pripravila tipy pre motoristov na cestu po Slovensku počas letnej dovolenkovej sezóny. Odporúča zastávky na odpočívadlách, upozorňuje na bezplatnú Diaľničnú patrolu (linka 0800 100 007) a radí, čo si pribaliť na cestu.",
+      "source": {
+        "name": "Narodna dialnicna spolocnost (NDS)",
+        "url": "https://ndsas.sk/press/blog/autom-na-dovolenku-po-slovensku"
+      }
+    },
+    {
+      "country": "PL",
+      "title": "24-latek z Lubina ponownie jeździł mimo zakazu prowadzenia pojazdów",
+      "body": "Policjanci z Lubina zatrzymali 24-letniego mieszkańca miasta, który mimo trzech obowiązujących sądowych zakazów prowadzenia pojazdów mechanicznych wielokrotnie ponownie siadał za kierownicą. Na podstawie analizy monitoringu miejskiego i zebranych dowodów przedstawiono mu 30 zarzutów, za co grozi kara pozbawienia wolności do 5 lat.",
+      "source": {
+        "name": "Policja.pl - Aktualnosci",
+        "url": "https://policja.pl/pol/aktualnosci/280419,30-zarzutow-uslyszal-quotzakazowiecquot-ktory-ponownie-wsiadl-za-kierownice-samo.html"
+      }
+    },
+    {
+      "country": "PL",
+      "title": "49letý Gruzínec deportován za porušení soudního zákazu řízení vozidel",
+      "body": "Policisté v Opolu zastavili při silniční kontrole 49letého občana Gruzie, který řídil auto navzdory platnému soudnímu zákazu řízení všech motorových vozidel. Nešlo o první porušení dopravních předpisů tímto mužem. Po zákroku policie byl předán Pohraniční stráži, která vydala rozhodnutí o deportaci a desetiletém zákazu opětovného vjezdu na území Polska a dalších zemí Schengenu.",
+      "source": {
+        "name": "Policja.pl - Aktualnosci",
+        "url": "https://policja.pl/pol/aktualnosci/280405,49-letni-Gruzin-deportowany-po-zlamaniu-orzeczenia-sadu-o-zakazie-prowadzenia-po.html"
+      }
+    },
+    {
+      "country": "SK",
+      "title": "Posypového materiálu sme už spotrebovali ako inokedy za celú zimu",
+      "body": "Počas víkendu od 13. do 15. januára vyslalo 15 stredísk údržby na Slovensku svoje mechanizmy 921-krát, spotrebovalo 2 500 ton posypového materiálu a najazdilo viac ako 28 000 kilometrov. Na zabezpečení zjazdnosti diaľnic a rýchlostných ciest pracovalo takmer 700 zamestnancov NDS.",
+      "impact": "Vodiči na diaľniciach a rýchlostných cestách môžu očakávať intenzívne zásahy zimnej údržby a možné zhoršené podmienky vzhľadom na silné sneženie v uvedenom období.",
+      "source": {
+        "name": "Narodna dialnicna spolocnost (NDS)",
+        "url": "https://ndsas.sk/press/spravy/posypoveho-materialu-sme-uz-spotrebovali-ako-inokedy-za-celu-zimu"
+      }
+    },
+    {
+      "country": "NO",
+      "title": "Zpoždění zahájení modernizace tunelu Lærdalstunnelen kvůli stížnosti",
+      "body": "Modernizace tunelu E16 Lærdalstunnelen se zpožďuje kvůli stížnosti jednoho z dodavatelů. O věci má rozhodnout soud koncem srpna.",
+      "source": {
+        "name": "Statens vegvesen",
+        "url": "https://www.vegvesen.no/nn/vegprosjekt/prosjekt/e16lardalstunnelen/nyheitsarkiv/klage-gir-utsetting/"
+      }
+    },
+    {
+      "country": "LT",
+      "title": "Via Lietuva představuje newsletter projektu „Via Toll“",
+      "body": "Litevská správa silnic Via Lietuva zveřejnila newsletter věnovaný projektu „Via Toll“. Zpráva pouze oznamuje vydání tohoto informačního bulletinu.",
+      "source": {
+        "name": "Via Lietuva (drive Lietuvos automobiliu keliu direkcija/LAKD)",
+        "url": "https://vialietuva.lt/naujienos/via-toll/via-lietuva-pristato-via-toll-projekto-naujienlaiski"
+      }
+    },
+    {
+      "country": "AL",
+      "title": "Oznámení o konkrétním zadávacím řízení pro mosty skupiny B1",
+      "body": "Albánský silniční úřad (ARRSH) zveřejnil oznámení o zadávacím řízení týkající se mostů skupiny B1. K oznámení je přiložen dokument „260722 – SPN_RFB_Group B1 Bridges.pdf“.",
+      "source": {
+        "name": "ARRSH - Autoriteti Rrugor Shqiptar (Albansky silnicni urad)",
+        "url": "https://www.arrsh.gov.al/specific-procurement-notice-of-group-b1-bridges.html"
+      }
+    }
+  ],
+  "checklist": [
+    "Počítejte s omezenou plynulostí dopravy přes Čadcu a Svrčinovec, dokud nebude dokončen nový úsek diaľnice D3 na Kysuciach.",
+    "Do 31. ledna 2017 si zajistěte novou diaľniční známku na rok 2017, platnost známek 2016 tímto dnem končí.",
+    "Při nákupu diaľniční známky na Slovensku zkontrolujte správnost zadané EČV.",
+    "Při plánování cesty po Slovensku využijte odpočívadla a v případě potřeby bezplatnou linku Diaľničnej patroly 0800 100 007.",
+    "Na slovenských diaľniciach a rýchlostných cestách počítejte s intenzivními zásahy zimní údržby a možným zhoršením podmínek při silném sněžení."
+  ],
+  "draft": false,
+  "translations": {
+    "en": {
+      "title": "Weekly Roundup: Highway Construction, Tolls, and Traffic Violations in Europe",
+      "lead": "This week brought news from several European countries regarding transportation infrastructure and road safety. In Slovakia, construction began on a section of the D3 highway in the Kysuce region; the expiration date for 2016 electronic highway toll stickers is approaching; and the National Highway Company also published tips for summer travel and information on winter maintenance. In the Czech Republic, toll revenue increased in the first half of the year, while in Poland, police dealt with cases of drivers violating court-imposed driving bans. Rounding out the news are reports on delays in the modernization of a Norwegian tunnel, a Lithuanian newsletter on the Via Toll project, and an Albanian tender for bridges.",
+      "checklist": [
+        "Expect traffic delays through Čadca and Svrčinovec until the new section of the D3 highway in Kysuce is completed.",
+        "Be sure to purchase your new 2017 highway toll sticker by January 31, 2017; the 2016 toll stickers will expire on that date.",
+        "When purchasing a highway vignette in Slovakia, please check that the license plate number you entered is correct.",
+        "When planning a trip through Slovakia, be sure to use the rest areas and, if necessary, call the Highway Patrol’s toll-free number at 0800 100 007.",
+        "On Slovakian highways and expressways, expect intensive winter maintenance operations and a possible deterioration in road conditions during heavy snowfall."
+      ],
+      "topics": [
+        {
+          "title": "Construction of the D3 Highway in the Kysuce Region Has Begun",
+          "body": "The National Highway Company has begun construction on a 5,673-meter section of the D3 highway, which includes 19 bridges, 2 intersections, 11 km of noise barriers, and 6 km of fencing. Currently, traffic in this area is routed along first-class roads through the town of Čadca and the village of Svrčinovec, which reduces traffic flow.",
+          "impact": "Once the highway is completed, transit traffic heading toward the border crossings with the Czech Republic and Poland will be rerouted away from the town of Čadca and the village of Svrčinovec, thereby shortening travel time by approximately 5 minutes and improving both traffic flow and safety."
+        },
+        {
+          "title": "Toll revenue in the Czech Republic exceeded 10 billion crowns in the first half of the year",
+          "body": "In the first half of this year, toll revenue totaling 10.07 billion crowns was collected on highways and toll sections of Class I roads, representing a year-over-year increase of 5.7 percent. More than half (54%) of the total amount collected was paid by foreign carriers, while 88 percent of the tolls were paid by carriers operating vehicles above a certain weight category."
+        },
+        {
+          "title": "The expiration date for 2016 electronic toll stickers is approaching",
+          "body": "The National Highway Company reminds motorists that the validity of annual electronic toll stickers for 2016 will expire on January 31, 2017. New vignettes (annual, 30-day, or 10-day) can be purchased via the www.eznamka.sk website, the mobile app, or at gas stations marked with the “eznámka” logo. Motorists should verify that the license plate number entered is correct at the time of purchase.",
+          "impact": "Drivers must purchase a valid 2017 toll sticker by January 31, 2017, at the latest; otherwise they risk driving without a valid vignette on toll sections of highways and expressways in Slovakia.",
+          "validity": "The validity of the 2016 annual eDZs expires on January 31, 2017"
+        },
+        {
+          "title": "Tips for Traveling by Car in Slovakia During the Holidays",
+          "body": "The National Highway Company has prepared tips for drivers traveling in Slovakia during the summer vacation season. It recommends stopping at rest areas, highlights the free Highway Patrol (hotline 0800 100 007), and offers advice on what to pack for the trip."
+        },
+        {
+          "title": "A 24-year-old man from Lubin drove again despite having a suspended driver's license",
+          "body": "Police officers in Lubin arrested a 24-year-old resident of the city who, despite three valid court-imposed driving bans, repeatedly got behind the wheel again. Based on an analysis of city surveillance footage and the evidence gathered, he was charged with 30 counts, for which he faces up to 5 years in prison."
+        },
+        {
+          "title": "49-Year-Old Georgian Deported for Violating a Court-Ordered Driving Ban",
+          "body": "During a traffic stop in Opole, police officers pulled over a 49-year-old Georgian citizen who was driving a car despite a valid court-imposed ban on driving any motor vehicles. This was not the man’s first traffic violation. Following the police intervention, he was handed over to the Border Guard, which issued a deportation order and a ten-year ban on re-entry into Poland and other Schengen countries."
+        },
+        {
+          "title": "We've already used up as much de-icing material as we usually do in an entire winter",
+          "body": "Over the weekend of January 13–15, 15 maintenance centers in Slovakia deployed their equipment 921 times, used 2,500 metric tons of de-icing material, and covered more than 28,000 kilometers. Nearly 700 NDS employees worked to ensure that highways and expressways remained passable.",
+          "impact": "Drivers on highways and expressways can expect intensive winter maintenance efforts and potentially poor road conditions due to heavy snowfall during this period."
+        },
+        {
+          "title": "Delay in the Start of the Lærdalstunnelen Tunnel Modernization Due to a Complaint",
+          "body": "The modernization of the E16 Lærdalstunnelen tunnel is being delayed due to a complaint filed by one of the contractors. A court is scheduled to rule on the matter in late August."
+        },
+        {
+          "title": "Via Lietuva Presents the \"Via Toll\" Project Newsletter",
+          "body": "The Lithuanian road administration Via Lietuva has published a newsletter dedicated to the “Via Toll” project. This report merely announces the publication of this newsletter."
+        },
+        {
+          "title": "Notice of a Specific Procurement Procedure for Group B1 Bridges",
+          "body": "The Albanian Road Authority (ARRSH) has published a tender notice regarding Group B1 bridges. The document “260722 – SPN_RFB_Group B1 Bridges.pdf” is attached to the notice."
+        }
+      ]
+    },
+    "de": {
+      "title": "Wochenrückblick: Autobahnbauprojekte, Mautgebühren und Verkehrsverstöße in Europa",
+      "lead": "In dieser Woche gab es Meldungen aus mehreren europäischen Ländern zum Thema Verkehrsinfrastruktur und Straßenverkehrssicherheit. In der Slowakei hat der Bau eines Abschnitts der Autobahn D3 in Kysuce begonnen, die Gültigkeit der elektronischen Autobahnvignetten für das Jahr 2016 neigt sich dem Ende zu, und die Národná diaľničná spoločnosť hat Tipps für das Reisen im Sommer sowie Informationen zum Winterdienst veröffentlicht. In Tschechien stiegen die Mauteinnahmen im ersten Halbjahr, während die Polizei in Polen Fälle von Fahrern bearbeitete, die gegen gerichtliche Fahrverbote verstießen. Ergänzt werden diese Meldungen durch Berichte über Verzögerungen bei der Modernisierung eines norwegischen Tunnels, einen litauischen Newsletter zum Projekt „Via Toll“ und ein albanisches Ausschreibungsverfahren für Brücken.",
+      "checklist": [
+        "Rechnen Sie mit Verkehrsbehinderungen in Čadca und Svrčinovec, bis der neue Abschnitt der Autobahn D3 in Kysuce fertiggestellt ist.",
+        "Besorgen Sie sich bis zum 31. Januar 2017 eine neue Autobahnvignette für das Jahr 2017; die Gültigkeit der Vignetten für 2016 endet an diesem Tag.",
+        "Bitte überprüfen Sie beim Kauf einer Autobahnvignette in der Slowakei, ob das eingegebene Kfz-Kennzeichen korrekt ist.",
+        "Nutzen Sie bei der Planung Ihrer Reise durch die Slowakei die Rastplätze und wenden Sie sich bei Bedarf an die kostenlose Hotline der Autobahnpolizei unter 0800 100 007.",
+        "Rechnen Sie auf den slowakischen Autobahnen und Schnellstraßen mit intensiven Winterdienstmaßnahmen und einer möglichen Verschlechterung der Straßenverhältnisse bei starkem Schneefall."
+      ],
+      "topics": [
+        {
+          "title": "Der Bau der Autobahn D3 in Kysuce hat begonnen",
+          "body": "Die Nationale Autobahngesellschaft hat mit dem Bau eines 5.673 m langen Abschnitts der Autobahn D3 begonnen, der 19 Brücken, 2 Kreuzungen, 11 km Lärmschutzwände und 6 km Umzäunung umfasst. Derzeit wird der Verkehr in diesem Gebiet über Straßen erster Klasse durch die Stadt Čadca und die Gemeinde Svrčinovec geleitet, was den Verkehrsfluss beeinträchtigt.",
+          "impact": "Nach Fertigstellung der Autobahn wird der Transitverkehr in Richtung der Grenzübergänge zu Tschechien und Polen an den Orten Čadca und Svrčinovec vorbeiführen, wodurch sich die Fahrzeit um etwa 5 Minuten verkürzt und sowohl der Verkehrsfluss als auch die Verkehrssicherheit verbessert werden."
+        },
+        {
+          "title": "Die Mauteinnahmen in der Tschechischen Republik beliefen sich im ersten Halbjahr auf über 10 Milliarden Kronen",
+          "body": "Auf Autobahnen und mautpflichtigen Abschnitten von Straßen der Klasse I wurden im ersten Halbjahr dieses Jahres Mauteinnahmen in Höhe von 10,07 Milliarden Kronen erzielt, was einem Anstieg von 5,7 Prozent gegenüber dem Vorjahr entspricht. Mehr als die Hälfte (54 %) des gesamten eingenommenen Betrags wurde von ausländischen Transportunternehmen entrichtet, 88 Prozent der Mautgebühren wurden von Transportunternehmen mit Fahrzeugen oberhalb einer bestimmten Gewichtsklasse gezahlt."
+        },
+        {
+          "title": "Die Gültigkeitsdauer der elektronischen Autobahnvignetten für das Jahr 2016 neigt sich dem Ende zu",
+          "body": "Die Nationale Autobahngesellschaft weist Autofahrer darauf hin, dass die Gültigkeit der elektronischen Jahresvignetten für das Jahr 2016 am 31. Januar 2017 endet. Eine neue Vignette (Jahres-, 30-Tage- oder 10-Tage-Vignette) kann über das Portal www.eznamka.sk, die mobile App oder an Tankstellen mit dem „eznámka“-Logo erworben werden. Autofahrer sollten beim Kauf die Richtigkeit des eingegebenen Kennzeichens überprüfen.",
+          "impact": "Autofahrer müssen spätestens bis zum 31. Januar 2017 eine gültige Autobahnvignette für das Jahr 2017 erworben haben, ansonsten riskieren sie, auf mautpflichtigen Abschnitten von Autobahnen und Schnellstraßen in der Slowakei ohne gültige Vignette zu fahren.",
+          "validity": "Die Gültigkeit der jährlichen eDZ für 2016 endet am 31. Januar 2017"
+        },
+        {
+          "title": "Tipps für Autofahrten in der Slowakei während der Ferien",
+          "body": "Die Nationale Autobahngesellschaft hat Tipps für Autofahrer zusammengestellt, die während der Sommerurlaubssaison durch die Slowakei reisen. Sie empfiehlt Pausen an Raststätten, weist auf die kostenlose Autobahnpatrouille (Hotline 0800 100 007) hin und gibt Tipps, was man für die Reise einpacken sollte."
+        },
+        {
+          "title": "Ein 24-Jähriger aus Lubin fuhr erneut trotz Fahrverbots",
+          "body": "Polizisten aus Lubin haben einen 24-jährigen Einwohner der Stadt festgenommen, der sich trotz dreier geltender gerichtlicher Fahrverbote wiederholt ans Steuer gesetzt hatte. Auf der Grundlage der Auswertung von Aufnahmen der städtischen Videoüberwachung und der gesammelten Beweise wurden ihm 30 Anklagepunkte vorgeworfen, für die eine Freiheitsstrafe von bis zu fünf Jahren droht."
+        },
+        {
+          "title": "49-jähriger Georgier wegen Verstoßes gegen ein gerichtliches Fahrverbot abgeschoben",
+          "body": "Polizisten in Opole hielten bei einer Verkehrskontrolle einen 49-jährigen georgischen Staatsbürger an, der trotz eines geltenden gerichtlichen Fahrverbots für alle Kraftfahrzeuge ein Auto fuhr. Es handelte sich nicht um den ersten Verstoß gegen die Verkehrsregeln durch diesen Mann. Nach dem Polizeieinsatz wurde er an die Grenzschutzbehörde übergeben, die einen Abschiebungsbescheid sowie ein zehnjähriges Einreiseverbot für Polen und andere Schengen-Staaten erließ."
+        },
+        {
+          "title": "Wir haben bereits so viel Streugut verbraucht wie sonst erst im Laufe des ganzen Winters",
+          "body": "Am Wochenende vom 13. bis 15. Januar setzten 15 Straßenmeistereien in der Slowakei ihre Maschinen 921 Mal ein, verbrauchten 2.500 Tonnen Streugut und legten mehr als 28.000 Kilometer zurück. Fast 700 Mitarbeiter der NDS waren im Einsatz, um die Befahrbarkeit der Autobahnen und Schnellstraßen sicherzustellen.",
+          "impact": "Autofahrer auf Autobahnen und Schnellstraßen müssen aufgrund des starken Schneefalls in diesem Zeitraum mit intensiven Winterdienstmaßnahmen und möglicherweise verschlechterten Straßenverhältnissen rechnen."
+        },
+        {
+          "title": "Verzögerung beim Beginn der Modernisierung des Lærdalstunnelen aufgrund einer Beschwerde",
+          "body": "Die Modernisierung des E16-Tunnels „Lærdalstunnelen“ verzögert sich aufgrund einer Beschwerde eines der Auftragnehmer. Ende August soll ein Gericht in dieser Angelegenheit entscheiden."
+        },
+        {
+          "title": "Via Lietuva stellt den Newsletter des Projekts „Via Toll“ vor",
+          "body": "Die litauische Straßenverkehrsbehörde Via Lietuva hat einen Newsletter zum Projekt „Via Toll“ veröffentlicht. In dieser Meldung wird lediglich die Veröffentlichung dieses Informationsbulletins bekannt gegeben."
+        },
+        {
+          "title": "Bekanntmachung über ein konkretes Vergabeverfahren für Brücken der Gruppe B1",
+          "body": "Die albanische Straßenbaubehörde (ARRSH) hat eine Ausschreibungsbekanntmachung bezüglich der Brücken der Gruppe B1 veröffentlicht. Der Bekanntmachung ist das Dokument „260722 – SPN_RFB_Group B1 Bridges.pdf“ beigefügt."
+        }
+      ]
+    },
+    "fr": {
+      "title": "Le point sur la semaine : chantiers autoroutiers, péages et infractions routières en Europe",
+      "lead": "Cette semaine, plusieurs pays européens ont fait l'objet d'actualités concernant les infrastructures de transport et la sécurité routière. En Slovaquie, la construction d'un tronçon de l'autoroute D3 dans la région de Kysuce a démarré, la date d'expiration des vignettes autoroutières électroniques pour l'année 2016 approche et la Národná diaľničná spoločnosť a publié des conseils pour les déplacements estivaux ainsi que des informations sur l'entretien hivernal. En République tchèque, les recettes issues du péage ont augmenté au cours du premier semestre, tandis qu’en Pologne, la police est intervenue auprès de conducteurs ayant enfreint des interdictions de conduire prononcées par la justice. À cela s’ajoutent des informations concernant le retard pris dans la modernisation d’un tunnel norvégien, une lettre d’information lituanienne sur le projet Via Toll et un appel d’offres albanais portant sur des ponts.",
+      "checklist": [
+        "Prévoyez des perturbations de la circulation à Čadca et à Svrčinovec jusqu'à l'achèvement du nouveau tronçon de l'autoroute D3 dans la région de Kysuce.",
+        "Procurez-vous avant le 31 janvier 2017 votre nouvelle vignette autoroutière pour l'année 2017 ; la validité des vignettes 2016 prend fin à cette date.",
+        "Lorsque vous achetez une vignette autoroutière en Slovaquie, vérifiez que le numéro d'immatriculation saisi est correct.",
+        "Lorsque vous planifiez un voyage en Slovaquie, profitez des aires de repos et, si nécessaire, appelez gratuitement la patrouille autoroutière au 0800 100 007.",
+        "Sur les autoroutes et les voies rapides slovaques, attendez-vous à des interventions intensives de déneigement et à une éventuelle détérioration des conditions en cas de fortes chutes de neige."
+      ],
+      "topics": [
+        {
+          "title": "Les travaux de construction de l'autoroute D3 ont commencé dans la région de Kysuce",
+          "body": "La Société nationale des autoroutes a lancé la construction d'un tronçon de l'autoroute D3 d'une longueur de 5 673 m, qui comprend 19 ponts, 2 échangeurs, 11 km de murs antibruit et 6 km de clôtures. Actuellement, la circulation dans cette zone emprunte des routes de première classe traversant la ville de Čadca et la commune de Svrčinovec, ce qui nuit à la fluidité du trafic.",
+          "impact": "Une fois l'autoroute achevée, le trafic de transit en direction des postes-frontières avec la République tchèque et la Pologne sera détourné des villes de Čadca et de Svrčinovec, ce qui permettra de réduire la durée du trajet d'environ 5 minutes et d'améliorer la fluidité et la sécurité du trafic."
+        },
+        {
+          "title": "Les recettes des péages en République tchèque ont dépassé les 10 milliards de couronnes au premier semestre",
+          "body": "Au cours du premier semestre de cette année, les péages perçus sur les autoroutes et les tronçons payants des routes de 1re classe se sont élevés à 10,07 milliards de couronnes, soit une hausse de 5,7 % par rapport à la même période de l'année précédente. Plus de la moitié (54 %) du montant total perçu a été acquittée par des transporteurs étrangers, tandis que 88 % des péages ont été payés par des transporteurs utilisant des véhicules dépassant une certaine catégorie de poids."
+        },
+        {
+          "title": "La date d'expiration des vignettes autoroutières électroniques pour l'année 2016 approche",
+          "body": "La Société nationale des autoroutes informe les automobilistes que la validité des vignettes autoroutières électroniques annuelles pour l'année 2016 prendra fin le 31 janvier 2017. Il est possible d'acheter une nouvelle vignette (annuelle, de 30 jours ou de 10 jours) via le portail www.eznamka.sk, l'application mobile ou dans les stations-service portant le logo « eznámka ». Les automobilistes doivent vérifier l'exactitude du numéro d'immatriculation saisi lors de l'achat.",
+          "impact": "Les conducteurs doivent avoir acheté une vignette autoroutière valide pour l'année 2017 au plus tard le 31 janvier 2017, sinon ils risquent de circuler sans vignette valide sur les tronçons à péage des autoroutes et voies rapides en Slovaquie.",
+          "validity": "La validité des eDZ annuels 2016 expire le 31 janvier 2017"
+        },
+        {
+          "title": "Conseils pour voyager en voiture en Slovaquie pendant les vacances",
+          "body": "La Société nationale des autoroutes a préparé des conseils à l'intention des automobilistes qui voyagent en Slovaquie pendant la saison estivale. Elle recommande de faire des haltes dans les aires de repos, attire l'attention sur la « Patrouille autoroutière » gratuite (numéro 0800 100 007) et donne des conseils sur ce qu'il faut emporter pour le voyage."
+        },
+        {
+          "title": "Un jeune homme de 24 ans originaire de Lubin a de nouveau pris le volant alors qu'il était sous le coup d'une interdiction de conduire",
+          "body": "Les policiers de Lubin ont interpellé un habitant de la ville âgé de 24 ans qui, malgré trois interdictions judiciaires de conduire des véhicules à moteur en vigueur, avait repris le volant à plusieurs reprises. Sur la base de l'analyse des images de vidéosurveillance municipale et des preuves recueillies, 30 chefs d'accusation ont été retenus à son encontre, ce qui est passible d'une peine d'emprisonnement pouvant aller jusqu'à 5 ans."
+        },
+        {
+          "title": "Un Géorgien de 49 ans expulsé pour avoir enfreint une interdiction judiciaire de conduire",
+          "body": "Lors d'un contrôle routier à Opole, des policiers ont interpellé un ressortissant géorgien de 49 ans qui conduisait une voiture alors qu'il faisait l'objet d'une interdiction judiciaire en vigueur de conduire tout véhicule à moteur. Ce n'était pas la première infraction au code de la route commise par cet homme. À la suite de l'intervention de la police, il a été remis à la police des frontières, qui a prononcé une décision d'expulsion et une interdiction de dix ans de revenir sur le territoire de la Pologne et des autres pays de l'espace Schengen."
+        },
+        {
+          "title": "Nous avons déjà utilisé plus de matériau d'épandage que d'habitude pour tout l'hiver",
+          "body": "Au cours du week-end du 13 au 15 janvier, les 15 centres d'entretien de Slovaquie ont déployé leurs engins à 921 reprises, ont utilisé 2 500 tonnes de matériaux d'épandage et ont parcouru plus de 28 000 kilomètres. Près de 700 employés de la NDS ont travaillé pour assurer la praticabilité des autoroutes et des voies rapides.",
+          "impact": "Les automobilistes circulant sur les autoroutes et les voies rapides peuvent s'attendre à des interventions intensives de déneigement et à une éventuelle détérioration des conditions de circulation en raison des fortes chutes de neige prévues pendant cette période."
+        },
+        {
+          "title": "Retard dans le lancement des travaux de modernisation du tunnel de Lærdalstunnelen en raison d'une plainte",
+          "body": "La modernisation du tunnel E16 de Lærdalstunnelen prend du retard en raison d'une plainte déposée par l'un des sous-traitants. Le tribunal doit se prononcer sur cette affaire fin août."
+        },
+        {
+          "title": "Via Lietuva présente la lettre d'information du projet « Via Toll »",
+          "body": "L'administration routière lituanienne Via Lietuva a publié une lettre d'information consacrée au projet « Via Toll ». Le communiqué se contente d'annoncer la parution de cette lettre d'information."
+        },
+        {
+          "title": "Avis de marché spécifique concernant les ponts du groupe B1",
+          "body": "L'Agence albanaise des routes (ARRSH) a publié un avis d'appel d'offres concernant les ponts du groupe B1. L'avis est accompagné du document « 260722 – SPN_RFB_Group B1 Bridges.pdf »."
+        }
+      ]
+    },
+    "it": {
+      "title": "Panoramica della settimana: lavori autostradali, pedaggi e infrazioni al codice della strada in Europa",
+      "lead": "Questa settimana sono giunte notizie da diversi paesi europei in materia di infrastrutture di trasporto e sicurezza stradale. In Slovacchia è iniziata la costruzione del tratto dell’autostrada D3 nella regione di Kysuce, si avvicina la scadenza dei bollini autostradali elettronici per il 2016 e la Národná diaľničná spoločnosť ha pubblicato anche consigli per i viaggi estivi e informazioni sulla manutenzione invernale. Nella Repubblica Ceca è aumentato il gettito dei pedaggi nel primo semestre, mentre in Polonia la polizia ha affrontato casi di conducenti che violavano i divieti di guida imposti dal tribunale. A completare il quadro, notizie sui ritardi nella modernizzazione di un tunnel norvegese, una newsletter lituana sul progetto Via Toll e una gara d’appalto albanese per la realizzazione di ponti.",
+      "checklist": [
+        "Si prega di tenere conto di una circolazione a scorrimento limitato attraverso Čadca e Svrčinovec fino al completamento del nuovo tratto dell'autostrada D3 nella regione di Kysuce.",
+        "Entro il 31 gennaio 2017 procuratevi il nuovo bollino autostradale per il 2017; la validità dei bollini del 2016 scade in tale data.",
+        "Quando acquistate il bollino autostradale in Slovacchia, verificate che il numero di targa inserito sia corretto.",
+        "Quando pianificate un viaggio in Slovacchia, approfittate delle aree di sosta e, se necessario, chiamate il numero verde della Polizia Autostradale 0800 100 007.",
+        "Sulle autostrade e sulle superstrade slovacche sono previsti interventi intensivi di manutenzione invernale e un possibile peggioramento delle condizioni in caso di forti nevicate."
+      ],
+      "topics": [
+        {
+          "title": "Sono iniziati i lavori di costruzione dell'autostrada D3 nella regione di Kysuce",
+          "body": "La Società Nazionale Autostradale ha avviato i lavori di costruzione di un tratto dell’autostrada D3 lungo 5 673 m, che comprende 19 ponti, 2 svincoli, 11 km di barriere antirumore e 6 km di recinzioni. Attualmente il traffico in questa zona viene deviato sulle strade di prima classe che attraversano la città di Čadca e il comune di Svrčinovec, il che riduce la fluidità del traffico.",
+          "impact": "Una volta completata l'autostrada, il traffico di transito diretto verso i valichi di frontiera con la Repubblica Ceca e la Polonia verrà deviato fuori dalla città di Čadca e dal comune di Svrčinovec, riducendo così il tempo di percorrenza di circa 5 minuti e migliorando la fluidità e la sicurezza del traffico."
+        },
+        {
+          "title": "Nel primo semestre, il gettito dei pedaggi nella Repubblica Ceca ha superato i 10 miliardi di corone",
+          "body": "Nelle autostrade e nei tratti a pedaggio delle strade di I classe, nel primo semestre di quest’anno sono stati riscossi pedaggi per un importo di 10,07 miliardi di corone, con un aumento del 5,7% rispetto allo stesso periodo dell’anno precedente. Più della metà (54%) dell’importo totale riscosso è stata versata da trasportatori stranieri, mentre l’88% dei pedaggi è stato pagato da trasportatori con veicoli che superano una determinata categoria di peso."
+        },
+        {
+          "title": "Si avvicina la scadenza dei bollini autostradali elettronici per il 2016",
+          "body": "La Società Nazionale Autostradale avverte gli automobilisti che la validità dei bollini autostradali elettronici annuali per il 2016 scadrà il 31 gennaio 2017. È possibile acquistare il nuovo bollino (annuale, da 30 giorni o da 10 giorni) tramite il portale www.eznamka.sk, l’app mobile o presso le stazioni di servizio contrassegnate dal logo «eznámka». Al momento dell’acquisto, gli automobilisti dovrebbero verificare la correttezza del numero di targa inserito.",
+          "impact": "I conducenti devono aver acquistato un bollino autostradale valido per il 2017 entro e non oltre il 31 gennaio 2017, altrimenti rischiano di circolare senza vignetta valida sui tratti a pedaggio delle autostrade e delle superstrade in Slovacchia.",
+          "validity": "La validità delle eDZ annuali 2016 scade il 31 gennaio 2017"
+        },
+        {
+          "title": "Consigli per viaggiare in auto in Slovacchia durante le vacanze",
+          "body": "La Società Nazionale delle Autostrade ha preparato alcuni consigli per gli automobilisti che viaggiano in Slovacchia durante la stagione estiva delle vacanze. Raccomanda di fare sosta nelle aree di sosta, segnala la disponibilità gratuita della Polizia Autostradale (numero 0800 100 007) e fornisce consigli su cosa mettere in valigia per il viaggio."
+        },
+        {
+          "title": "Il ventiquattrenne di Lubin ha guidato nuovamente nonostante il divieto di guida",
+          "body": "Gli agenti di polizia di Lubin hanno arrestato un ventiquattrenne residente in città che, nonostante tre divieti giudiziari di guidare veicoli a motore, si era rimesso più volte al volante. Sulla base dell’analisi delle immagini delle telecamere di sorveglianza urbana e delle prove raccolte, gli sono state contestate 30 accuse, per le quali è prevista una pena detentiva fino a 5 anni."
+        },
+        {
+          "title": "Un georgiano di 49 anni è stato espulso per aver violato il divieto giudiziario di guidare veicoli",
+          "body": "Durante un controllo stradale, gli agenti di polizia di Opole hanno fermato un cittadino georgiano di 49 anni che guidava un’auto nonostante fosse soggetto a un divieto giudiziario in vigore di guidare qualsiasi veicolo a motore. Non si trattava della prima violazione del codice della strada da parte di quest’uomo. Dopo l’intervento della polizia, è stato consegnato alla Guardia di Frontiera, che ha emesso un provvedimento di espulsione e un divieto decennale di reingresso nel territorio della Polonia e degli altri paesi dell’area Schengen."
+        },
+        {
+          "title": "Abbiamo già consumato più materiale antiscivolo di quanto ne consumassimo di solito in tutto l'inverno",
+          "body": "Durante il fine settimana dal 13 al 15 gennaio, i 15 centri di manutenzione della Slovacchia hanno dispiegato i propri mezzi 921 volte, hanno utilizzato 2.500 tonnellate di materiale antiscivolo e hanno percorso oltre 28.000 chilometri. Quasi 700 dipendenti della NDS hanno lavorato per garantire la percorribilità delle autostrade e delle superstrade.",
+          "impact": "Gli automobilisti che percorrono autostrade e superstrade devono aspettarsi un'intensa attività di manutenzione invernale e un possibile peggioramento delle condizioni di traffico a causa delle forti nevicate previste in quel periodo."
+        },
+        {
+          "title": "Ritardo nell'avvio dei lavori di ammodernamento del tunnel di Lærdal a causa di un reclamo",
+          "body": "I lavori di ammodernamento del tunnel E16 Lærdalstunnelen subiscono un ritardo a causa del ricorso presentato da uno degli appaltatori. Il tribunale si pronuncerà sulla questione alla fine di agosto."
+        },
+        {
+          "title": "Via Lietuva presenta la newsletter del progetto “Via Toll”",
+          "body": "L'ente lituano per la gestione delle strade Via Lietuva ha pubblicato una newsletter dedicata al progetto “Via Toll”. Il presente comunicato si limita a dare notizia della pubblicazione di tale bollettino informativo."
+        },
+        {
+          "title": "Bando di gara specifico per i ponti del gruppo B1",
+          "body": "L'Autorità albanese per le strade (ARRSH) ha pubblicato un bando di gara relativo ai ponti del gruppo B1. Al bando è allegato il documento «260722 – SPN_RFB_Group B1 Bridges.pdf»."
+        }
+      ]
+    },
+    "es": {
+      "title": "Resumen de la semana: obras en autopistas, peajes e infracciones de tráfico en Europa",
+      "lead": "Esta semana han surgido noticias de varios países europeos relacionadas con la infraestructura de transporte y la seguridad vial. En Eslovaquia ha comenzado la construcción de un tramo de la autopista D3 en Kysuce, se acerca la fecha de caducidad de los peajes electrónicos de autopista para el año 2016 y la Národná diaľničná spoločnosť ha publicado consejos para viajar en verano e información sobre el mantenimiento invernal. En la República Checa, la recaudación por peajes aumentó durante el primer semestre, mientras que en Polonia la policía se ocupó de casos de conductores que incumplían prohibiciones judiciales de conducir. A esto se suman noticias sobre el retraso en la modernización de un túnel noruego, un boletín informativo lituano sobre el proyecto Via Toll y una licitación albanesa para la construcción de puentes.",
+      "checklist": [
+        "Tenga en cuenta que la circulación por Čadca y Svrčinovec será limitada hasta que se termine el nuevo tramo de la autopista D3 en Kysuce.",
+        "Hasta el 31 de enero de 2017, adquiera la nueva viñeta de autopista para el año 2017, ya que la validez de las viñetas de 2016 finaliza ese mismo día.",
+        "Al comprar una viñeta de autopista en Eslovaquia, comprueba que el número de matrícula introducido sea correcto.",
+        "Cuando planifiques un viaje por Eslovaquia, aprovecha las áreas de descanso y, si es necesario, llama al número gratuito de la Patrulla de Autopistas: 0800 100 007.",
+        "En las autopistas y vías rápidas eslovacas, hay que tener en cuenta las intensas intervenciones de mantenimiento invernal y el posible empeoramiento de las condiciones en caso de fuertes nevadas."
+      ],
+      "topics": [
+        {
+          "title": "Ha comenzado la construcción de la autopista D3 en Kysuce",
+          "body": "La Compañía Nacional de Autopistas ha iniciado la construcción de un tramo de la autopista D3 de 5 673 m de longitud, que incluye 19 puentes, 2 cruces, 11 km de pantallas acústicas y 6 km de vallado. Actualmente, el tráfico en esta zona discurre por carreteras de primera clase a través de la ciudad de Čadca y el municipio de Svrčinovec, lo que reduce la fluidez del tráfico.",
+          "impact": "Una vez finalizada la autopista, el tráfico de tránsito con destino a los pasos fronterizos con la República Checa y Polonia se desviará fuera de la ciudad de Čadca y de la localidad de Svrčinovec, lo que reducirá la duración del trayecto en unos 5 minutos y mejorará la fluidez y la seguridad del tráfico."
+        },
+        {
+          "title": "La recaudación por peajes en la República Checa durante el primer semestre superó los 10 000 millones de coronas",
+          "body": "En las autopistas y en los tramos de carretera de primera clase sujetos a peaje, durante el primer semestre de este año se recaudaron 10 070 millones de coronas en concepto de peaje, lo que supone un aumento interanual del 5,7 %. Más de la mitad (54 %) del importe total recaudado corrió a cargo de transportistas extranjeros, mientras que el 88 % de los peajes lo pagaron transportistas con vehículos que superaban una determinada categoría de peso."
+        },
+        {
+          "title": "Se acerca la fecha de caducidad de las viñetas electrónicas de autopista para el año 2016",
+          "body": "La Compañía Nacional de Autopistas informa a los conductores de que la validez de los peajes electrónicos anuales para el año 2016 finalizará el 31 de enero de 2017. El nuevo visado (anual, de 30 días o de 10 días) se puede adquirir a través del portal www.eznamka.sk, la aplicación móvil o en las estaciones de servicio que llevan el logotipo «eznámka». Los conductores deben comprobar que el número de matrícula introducido es correcto al realizar la compra.",
+          "impact": "Los conductores deben adquirir una viñeta de autopista válida para el año 2017 a más tardar el 31 de enero de 2017; de lo contrario, se arriesgan a circular sin viñeta válida por los tramos de peaje de las autopistas y vías rápidas de Eslovaquia.",
+          "validity": "La validez de los eDZ anuales de 2016 finaliza el 31 de enero de 2017"
+        },
+        {
+          "title": "Consejos para viajar en coche por Eslovaquia durante las vacaciones",
+          "body": "La Compañía Nacional de Autopistas ha elaborado una serie de consejos para los conductores que vayan a viajar por Eslovaquia durante la temporada de vacaciones de verano. Recomienda hacer paradas en las áreas de descanso, informa sobre la Patrulla de Autopistas gratuita (línea 0800 100 007) y aconseja qué llevar en el maletero para el viaje."
+        },
+        {
+          "title": "Un joven de 24 años de Lubin volvió a conducir a pesar de tener la prohibición de conducir",
+          "body": "La policía de Lubin detuvo a un vecino de la ciudad de 24 años que, a pesar de tener tres prohibiciones judiciales vigentes para conducir vehículos a motor, se había puesto al volante en repetidas ocasiones. Tras analizar las imágenes de las cámaras de vigilancia municipales y las pruebas recabadas, se le han imputado 30 cargos, por los que se enfrenta a una pena de prisión de hasta 5 años."
+        },
+        {
+          "title": "Un georgiano de 49 años ha sido deportado por incumplir una prohibición judicial de conducir vehículos",
+          "body": "Durante un control de tráfico en Opole, los agentes detuvieron a un ciudadano georgiano de 49 años que conducía un coche a pesar de tener una prohibición judicial vigente de conducir cualquier vehículo a motor. No era la primera infracción de tráfico que cometía este hombre. Tras la intervención policial, fue entregado a la Guardia Fronteriza, que dictó una resolución de expulsión y le impuso una prohibición de diez años para volver a entrar en el territorio de Polonia y del resto de países del espacio Schengen."
+        },
+        {
+          "title": "Ya hemos consumido más material de esparcimiento que en cualquier otro invierno",
+          "body": "Durante el fin de semana del 13 al 15 de enero, los 15 centros de mantenimiento de Eslovaquia movilizaron su maquinaria en 921 ocasiones, consumieron 2 500 toneladas de material de esparcimiento y recorrieron más de 28 000 kilómetros. Casi 700 empleados de la NDS trabajaron para garantizar la transitabilidad de las autopistas y las vías rápidas.",
+          "impact": "Los conductores que circulen por autopistas y vías rápidas pueden esperar intensas intervenciones de mantenimiento invernal y un posible empeoramiento de las condiciones debido a las fuertes nevadas previstas para ese periodo."
+        },
+        {
+          "title": "Retraso en el inicio de la modernización del túnel de Lærdalstunnelen debido a una reclamación",
+          "body": "La modernización del túnel E16 Lærdalstunnelen se está retrasando debido a una reclamación presentada por uno de los contratistas. El tribunal se pronunciará sobre el asunto a finales de agosto."
+        },
+        {
+          "title": "Via Lietuva presenta el boletín informativo del proyecto «Via Toll»",
+          "body": "La administración de carreteras lituana Via Lietuva ha publicado un boletín informativo dedicado al proyecto «Via Toll». El comunicado se limita a anunciar la publicación de dicho boletín."
+        },
+        {
+          "title": "Anuncio relativo a un procedimiento de adjudicación específico para los puentes del grupo B1",
+          "body": "La Autoridad de Carreteras de Albania (ARRSH) ha publicado un anuncio de licitación relativo a los puentes del grupo B1. Se adjunta al anuncio el documento «260722 – SPN_RFB_Group B1 Bridges.pdf»."
+        }
+      ]
+    },
+    "pl": {
+      "title": "Podsumowanie tygodnia: budowa autostrad, opłaty drogowe i wykroczenia drogowe w Europie",
+      "lead": "W tym tygodniu pojawiły się wiadomości z kilku krajów europejskich dotyczące infrastruktury transportowej i bezpieczeństwa na drogach. Na Słowacji rozpoczęła się budowa odcinka autostrady D3 w regionie Kysuce, zbliża się koniec ważności elektronicznych winiet autostradowych na rok 2016, a Narodowa Spółka Autostradowa opublikowała również wskazówki dotyczące letnich podróży oraz informacje na temat zimowego utrzymania dróg. W Czechach wzrosły wpływy z opłat drogowych w pierwszym półroczu, podczas gdy w Polsce policja zajmowała się przypadkami kierowców naruszających sądowe zakazy prowadzenia pojazdów. Uzupełniają to doniesienia o opóźnieniach w modernizacji norweskiego tunelu, litewskim biuletynie poświęconym projektowi Via Toll oraz albańskim przetargu na mosty.",
+      "checklist": [
+        "Należy liczyć się z utrudnieniami w ruchu przez Čadcę i Svrčinovec do czasu ukończenia budowy nowego odcinka autostrady D3 w regionie Kysuce.",
+        "Do 31 stycznia 2017 r. należy zaopatrzyć się w nową winietę autostradową na rok 2017, ponieważ tego dnia wygasa ważność winiet z 2016 r.",
+        "Przy zakupie winiety autostradowej na Słowacji należy sprawdzić, czy podany numer rejestracyjny jest prawidłowy.",
+        "Planując podróż po Słowacji, warto korzystać z miejsc odpoczynku, a w razie potrzeby zadzwonić pod bezpłatny numer patrolu autostradowego: 0800 100 007.",
+        "Na słowackich autostradach i drogach ekspresowych należy liczyć się z intensywnymi pracami zimowego utrzymania dróg oraz z możliwym pogorszeniem warunków podczas intensywnych opadów śniegu."
+      ],
+      "topics": [
+        {
+          "title": "Rozpoczęła się budowa autostrady D3 w regionie Kysuce",
+          "body": "Narodowa Spółka Autostradowa rozpoczęła budowę odcinka autostrady D3 o długości 5 673 m, który obejmuje 19 mostów, 2 węzły drogowe, 11 km ekranów akustycznych oraz 6 km ogrodzenia. Obecnie ruch w tym rejonie odbywa się po drogach pierwszej klasy przebiegających przez miasto Čadca i gminę Svrčinovec, co ogranicza płynność ruchu.",
+          "impact": "Po ukończeniu budowy autostrady ruch tranzytowy zmierzający do przejść granicznych z Czechami i Polską zostanie przekierowany poza miasto Čadca i gminę Svrčinovec, co skróci czas przejazdu o około 5 minut oraz poprawi płynność i bezpieczeństwo ruchu."
+        },
+        {
+          "title": "Wpływy z opłat drogowych w Czechach w pierwszym półroczu przekroczyły 10 miliardów koron",
+          "body": "W pierwszym półroczu bieżącego roku na autostradach i płatnych odcinkach dróg I klasy zebrano opłaty drogowe w wysokości 10,07 miliarda koron, co stanowi wzrost o 5,7 procent w porównaniu z analogicznym okresem ubiegłego roku. Ponad połowę (54%) całkowitej zebranej kwoty uiścili przewoźnicy zagraniczni, a 88 procent opłat za przejazd zapłacili przewoźnicy korzystający z pojazdów przekraczających określoną kategorię masową."
+        },
+        {
+          "title": "Zbliża się koniec ważności elektronicznych winiet autostradowych na rok 2016",
+          "body": "Krajowa Spółka Autostradowa informuje kierowców, że ważność rocznych elektronicznych winiet autostradowych na rok 2016 wygaśnie 31 stycznia 2017 r. Nową winietę (roczną, 30-dniową lub 10-dniową) można nabyć za pośrednictwem portalu www.eznamka.sk, aplikacji mobilnej lub na stacjach benzynowych oznaczonych logo „eznámka”. Kierowcy powinni podczas zakupu sprawdzić poprawność wprowadzonego numeru rejestracyjnego.",
+          "impact": "Kierowcy muszą nabyć ważną winietę autostradową na rok 2017 najpóźniej do 31 stycznia 2017 r., w przeciwnym razie narażają się na jazdę bez ważnej winiety na płatnych odcinkach autostrad i dróg ekspresowych na Słowacji.",
+          "validity": "Okres ważności rocznych eDZ za rok 2016 upływa 31 stycznia 2017 r."
+        },
+        {
+          "title": "Wskazówki dotyczące podróży samochodem po Słowacji w okresie wakacyjnym",
+          "body": "Krajowa Spółka Autostradowa przygotowała wskazówki dla kierowców dotyczące podróży po Słowacji w sezonie letnich wakacji. Zaleca postoje na parkingach, informuje o bezpłatnej patrolu autostradowym (numer 0800 100 007) oraz doradza, co zabrać ze sobą w podróż."
+        },
+        {
+          "title": "24-latek z Lubina ponownie prowadził pojazd pomimo zakazu prowadzenia pojazdów",
+          "body": "Policjanci z Lubina zatrzymali 24-letniego mieszkańca miasta, który pomimo trzech obowiązujących sądowych zakazów prowadzenia pojazdów mechanicznych wielokrotnie ponownie siadał za kierownicą. Na podstawie analizy nagrań z miejskiego systemu monitoringu oraz zebranych dowodów postawiono mu 30 zarzutów, za które grozi kara pozbawienia wolności do 5 lat."
+        },
+        {
+          "title": "49-letni Gruzin został deportowany za naruszenie sądowego zakazu prowadzenia pojazdów",
+          "body": "Policjanci w Opolu zatrzymali podczas kontroli drogowej 49-letniego obywatela Gruzji, który prowadził samochód pomimo obowiązującego sądowego zakazu prowadzenia wszelkich pojazdów silnikowych. Nie było to pierwsze wykroczenie drogowe popełnione przez tego mężczyznę. Po interwencji policji mężczyzna został przekazany Straży Granicznej, która wydała decyzję o deportacji oraz dziesięcioletnim zakazie ponownego wjazdu na terytorium Polski i innych krajów strefy Schengen."
+        },
+        {
+          "title": "Zużyliśmy już tyle materiału do posypywania, ile zwykle zużywamy przez całą zimę",
+          "body": "W weekend od 13 do 15 stycznia 15 ośrodków utrzymania dróg na Słowacji wysłało swoje maszyny 921 razy, zużyło 2 500 ton materiału do posypywania i przejechało ponad 28 000 kilometrów. Nad zapewnieniem przejezdności autostrad i dróg ekspresowych pracowało prawie 700 pracowników NDS.",
+          "impact": "Kierowcy poruszający się po autostradach i drogach ekspresowych mogą spodziewać się intensywnych prac związanych z zimowym utrzymaniem dróg oraz ewentualnego pogorszenia warunków drogowych w związku z obfitymi opadami śniegu w tym okresie."
+        },
+        {
+          "title": "Opóźnienie rozpoczęcia modernizacji tunelu Lærdalstunnelen spowodowane skargą",
+          "body": "Modernizacja tunelu E16 Lærdalstunnelen opóźnia się z powodu skargi jednego z wykonawców. Sąd ma rozstrzygnąć tę sprawę pod koniec sierpnia."
+        },
+        {
+          "title": "Via Lietuva przedstawia biuletyn informacyjny projektu „Via Toll”",
+          "body": "Litewska agencja zarządzająca drogami Via Lietuva opublikowała biuletyn poświęcony projektowi „Via Toll”. Niniejszy komunikat informuje jedynie o wydaniu tego biuletynu informacyjnego."
+        },
+        {
+          "title": "Ogłoszenie o konkretnym postępowaniu przetargowym dotyczącym mostów grupy B1",
+          "body": "Albański Urząd Dróg (ARRSH) opublikował ogłoszenie o przetargu dotyczącym mostów z grupy B1. Do ogłoszenia dołączono dokument „260722 – SPN_RFB_Group B1 Bridges.pdf”."
+        }
+      ]
+    },
+    "nl": {
+      "title": "Weekoverzicht: snelwegwerkzaamheden, tolheffing en verkeersovertredingen in Europa",
+      "lead": "Deze week kwamen er berichten uit verschillende Europese landen over verkeersinfrastructuur en verkeersveiligheid. In Slowakije is de aanleg van een deel van de D3-snelweg in Kysuce van start gegaan, loopt de geldigheidsduur van de elektronische snelwegvignetten voor 2016 ten einde en heeft de Národná diaľničná spoločnosť tips voor zomerse reizen en informatie over winteronderhoud gepubliceerd. In Tsjechië is de opbrengst uit tolheffing in de eerste helft van het jaar gestegen, terwijl de politie in Polen gevallen heeft behandeld van bestuurders die een gerechtelijk rijverbod overtraden. Daarnaast zijn er berichten over vertraging bij de modernisering van een Noorse tunnel, een Litouwse nieuwsbrief over het Via Toll-project en een Albanese aanbesteding voor bruggen.",
+      "checklist": [
+        "Houd rekening met een beperkte doorstroming van het verkeer via Čadca en Svrčinovec, totdat het nieuwe deel van de D3-snelweg in Kysuce is voltooid.",
+        "Zorg ervoor dat u vóór 31 januari 2017 een nieuwe snelwegvignet voor 2017 aanschaft; de geldigheid van de vignetten voor 2016 loopt op die dag af.",
+        "Controleer bij de aankoop van een snelwegvignet in Slowakije of het ingevoerde kenteken correct is.",
+        "Maak bij het plannen van uw reis door Slowakije gebruik van de rustplaatsen en bel indien nodig het gratis nummer van de snelwegpolitie: 0800 100 007.",
+        "Houd op de Slowaakse snelwegen en autowegen rekening met intensieve winteronderhoudswerkzaamheden en mogelijk verslechterende omstandigheden bij hevige sneeuwval."
+      ],
+      "topics": [
+        {
+          "title": "De aanleg van de D3-snelweg in Kysuce is van start gegaan",
+          "body": "De Nationale Snelwegmaatschappij is begonnen met de aanleg van een 5 673 m lang traject van de D3-snelweg, dat 19 bruggen, 2 knooppunten, 11 km geluidsschermen en 6 km omheiningen omvat. Momenteel wordt het verkeer in dit gebied geleid via eersteklaswegen door de stad Čadca en de gemeente Svrčinovec, wat de doorstroming van het verkeer belemmert.",
+          "impact": "Na voltooiing van de snelweg zal het transitverkeer richting de grensovergangen met Tsjechië en Polen worden omgeleid buiten de stad Čadca en de gemeente Svrčinovec, waardoor de reistijd met ongeveer 5 minuten wordt verkort en zowel de doorstroming als de veiligheid van het verkeer worden verbeterd."
+        },
+        {
+          "title": "De opbrengst uit tolheffing in Tsjechië bedroeg in de eerste helft van het jaar meer dan 10 miljard korun",
+          "body": "Op snelwegen en tolwegen van de eerste klasse is in de eerste helft van dit jaar 10,07 miljard korun aan tol geïnd, wat neerkomt op een stijging van 5,7 procent ten opzichte van dezelfde periode vorig jaar. Meer dan de helft (54 %) van het totale geïnde bedrag werd betaald door buitenlandse vervoerders, terwijl 88 procent van de tol werd betaald door vervoerders met voertuigen boven een bepaalde gewichtsklasse."
+        },
+        {
+          "title": "De geldigheidsduur van de elektronische tolstickers voor 2016 loopt ten einde",
+          "body": "De Nationale Snelwegmaatschappij wijst automobilisten erop dat de geldigheid van de elektronische jaartolstickers voor 2016 op 31 januari 2017 afloopt. Een nieuwe vignette (voor een jaar, 30 dagen of 10 dagen) kan worden gekocht via het portaal www.eznamka.sk, de mobiele app of bij tankstations met het „eznámka“-logo. Automobilisten dienen bij de aankoop te controleren of het ingevoerde kenteken correct is.",
+          "impact": "Bestuurders moeten uiterlijk op 31 januari 2017 een geldige tolsticker voor 2017 hebben aangeschaft, anders lopen ze het risico zonder geldige vignet te rijden op tolwegen en snelwegen in Slowakije.",
+          "validity": "De geldigheidsduur van de jaarlijkse eDZ’s voor 2016 loopt af op 31 januari 2017"
+        },
+        {
+          "title": "Tips voor reizen met de auto door Slowakije tijdens de vakantie",
+          "body": "De Nationale Snelwegmaatschappij heeft tips opgesteld voor automobilisten die tijdens het zomervakantieseizoen door Slowakije reizen. Zij raadt aan om even te stoppen bij rustplaatsen, wijst op de gratis Snelwegpatrouille (nummer 0800 100 007) en geeft advies over wat u mee moet nemen voor onderweg."
+        },
+        {
+          "title": "Een 24-jarige man uit Lubin reed opnieuw ondanks zijn rijverbod",
+          "body": "De politie van Lubin heeft een 24-jarige inwoner van de stad aangehouden die, ondanks drie geldende gerechtelijke rijverboden, herhaaldelijk opnieuw achter het stuur is gekropen. Op basis van de analyse van beelden van de stadsbewakingscamera's en het verzamelde bewijsmateriaal zijn er 30 aanklachten tegen hem ingediend, waarop een gevangenisstraf van maximaal 5 jaar staat."
+        },
+        {
+          "title": "49-jarige Georgiër uitgezet wegens overtreding van een gerechtelijk rijverbod",
+          "body": "De politie in Opole heeft bij een verkeerscontrole een 49-jarige Georgische staatsburger aangehouden die een auto bestuurde ondanks een geldend gerechtelijk rijverbod voor alle motorvoertuigen. Dit was niet de eerste keer dat deze man de verkeersregels overtrad. Na de politie-inmenging werd hij overgedragen aan de grenswacht, die een besluit nam tot uitzetting en een verbod van tien jaar op terugkeer naar Polen en andere Schengenlanden."
+        },
+        {
+          "title": "We hebben al meer strooimateriaal verbruikt dan ooit tevoren gedurende de hele winter",
+          "body": "Tijdens het weekend van 13 tot en met 15 januari hebben 15 onderhoudscentra in Slowakije hun machines 921 keer ingezet, 2 500 ton strooimateriaal verbruikt en meer dan 28 000 kilometer afgelegd. Bijna 700 medewerkers van NDS hebben zich ingezet om de begaanbaarheid van de snelwegen en autowegen te waarborgen.",
+          "impact": "Automobilisten op snelwegen en autowegen kunnen rekening houden met intensieve winteronderhoudswerkzaamheden en mogelijk verslechterde wegomstandigheden als gevolg van de hevige sneeuwval in de genoemde periode."
+        },
+        {
+          "title": "Vertraging bij de start van de modernisering van de Lærdalstunnelen als gevolg van een klacht",
+          "body": "De modernisering van de E16-tunnel, de Lærdalstunnelen, loopt vertraging op vanwege een klacht van een van de aannemers. De rechtbank zal eind augustus een uitspraak doen in deze zaak."
+        },
+        {
+          "title": "Via Lietuva presenteert de nieuwsbrief van het project „Via Toll“",
+          "body": "De Litouwse wegenbeheerder Via Lietuva heeft een nieuwsbrief gepubliceerd over het „Via Toll“-project. Dit bericht dient uitsluitend ter aankondiging van de verschijning van deze nieuwsbrief."
+        },
+        {
+          "title": "Aankondiging van een specifieke aanbestedingsprocedure voor bruggen van groep B1",
+          "body": "De Albanese wegenautoriteit (ARRSH) heeft een aankondiging van een aanbestedingsprocedure met betrekking tot bruggen van groep B1 gepubliceerd. Bij de aankondiging is het document „260722 – SPN_RFB_Group B1 Bridges.pdf“ gevoegd."
+        }
+      ]
+    },
+    "ro": {
+      "title": "Sinteza săptămânii: lucrări la autostrăzi, taxele de drum și contravențiile rutiere în Europa",
+      "lead": "Săptămâna aceasta au apărut știri din mai multe țări europene referitoare la infrastructura de transport și siguranța rutieră. În Slovacia a început construcția unui tronson al autostrăzii D3 în regiunea Kysuce, se apropie data de expirare a vignetelor electronice pentru anul 2016, iar Compania Națională de Autostrăzi a publicat sfaturi pentru călătoriile de vară și informații privind întreținerea pe timp de iarnă. În Cehia, încasările din taxele de autostradă au crescut în primul semestru, în timp ce în Polonia polițiștii au investigat cazuri de șoferi care au încălcat interdicțiile judiciare de a conduce. La acestea se adaugă știri despre întârzierea modernizării tunelului norvegian, buletinul informativ lituanian privind proiectul Via Toll și procedura de licitație albaneză pentru poduri.",
+      "checklist": [
+        "Vă rugăm să vă așteptați la o circulație îngreunată prin Čadca și Svrčinovec până la finalizarea noului tronson al autostrăzii D3 din regiunea Kysuce.",
+        "Până la 31 ianuarie 2017, procurați-vă noua vignetă de autostradă pentru anul 2017; valabilitatea vignetelor din 2016 expiră la această dată.",
+        "Atunci când achiziționați o vignetă de autostradă în Slovacia, verificați dacă numărul de înmatriculare introdus este corect.",
+        "Când vă planificați o călătorie prin Slovacia, folosiți zonele de odihnă și, dacă este necesar, apelați numărul gratuit al Poliției Rutiere, 0800 100 007.",
+        "Pe autostrăzile și drumurile cu viteză limitată din Slovacia, vă rugăm să vă așteptați la intervenții intense de întreținere de iarnă și la o posibilă înrăutățire a condițiilor de trafic în cazul unor ninsori abundente."
+      ],
+      "topics": [
+        {
+          "title": "A început construcția autostrăzii D3 în regiunea Kysuce",
+          "body": "Compania Națională de Autostrăzi a demarat construcția unui tronson al autostrăzii D3 cu o lungime de 5 673 m, care cuprinde 19 poduri, 2 intersecții, 11 km de ziduri antifonice și 6 km de garduri. În prezent, traficul din această zonă se desfășoară pe drumurile de clasa I care traversează orașul Čadca și comuna Svrčinovec, ceea ce afectează fluiditatea traficului.",
+          "impact": "Odată cu finalizarea autostrăzii, traficul de tranzit îndreptat către punctele de trecere a frontierei cu Cehia și Polonia va fi deviat în afara orașului Čadca și a localității Svrčinovec, ceea ce va reduce durata călătoriei cu aproximativ 5 minute și va spori fluiditatea și siguranța transportului."
+        },
+        {
+          "title": "Încasările din taxele de drum din Republica Cehă au depășit 10 miliarde de coroane în primul semestru",
+          "body": "Pe autostrăzi și pe tronsoanele cu taxă ale drumurilor de clasa I, în prima jumătate a acestui an s-au încasat taxe de drum în valoare de 10,07 miliarde de coroane, ceea ce reprezintă o creștere de 5,7% față de aceeași perioadă a anului trecut. Peste jumătate (54 %) din suma totală încasată a fost achitată de transportatorii străini, iar 88 % din taxele de drum au fost plătite de transportatorii cu vehicule care depășesc o anumită categorie de greutate."
+        },
+        {
+          "title": "Se apropie data de expirare a vignetelor electronice pentru anul 2016",
+          "body": "Compania Națională de Autostrăzi atrage atenția șoferilor că valabilitatea vignetelor electronice anuale pentru anul 2016 va expira la 31 ianuarie 2017. Noua vignetă (anuală, de 30 de zile sau de 10 zile) poate fi achiziționată prin intermediul portalului www.eznamka.sk, al aplicației mobile sau la stațiile de alimentare marcate cu logo-ul „eznámka”. La achiziționare, șoferii ar trebui să verifice corectitudinea numărului de înmatriculare introdus.",
+          "impact": "Șoferii trebuie să achiziționeze o vignetă valabilă pentru anul 2017 până cel târziu la 31 ianuarie 2017, în caz contrar riscând să circule fără vignetă valabilă pe tronsoanele cu taxă ale autostrăzilor și drumurilor rapide din Slovacia.",
+          "validity": "Valabilitatea eDZ-urilor anuale pentru 2016 expiră la 31 ianuarie 2017"
+        },
+        {
+          "title": "Sfaturi pentru călătoriile cu mașina în Slovacia în perioada vacanțelor",
+          "body": "Compania Națională de Autostrăzi a pregătit câteva sfaturi pentru șoferii care călătoresc prin Slovacia în timpul sezonului estival de vacanță. Aceasta recomandă opriri la zonele de odihnă, atrage atenția asupra serviciului gratuit „Patrula Autostrăzilor” (numărul de telefon 0800 100 007) și oferă sfaturi privind lucrurile pe care ar trebui să le luați cu voi în călătorie."
+        },
+        {
+          "title": "Un tânăr de 24 de ani din Lubin a condus din nou, în ciuda interdicției de a conduce vehicule",
+          "body": "Polițiștii din Lubin l-au reținut pe un locuitor al orașului, în vârstă de 24 de ani, care, în ciuda celor trei interdicții judiciare de a conduce vehicule motorizate aflate în vigoare, s-a urcat în repetate rânduri la volan. Pe baza analizei imaginilor de pe camerele de supraveghere ale orașului și a probelor colectate, i-au fost aduse 30 de acuzații, fapt pentru care riscă o pedeapsă cu închisoarea de până la 5 ani."
+        },
+        {
+          "title": "Un georgian în vârstă de 49 de ani a fost deportat pentru încălcarea interdicției judiciare de a conduce vehicule",
+          "body": "În timpul unui control rutier, polițiștii din Opole au oprit un cetățean georgian în vârstă de 49 de ani, care conducea un autoturism în ciuda unei interdicții judiciare în vigoare de a conduce orice vehicul cu motor. Nu era prima încălcare a regulilor de circulație comisă de acest bărbat. După intervenția poliției, acesta a fost predat Gărzii de Frontieră, care a emis o decizie de expulzare și o interdicție de zece ani de reintrare pe teritoriul Poloniei și al altor țări din spațiul Schengen."
+        },
+        {
+          "title": "Am consumat deja mai mult material de împrăștiat decât în orice altă iarnă",
+          "body": "În weekendul din 13-15 ianuarie, cele 15 centre de întreținere din Slovacia și-au mobilizat utilajele de 921 de ori, au consumat 2 500 de tone de material de împrăștiat și au parcurs peste 28 000 de kilometri. Aproape 700 de angajați ai NDS au lucrat pentru a asigura condiții de circulație pe autostrăzi și drumuri cu viteză limitată.",
+          "impact": "Șoferii care circulă pe autostrăzi și drumuri cu viteză limitată se pot aștepta la intervenții intense de întreținere pe timp de iarnă și la posibile condiții de trafic dificile, având în vedere ninsorile abundente din perioada menționată."
+        },
+        {
+          "title": "Întârzierea începerii lucrărilor de modernizare a tunelului Lærdalstunnelen din cauza unei plângeri",
+          "body": "Modernizarea tunelului E16 Lærdalstunnelen suferă întârzieri din cauza unei plângeri depuse de unul dintre contractori. Instanța urmează să se pronunțe în această privință la sfârșitul lunii august."
+        },
+        {
+          "title": "Via Lietuva prezintă buletinul informativ al proiectului „Via Toll”",
+          "body": "Administrația lituaniană a drumurilor, Via Lietuva, a publicat un buletin informativ dedicat proiectului „Via Toll”. Comunicatul se limitează la a anunța publicarea acestui buletin informativ."
+        },
+        {
+          "title": "Anunț privind o procedură de achiziție publică specifică pentru podurile din grupa B1",
+          "body": "Autoritatea albaneză pentru drumuri (ARRSH) a publicat un anunț privind procedura de atribuire a contractului referitor la podurile din grupa B1. La anunț este atașat documentul „260722 – SPN_RFB_Group B1 Bridges.pdf”."
+        }
+      ]
+    }
+  }
+}
