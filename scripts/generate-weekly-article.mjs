@@ -32,6 +32,7 @@ import {
   generateCard,
   sanityCheck,
   normalize,
+  matchesExclusionPhrase,
 } from "./generate-test-card.mjs";
 import { MAX_AGE_DAYS, computeAgeDays } from "./validate-article.mjs";
 
@@ -67,6 +68,22 @@ const TOPIC_COUNT = Number(process.env.WEEKLY_ARTICLE_TOPIC_COUNT) || DEFAULT_TO
 export function isFreshEnough(candidate, maxAgeDays) {
   const ageDays = computeAgeDays(candidate.pubDate);
   return ageDays !== null && ageDays <= maxAgeDays;
+}
+
+// --- relevance pre-filtr (Faze 6.x) -----------------------------------------
+// Vyrazuje kandidaty se shodou v EXCLUSION_PHRASES (generate-test-card.mjs)
+// JESTE PRED scoringem/vyberem - stejny duvod jako isFreshEnough vyse: usetrit
+// API volani na obsah, ktery by stejne skoncil zamitnuty validateRelevance
+// branou ve validate-article.mjs. Testuje title+contentSnippet puvodni RSS
+// polozky (ne jeste neexistujici AI-generovany text tematu).
+//
+// POZOR: tohle je jen optimalizace nakladu, ne skutecna zaruka relevance -
+// AI muze pri generovani tematu frazi preformulovat jinak, nez znela ve
+// zdroji, takze skutecnou blokujici pojistkou je validateRelevance ve
+// validate-article.mjs, ktera bezi az na FINALNIM textu.
+export function isRelevantEnough(candidate) {
+  const text = `${candidate.title} ${candidate.contentSnippet || ""}`;
+  return matchesExclusionPhrase(text) === null;
 }
 
 // --- deduplikace kandidatu se stejnou faktickou zpravou --------------------
@@ -209,7 +226,7 @@ export const CORE_COUNTRIES = ["CZ", "SK", "PL", "AT", "DE", "HU"];
 export function selectTopCandidates(candidates, count) {
   const scored = candidates
     .map((c) => ({ candidate: c, ...scoreCandidate(c) }))
-    .filter((s) => s.score > 0);
+    .filter((s) => s.score > 0 && s.hasQualifyingMatch);
 
   const core = scored
     .filter((s) => CORE_COUNTRIES.includes(s.candidate.country))
@@ -439,7 +456,15 @@ async function main() {
     );
   }
 
-  const dedupedCandidates = deduplicateCandidates(freshCandidates);
+  const relevantCandidates = freshCandidates.filter(isRelevantEnough);
+  const irrelevantDropped = freshCandidates.length - relevantCandidates.length;
+  if (irrelevantDropped > 0) {
+    console.log(
+      `Vyrazeno ${irrelevantDropped} kandidatu jako irelevantnich pro oversize/cargo (shoda v exclusion listu) - nebudou zvazovani pro vyber.`
+    );
+  }
+
+  const dedupedCandidates = deduplicateCandidates(relevantCandidates);
 
   const picked = selectTopCandidates(dedupedCandidates, TOPIC_COUNT);
   if (picked.length === 0) {

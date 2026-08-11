@@ -27,6 +27,7 @@
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { matchesExclusionPhrase } from "./generate-test-card.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -171,27 +172,62 @@ function validateFreshness(article, manifest, maxAgeDays) {
 // skutecne stary obsah) je tady horsi vysledek.
 const YEAR_PATTERN = /\b(19\d{2}|20\d{2})\b/g;
 
+// Kontroluje VSECHNA textova pole clanku, ne jen topics.title/body - dřívější
+// verze prohlédla topics[].impact/validity, checklist[] a article.title/lead,
+// takze napr. rok v topics[].validity ("Platnost znamky 2016 konci 31.
+// ledna 2017") proslo bez povsimnuti (viz 2026-08-10-tydenni-prehled.json
+// pred opravou). Stejny "checkField" vzor pouziva i validateRelevance nize.
+function collectTextFields(article) {
+  const fields = [];
+  fields.push(["title", article.title]);
+  fields.push(["lead", article.lead]);
+  (article.checklist || []).forEach((item, i) => fields.push([`checklist[${i}]`, item]));
+  article.topics.forEach((topic, i) => {
+    for (const field of ["title", "body", "impact", "validity"]) {
+      fields.push([`topics[${i}].${field}`, topic[field]]);
+    }
+  });
+  return fields;
+}
+
 function validateNoStaleYears(article, maxYearAgeGap) {
   const problems = [];
   const currentYear = new Date().getUTCFullYear();
 
-  article.topics.forEach((topic, i) => {
-    for (const field of ["title", "body"]) {
-      const text = topic[field];
-      if (!isNonEmptyString(text)) continue;
-      const matches = text.match(YEAR_PATTERN) || [];
-      for (const match of matches) {
-        const year = Number(match);
-        const gap = currentYear - year;
-        if (gap > maxYearAgeGap) {
-          problems.push(
-            `topics[${i}].${field} obsahuje rok ${year} (o ${gap} let starsi nez aktualni rok ${currentYear}, limit je ${maxYearAgeGap} roky) - mozna zastaraly obsah. Text: "${text}"`
-          );
-        }
+  for (const [label, text] of collectTextFields(article)) {
+    if (!isNonEmptyString(text)) continue;
+    const matches = text.match(YEAR_PATTERN) || [];
+    for (const match of matches) {
+      const year = Number(match);
+      const gap = currentYear - year;
+      if (gap > maxYearAgeGap) {
+        problems.push(
+          `${label} obsahuje rok ${year} (o ${gap} let starsi nez aktualni rok ${currentYear}, limit je ${maxYearAgeGap} roky) - mozna zastaraly obsah. Text: "${text}"`
+        );
       }
     }
-  });
+  }
 
+  return problems;
+}
+
+// --- relevance kontrola (Faze 6.x) ------------------------------------------
+// Blokujici pojistka NA FINALNIM textu (ne na puvodnim RSS kandidatovi) -
+// isRelevantEnough v generate-weekly-article.mjs je jen optimalizace nakladu
+// pred generovanim, AI parafraze muze frazi preformulovat jinak, nez znela
+// ve zdroji. Tohle je posledni blokujici pojistka pred publikaci, stejny
+// vzor jako validateFreshness/validateNoStaleYears vyse.
+function validateRelevance(article) {
+  const problems = [];
+  for (const [label, text] of collectTextFields(article)) {
+    if (!isNonEmptyString(text)) continue;
+    const hit = matchesExclusionPhrase(text);
+    if (hit) {
+      problems.push(
+        `${label} obsahuje frazi "${hit}" z exclusion listu (mozna irelevantni pro oversize/cargo prepravu). Text: "${text}"`
+      );
+    }
+  }
   return problems;
 }
 
@@ -244,6 +280,12 @@ async function main() {
   const staleYearProblems = validateNoStaleYears(article, MAX_YEAR_AGE_GAP);
   if (staleYearProblems.length > 0) {
     fail(staleYearProblems);
+    return;
+  }
+
+  const relevanceProblems = validateRelevance(article);
+  if (relevanceProblems.length > 0) {
+    fail(relevanceProblems);
     return;
   }
 

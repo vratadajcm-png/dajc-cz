@@ -78,7 +78,12 @@ export const KEYWORDS = [
   { w: 3, kw: "vystavb" },
   { w: 3, kw: "rekonstrukc" },
   { w: 3, kw: "reconstruct" },
-  { w: 3, kw: "oprav" },
+  { w: 3, kw: "oprava" },
+  { w: 3, kw: "opravy" },
+  { w: 3, kw: "opravu" },
+  { w: 3, kw: "opravou" },
+  { w: 3, kw: "opravě" },
+  { w: 3, kw: "opravami" },
   { w: 3, kw: "dialnic" },
   { w: 3, kw: "dalnic" },
   { w: 3, kw: "highway" },
@@ -99,23 +104,117 @@ export function normalize(text) {
     .toLowerCase();
 }
 
+// Kontroluje jen LEVOU hranici shody (znak pred zacatkem nesmi byt
+// pismeno/cislice) - prava hranice se zamerne nekontroluje, aby
+// jednoslovne prefixove stemy (napr. "dialnic") dal spravne matchovaly
+// sklonovani ("dialnica"/"dialnicny"/"dialnicna"). Viceslovne fraze s
+// mezerou uvnitr (napr. "most ") maji pravou hranici uz vynucenou tou
+// mezerou. Opravuje substring-uvnitr-slova kolize typu "oprav" v
+// "doprava" nebo "truck" v "struck" (zjisteno 2026-08-11 auditem).
+function includesWholeWord(normalizedText, normalizedNeedle) {
+  let fromIndex = 0;
+  while (true) {
+    const idx = normalizedText.indexOf(normalizedNeedle, fromIndex);
+    if (idx === -1) return false;
+    const before = idx > 0 ? normalizedText[idx - 1] : "";
+    if (!/[\p{L}\p{N}]/u.test(before)) return true;
+    fromIndex = idx + 1;
+  }
+}
+
+// --- irelevance exclusion (Faze 6.x) ------------------------------------
+// Frazova shoda (ne jednotliva slova) pro kategorie obsahu temer jiste
+// irelevantni pro nadrozmernou/tezkou prepravu, bez ohledu na okolni
+// kontext - na rozdil od KEYWORDS vyse, kde jednotliva slova jako "zakaz"
+// nebo "dialnic" matchuji jak cargo-relevantni, tak cargo-irelevantni obsah
+// (napr. "zakaz jazd nakladnich vozidel" vs. "sudny zakaz riadenia" osobniho
+// ridice - realny pripad z 2026-08-10-tydenni-prehled.json).
+//
+// Omezeno na CZ/SK/PL/DE/EN - jazyky, u kterych mame jistotu prekladu.
+// Nerozsirovat na dalsi jazyky bez overeneho prekladu (radeji mene frazi s
+// vyssi jistotou spravnosti nez hadane tvary v blokujici brane).
+export const EXCLUSION_PHRASES = [
+  // A) osobni dalnicni znamka/vinětka
+  "dalnicni znamk",
+  "dialnicna znamk",
+  "dialnicnej znamk",
+  "dialnicnych znamok",
+  "winiet",
+  "vignette",
+  "toll sticker",
+  // B) osobni/trestni zakaz rizeni, deportace
+  "zakazu rizeni",
+  "soudniho zakazu rizeni",
+  "zakaz riadenia",
+  "zakazu riadenia",
+  "zakazu prowadzenia pojazdow",
+  "deportov",
+  "deportowan",
+  "fahrverbot",
+  "abgeschoben",
+  "driving ban",
+  "deported",
+  // C) turistika / cestovani osobnim autem
+  "dovolenkov",
+  "cestovani autem",
+  "cestovanie autom",
+  "podroz samochodem",
+  "wakacyj",
+  "urlaubsreise",
+  "ferienreise",
+  "road trip",
+  "holiday travel",
+];
+
+// Cargo-relevantni override - pokud text obsahuje nektery z techto vyrazu,
+// EXCLUSION_PHRASES se ignoruji (napr. "zakaz" v kontextu nakladni dopravy
+// nesmi byt vyrazen jen kvuli shode s kategorii B vyse).
+export const CARGO_OVERRIDE_PHRASES = [
+  "nakladni",
+  "nakladniho",
+  "nakladnim",
+  "nakladnich",
+  "nakladnimi",
+  "ciezarow",
+  "lkw",
+  "lastwagen",
+  "lastkraftwagen",
+  "truck",
+  "lorry",
+  "haulage",
+  "freight",
+];
+
+// Vraci prvni nalezenou exclusion frazi, nebo null (relevantni/bez override).
+export function matchesExclusionPhrase(text) {
+  const norm = normalize(text);
+  if (CARGO_OVERRIDE_PHRASES.some((p) => includesWholeWord(norm, normalize(p)))) return null;
+  return EXCLUSION_PHRASES.find((p) => includesWholeWord(norm, normalize(p))) || null;
+}
+
 export function scoreCandidate(candidate) {
   const titleNorm = normalize(candidate.title);
   const snippetNorm = normalize(candidate.contentSnippet);
   let score = 0;
   const matched = [];
+  // true, pokud aspon jeden zasah pochazi z mid/high-tier slova (w >= 3) -
+  // kandidat skorujici jen z low-tier slov (silnic/cesta/road/traffic/
+  // doprav, w=1) je prilis obecny signal, viz selectTopCandidates.
+  let hasQualifyingMatch = false;
   for (const { w, kw } of KEYWORDS) {
     const kwNorm = normalize(kw);
-    if (titleNorm.includes(kwNorm)) {
+    if (includesWholeWord(titleNorm, kwNorm)) {
       score += w;
       matched.push(`${kw.trim()} (titulek, +${w})`);
-    } else if (snippetNorm.includes(kwNorm)) {
+      if (w >= 3) hasQualifyingMatch = true;
+    } else if (includesWholeWord(snippetNorm, kwNorm)) {
       const half = Math.max(1, Math.round(w / 2));
       score += half;
       matched.push(`${kw.trim()} (obsah, +${half})`);
+      if (w >= 3) hasQualifyingMatch = true;
     }
   }
-  return { score, matched };
+  return { score, matched, hasQualifyingMatch };
 }
 
 export async function collectAllOkItems() {

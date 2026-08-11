@@ -20,6 +20,30 @@ přípravy vynulovalo počet kandidátů na 0 (žádný zdroj aktuálně `true`)
 zastavilo by páteční automatizaci úplně. Samostatný úkol, mimo rozsah
 opravy `sk-nds`.
 
+## Otevřeno: homografy v KEYWORDS/CARGO_OVERRIDE_PHRASES (generate-test-card.mjs)
+
+Zjištěno 2026-08-11 při opravě substring kolizí (word-boundary matching
+fix). Word-boundary přístup řeší kolize typu "oprav" uvnitř "doprava"
+(substring problém), ale NEŘEŠÍ skutečné homografy - stejné celé slovo s
+jiným významem v jiném jazyce:
+
+- `KEYWORDS: "most "` (w=3, CZ/SK "most" = most/bridge) je zároveň běžné
+  anglické slovo "most" (superlativ, "most drivers"). Registr má reálné
+  UK/IE zdroje.
+- `KEYWORDS: "toll"` (w=3, EN "toll" = mýtné) je zároveň běžné německé
+  hovorové adjektivum "toll" (skvělý). Registr má reálné DE/AT/CH/LI
+  zdroje. Skutečné německé slovo pro mýtné je "Maut".
+- `CARGO_OVERRIDE_PHRASES`: slovenský tvar "nákladná" (nákladná doprava =
+  cargo transport) je po normalize() identický s českým "nákladná"
+  (costly, žensky rod) - `nakladna`. Proto override list obsahuje jen
+  bezpečné české tvary "nákladní" (nakladni/nakladniho/nakladnim/
+  nakladnich/nakladnimi), NE ženský/rodový tvar - malá ztráta recall pro
+  slovenské "nákladná doprava" zprávy.
+
+Řešení vyžaduje jazykově-aware scoring (napojit KEYWORDS/CARGO_OVERRIDE_PHRASES
+na candidate.country, aby se "most"/"toll" vyhodnocovaly jinak podle zdrojové
+země) - strukturální změna nad rámec word-boundary opravy z 2026-08-11.
+
 ## Vyřešeno: obsahová pravidla pro `Article.checklist`
 
 Rozhodnuto a implementováno (`scripts/generate-weekly-article.mjs`,
