@@ -160,16 +160,6 @@
       "note": "[Faze 1b, Cast A, 2026-07-31] Homepage odkazuje na externi RSS/Atom pres Feedburner (http://feeds.feedburner.com/sscsk), feed overen - vraci 200 text/xml. Homepage ma i sekce 'aktuality' a 'tlacove-spravy'. POZOR: Feedburner je stary Google produkt s nejistou dlouhodobou zivotnosti, pred zapnutim overit, ze feed stale aktivne publikuje."
     },
     {
-      "id": "sk-nds",
-      "country": "SK",
-      "name": "Narodna dialnicna spolocnost (NDS)",
-      "url": "https://www.ndsas.sk",
-      "type": "atom",
-      "enabled": false,
-      "priority": 1,
-      "note": "[Faze 1b, Cast A, 2026-07-31] Realny Atom feed primo na https://ndsas.sk/feed (200, application/xml, obsahuje aktualni polozky ke dni overeni). sitemap.xml take existuje (200, text/xml). Nejsilnejsi SK nalez v teto fazi."
-    },
-    {
       "id": "hu-kozut",
       "country": "HU",
       "name": "Magyar Kozut Nonprofit Zrt.",

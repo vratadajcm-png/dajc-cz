@@ -1,6 +1,24 @@
 # Otevřené otázky
 
-Aktuálně žádné.
+## Otevřeno: `enabled` flag v `data/oversize-news-sources.json` je mrtvý kód
+
+Pole `enabled` existuje u všech 134 zdrojů v registru a je u úplně všech
+nastaveno na `false` (pozůstatek fáze 1 auditu), ale žádný skript
+(`read-feeds.mjs`, `generate-test-card.mjs`) ho při výběru zdrojů nečte —
+filtruje se jen podle `type === "rss" || "atom"`. Nastavení `enabled: false`
+tedy v praxi zdroj z generování nijak nevyřazuje.
+
+Zjištěno 2026-08-11 při řešení zdroje `sk-nds` (opakovaně servíroval
+zastaralý/irelevantní obsah s vadným `pubDate` — viz commit odstraňující
+`sk-nds` z registru). `sk-nds` byl smazán z registru přímo, ne přes
+`enabled`, protože flag by stejně nic nezměnil.
+
+Než se filtr na `enabled` reálně zapojí do `read-feeds.mjs`/
+`generate-test-card.mjs`, je potřeba projít všech 134 zdrojů a rozhodnout
+per zdroj, jestli má být `enabled: true` — jinak by zapojení filtru bez
+přípravy vynulovalo počet kandidátů na 0 (žádný zdroj aktuálně `true`) a
+zastavilo by páteční automatizaci úplně. Samostatný úkol, mimo rozsah
+opravy `sk-nds`.
 
 ## Vyřešeno: obsahová pravidla pro `Article.checklist`
 
