@@ -44,8 +44,39 @@ jako legitimní, protože text tématu (title/body/impact) neobsahuje žádný
 čtyřciferný rok (`validateNoStaleYears` ho tedy nezachytila) a obsahově
 nejde o osobní vozidlo/turistiku/trestní věc (`validateRelevance` ho
 taky nezachytila). Zjištěno 2026-08-11, po komitu, který `sk-nds` z
-registru odstranil — **živý článek dosud opraven nebyl**, čeká na
-samostatné rozhodnutí uživatele.
+registru odstranil — živý článek byl opraven 2026-08-13 (commit
+`bb1b6fe`).
+
+**Potvrzeno 2026-08-13 — chyba je aktivní systémová vlastnost CMS, ne
+izolovaná historická anomálie:** uživatel navrhl `https://ndsas.sk/aktuality`
+jako možnou alternativní cestu ke stejným datům. Diagnostický průzkum
+(přímé HTTP/curl ověření, bez API nákladů) ukázal:
+
+- `/aktuality` má vlastní `<link rel="alternate" type="application/atom+xml">`
+  autodiscovery, který ukazuje přesně na `https://ndsas.sk/feed` — tedy na
+  TENTÝŽ feed jako vyřazený `sk-nds`, ne na nezávislý kanál s jinou
+  spolehlivostí.
+- Každá stránka jednotlivého článku nese strukturovaná data (JSON-LD) s
+  `datePublished` (skutečné datum vzniku) a `dateModified`. U všech 5
+  nezávisle ověřených článků (včetně
+  `odstartovali-sme-vystavbu-kysuckej-dialnice`, kde JSON-LD potvrzuje
+  `datePublished: 2017-01-24` — přesně sedí s fotograficky ověřeným datem)
+  je `dateModified` shodně `2026-08-13` (den ověření), bez ohledu na to,
+  jestli `datePublished` je 2017, 2024, nebo pár dní staré.
+- `pubDate` ve `/feed` odpovídá `dateModified`, ne `datePublished` — feed
+  proto opakovaně servíruje i roky starý obsah s "čerstvým" datem, a
+  nejde o jednorázový úlet: D3/Kysuce článek měl znovu dnešní `pubDate`
+  i hodiny po ranní opravě živého článku.
+- `/aktuality` jako HTML výpis není bezpečná alternativa k feedu ani sama
+  o sobě — `nds-varuje-pred-podvodnymi-spravami` (skutečné
+  `datePublished: 2024-04-10`, přes 2 roky staré) se objevuje přímo na
+  první stránce výpisu jako zdánlivě aktuální položka.
+
+**Rozhodnutí uživatele 2026-08-13:** nepřidávat `https://ndsas.sk/aktuality`
+ani žádnou jinou cestu na `ndsas.sk` do registru — je to technicky stejný
+zdroj dat jako vyřazený `sk-nds`, jen jiná prezentace téže systémové
+chyby (`dateModified` se dotýká všeho obsahu bez ohledu na skutečnou
+změnu). Platí, dokud NDS/CMS chybu neopraví.
 
 ## Vyřešeno: náhradní SK zdroj za sk-nds — cesmad.sk a cdb.sk prověřeny, žádný nepřidán
 
