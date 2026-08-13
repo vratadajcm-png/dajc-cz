@@ -1,19 +1,9 @@
 {
   "slug": "2026-08-10-tydenni-prehled",
-  "title": "Přehled týdne: dálniční stavby, mýtné a infrastrukturní projekty v Evropě",
+  "title": "Přehled týdne: mýtné, tunely a infrastrukturní projekty v Evropě",
   "dateRange": "10.–16. srpna 2026",
-  "lead": "Tento týden přinesl zprávy z několika evropských zemí týkající se dopravní infrastruktury. Na Slovensku odstartovala výstavba úseku dálnice D3 na Kysucích, v Česku vzrostl výběr mýtného za první pololetí. Doplňují to zprávy o zpoždění modernizace norského tunelu, litevském newsletteru k projektu Via Toll a albánském zadávacím řízení na mosty.",
+  "lead": "Tento týden přinesl zprávy z několika evropských zemí týkající se dopravní infrastruktury. V Česku vzrostl výběr mýtného za první pololetí. Doplňují to zprávy o zpoždění modernizace norského tunelu, litevském newsletteru k projektu Via Toll a albánském zadávacím řízení na mosty.",
   "topics": [
-    {
-      "country": "SK",
-      "title": "Začala výstavba diaľnice D3 na Kysuciach",
-      "body": "Národná diaľničná spoločnosť odštartovala výstavbu úseku diaľnice D3 v dĺžke 5 673 m, ktorý zahŕňa 19 mostov, 2 križovatky, 11 km protihlukových stien a 6 km oplotenia. V súčasnosti je doprava v tejto oblasti vedená po cestách prvej triedy cez mesto Čadca a obec Svrčinovec, čo znižuje plynulosť dopravy.",
-      "impact": "Po dokončení diaľnice sa tranzitná doprava smerujúca na hraničné priechody s Českom a Poľskom presunie mimo mesta Čadca a obce Svrčinovec, čím sa skráti čas jazdy približne o 5 minút a zvýši sa plynulosť aj bezpečnosť prepravy.",
-      "source": {
-        "name": "Narodna dialnicna spolocnost (NDS)",
-        "url": "https://ndsas.sk/press/spravy/odstartovali-sme-vystavbu-kysuckej-dialnice"
-      }
-    },
     {
       "country": "CZ",
       "title": "Výběr mýtného v ČR za první pololetí přesáhl 10 miliard korun",
@@ -51,23 +41,12 @@
       }
     }
   ],
-  "checklist": [
-    "Počítejte s omezenou plynulostí dopravy přes Čadcu a Svrčinovec, dokud nebude dokončen nový úsek diaľnice D3 na Kysuciach."
-  ],
   "draft": false,
   "translations": {
     "en": {
-      "title": "Weekly Roundup: Highway Construction, Tolls, and Infrastructure Projects in Europe",
-      "lead": "This week brought news from several European countries regarding transportation infrastructure. In Slovakia, construction began on a section of the D3 highway in the Kysuce region, while in the Czech Republic, toll revenue increased during the first half of the year. These are complemented by reports on delays in the modernization of a Norwegian tunnel, a Lithuanian newsletter on the Via Toll project, and an Albanian tender for bridges.",
-      "checklist": [
-        "Expect traffic delays through Čadca and Svrčinovec until the new section of the D3 highway in Kysuce is completed."
-      ],
+      "title": "Weekly Roundup: Tolls, Tunnels, and Infrastructure Projects in Europe",
+      "lead": "This week brought news from several European countries regarding transportation infrastructure. In the Czech Republic, toll revenue increased during the first half of the year. This is complemented by reports on delays in the modernization of a Norwegian tunnel, a Lithuanian newsletter on the Via Toll project, and an Albanian tender for bridges.",
       "topics": [
-        {
-          "title": "Construction of the D3 Highway in the Kysuce Region Has Begun",
-          "body": "The National Highway Company has begun construction on a 5,673-meter section of the D3 highway, which includes 19 bridges, 2 intersections, 11 km of noise barriers, and 6 km of fencing. Currently, traffic in this area is routed along first-class roads through the town of Čadca and the village of Svrčinovec, which reduces traffic flow.",
-          "impact": "Once the highway is completed, transit traffic heading toward the border crossings with the Czech Republic and Poland will be rerouted away from the town of Čadca and the village of Svrčinovec, thereby shortening travel time by approximately 5 minutes and improving both traffic flow and safety."
-        },
         {
           "title": "Toll revenue in the Czech Republic exceeded 10 billion crowns in the first half of the year",
           "body": "In the first half of this year, toll revenue totaling 10.07 billion crowns was collected on highways and toll sections of Class I roads, representing a year-over-year increase of 5.7 percent. More than half (54%) of the total amount collected was paid by foreign carriers, while 88 percent of the tolls were paid by carriers operating vehicles above a certain weight category."
@@ -87,17 +66,9 @@
       ]
     },
     "de": {
-      "title": "Wochenrückblick: Autobahnbau, Maut und Infrastrukturprojekte in Europa",
-      "lead": "Diese Woche gab es aus mehreren europäischen Ländern Meldungen zum Thema Verkehrsinfrastruktur. In der Slowakei wurde mit dem Bau eines Abschnitts der Autobahn D3 in der Region Kysuce begonnen, in Tschechien stiegen die Mauteinnahmen im ersten Halbjahr. Hinzu kommen Meldungen über Verzögerungen bei der Modernisierung eines norwegischen Tunnels, einen litauischen Newsletter zum Projekt „Via Toll“ sowie eine albanische Ausschreibung für Brückenbauvorhaben.",
-      "checklist": [
-        "Rechnen Sie mit Verkehrsbehinderungen in Čadca und Svrčinovec, bis der neue Abschnitt der Autobahn D3 in Kysuce fertiggestellt ist."
-      ],
+      "title": "Wochenrückblick: Mautgebühren, Tunnel und Infrastrukturprojekte in Europa",
+      "lead": "In dieser Woche gab es Meldungen aus mehreren europäischen Ländern zum Thema Verkehrsinfrastruktur. In Tschechien sind die Mauteinnahmen im ersten Halbjahr gestiegen. Hinzu kommen Berichte über Verzögerungen bei der Modernisierung eines norwegischen Tunnels, einen litauischen Newsletter zum Projekt „Via Toll“ sowie eine albanische Ausschreibung für Brückenbauvorhaben.",
       "topics": [
-        {
-          "title": "Der Bau der Autobahn D3 in Kysuce hat begonnen",
-          "body": "Die Nationale Autobahngesellschaft hat mit dem Bau eines 5.673 m langen Abschnitts der Autobahn D3 begonnen, der 19 Brücken, 2 Kreuzungen, 11 km Lärmschutzwände und 6 km Umzäunung umfasst. Derzeit wird der Verkehr in diesem Gebiet über Straßen erster Klasse durch die Stadt Čadca und die Gemeinde Svrčinovec geleitet, was den Verkehrsfluss beeinträchtigt.",
-          "impact": "Nach Fertigstellung der Autobahn wird der Transitverkehr in Richtung der Grenzübergänge zu Tschechien und Polen an den Orten Čadca und Svrčinovec vorbeiführen, wodurch sich die Fahrzeit um etwa 5 Minuten verkürzt und sowohl der Verkehrsfluss als auch die Verkehrssicherheit verbessert werden."
-        },
         {
           "title": "Die Mauteinnahmen in der Tschechischen Republik beliefen sich im ersten Halbjahr auf über 10 Milliarden Kronen",
           "body": "Auf Autobahnen und mautpflichtigen Abschnitten von Straßen der Klasse I wurden im ersten Halbjahr dieses Jahres Mauteinnahmen in Höhe von 10,07 Milliarden Kronen erzielt, was einem Anstieg von 5,7 Prozent gegenüber dem Vorjahr entspricht. Mehr als die Hälfte (54 %) des gesamten eingenommenen Betrags wurde von ausländischen Transportunternehmen entrichtet, 88 Prozent der Mautgebühren wurden von Transportunternehmen mit Fahrzeugen oberhalb einer bestimmten Gewichtsklasse gezahlt."
@@ -117,20 +88,12 @@
       ]
     },
     "fr": {
-      "title": "Le point sur la semaine : chantiers autoroutiers, péages et projets d'infrastructure en Europe",
-      "lead": "Cette semaine a été marquée par des actualités concernant les infrastructures de transport dans plusieurs pays européens. En Slovaquie, la construction d’un tronçon de l’autoroute D3 dans la région de Kysuce a débuté, tandis qu’en République tchèque, les recettes issues du péage ont augmenté au cours du premier semestre. À cela s'ajoutent des informations sur le retard pris dans la modernisation d'un tunnel norvégien, une lettre d'information lituanienne sur le projet Via Toll et un appel d'offres albanais concernant des ponts.",
-      "checklist": [
-        "Prévoyez des perturbations de la circulation à Čadca et à Svrčinovec jusqu'à l'achèvement du nouveau tronçon de l'autoroute D3 dans la région de Kysuce."
-      ],
+      "title": "Le point sur la semaine : péages, tunnels et projets d'infrastructure en Europe",
+      "lead": "Cette semaine a été marquée par des actualités en provenance de plusieurs pays européens concernant les infrastructures de transport. En République tchèque, les recettes issues du péage ont augmenté au cours du premier semestre. À cela s’ajoutent des informations sur le retard pris dans la modernisation d’un tunnel norvégien, une lettre d’information lituanienne consacrée au projet Via Toll et un appel d’offres albanais portant sur des ponts.",
       "topics": [
         {
-          "title": "Les travaux de construction de l'autoroute D3 ont commencé dans la région de Kysuce",
-          "body": "La Société nationale des autoroutes a lancé la construction d'un tronçon de l'autoroute D3 d'une longueur de 5 673 m, qui comprend 19 ponts, 2 échangeurs, 11 km de murs antibruit et 6 km de clôtures. Actuellement, la circulation dans cette zone s'effectue sur des routes de première classe traversant la ville de Čadca et la commune de Svrčinovec, ce qui nuit à la fluidité du trafic.",
-          "impact": "Une fois l'autoroute achevée, le trafic de transit en direction des postes-frontières avec la République tchèque et la Pologne sera détourné des villes de Čadca et de Svrčinovec, ce qui permettra de réduire le temps de trajet d'environ 5 minutes et d'améliorer la fluidité et la sécurité du trafic."
-        },
-        {
           "title": "Les recettes des péages en République tchèque ont dépassé les 10 milliards de couronnes au premier semestre",
-          "body": "Au cours du premier semestre de cette année, les péages perçus sur les autoroutes et les tronçons payants des routes de 1re classe se sont élevés à 10,07 milliards de couronnes, soit une hausse de 5,7 % par rapport à la même période de l'année précédente. Plus de la moitié (54 %) du montant total perçu a été acquittée par des transporteurs étrangers, tandis que 88 % des péages ont été payés par des transporteurs utilisant des véhicules dépassant une certaine catégorie de poids."
+          "body": "Au cours du premier semestre de cette année, les péages perçus sur les autoroutes et les tronçons payants des routes de 1re classe se sont élevés à 10,07 milliards de couronnes, soit une hausse de 5,7 % par rapport à la même période de l'année précédente. Plus de la moitié (54 %) du montant total perçu a été versée par des transporteurs étrangers, tandis que 88 % des péages ont été payés par des transporteurs utilisant des véhicules dépassant une certaine catégorie de poids."
         },
         {
           "title": "Retard dans le lancement des travaux de modernisation du tunnel de Lærdalstunnelen en raison d'une plainte",
@@ -147,17 +110,9 @@
       ]
     },
     "it": {
-      "title": "Panoramica settimanale: lavori autostradali, pedaggi e progetti infrastrutturali in Europa",
-      "lead": "Questa settimana sono giunte notizie da diversi paesi europei in materia di infrastrutture di trasporto. In Slovacchia è iniziata la costruzione di un tratto dell’autostrada D3 nella regione di Kysuce, mentre nella Repubblica Ceca è aumentato il gettito dei pedaggi nel primo semestre. A queste si aggiungono notizie sul ritardo nella modernizzazione di un tunnel norvegese, una newsletter lituana sul progetto Via Toll e una gara d’appalto albanese per la realizzazione di ponti.",
-      "checklist": [
-        "Si prega di tenere conto di una scorrevolezza limitata del traffico attraverso Čadca e Svrčinovec fino al completamento del nuovo tratto dell'autostrada D3 nella regione di Kysuce."
-      ],
+      "title": "Panoramica della settimana: pedaggi, gallerie e progetti infrastrutturali in Europa",
+      "lead": "Questa settimana sono giunte notizie da diversi paesi europei in materia di infrastrutture di trasporto. Nella Repubblica Ceca, la riscossione dei pedaggi è aumentata nel primo semestre. A queste si aggiungono notizie sui ritardi nella modernizzazione di un tunnel norvegese, una newsletter lituana sul progetto Via Toll e una gara d’appalto albanese per la realizzazione di ponti.",
       "topics": [
-        {
-          "title": "Sono iniziati i lavori di costruzione dell'autostrada D3 nella regione di Kysuce",
-          "body": "La Società Nazionale Autostradale ha avviato i lavori di costruzione di un tratto dell’autostrada D3 lungo 5 673 m, che comprende 19 ponti, 2 svincoli, 11 km di barriere antirumore e 6 km di recinzioni. Attualmente il traffico in questa zona viene deviato sulle strade di prima classe che attraversano la città di Čadca e il comune di Svrčinovec, il che riduce la fluidità del traffico.",
-          "impact": "Una volta completata l'autostrada, il traffico di transito diretto verso i valichi di frontiera con la Repubblica Ceca e la Polonia verrà deviato fuori dalla città di Čadca e dal comune di Svrčinovec, riducendo così il tempo di percorrenza di circa 5 minuti e migliorando la fluidità e la sicurezza del traffico."
-        },
         {
           "title": "Nel primo semestre, il gettito dei pedaggi nella Repubblica Ceca ha superato i 10 miliardi di corone",
           "body": "Nelle autostrade e nei tratti a pedaggio delle strade di I classe, nel primo semestre di quest’anno sono stati riscossi pedaggi per un importo di 10,07 miliardi di corone, con un aumento del 5,7% rispetto allo stesso periodo dell’anno precedente. Più della metà (54%) dell’importo totale riscosso è stata versata da trasportatori stranieri, mentre l’88% dei pedaggi è stato pagato da trasportatori con veicoli che superano una determinata categoria di peso."
@@ -177,17 +132,9 @@
       ]
     },
     "es": {
-      "title": "Resumen de la semana: obras en autopistas, peajes y proyectos de infraestructura en Europa",
-      "lead": "Esta semana han surgido noticias de varios países europeos relacionadas con las infraestructuras de transporte. En Eslovaquia ha comenzado la construcción de un tramo de la autopista D3 en la región de Kysuce, mientras que en la República Checa han aumentado los ingresos por peajes durante el primer semestre. A ello se suman noticias sobre el retraso en la modernización de un túnel noruego, un boletín informativo lituano sobre el proyecto Via Toll y una licitación albanesa para la construcción de puentes.",
-      "checklist": [
-        "Tenga en cuenta que la circulación por Čadca y Svrčinovec será limitada hasta que se termine el nuevo tramo de la autopista D3 en Kysuce."
-      ],
+      "title": "Resumen de la semana: peajes, túneles y proyectos de infraestructura en Europa",
+      "lead": "Esta semana han surgido noticias de varios países europeos relacionadas con las infraestructuras de transporte. En la República Checa, la recaudación por peajes ha aumentado durante el primer semestre. A ello se suman las noticias sobre el retraso en la modernización de un túnel noruego, un boletín informativo lituano sobre el proyecto Via Toll y una licitación albanesa para la construcción de puentes.",
       "topics": [
-        {
-          "title": "Ha comenzado la construcción de la autopista D3 en Kysuce",
-          "body": "La Compañía Nacional de Autopistas ha iniciado la construcción de un tramo de la autopista D3 de 5 673 m de longitud, que incluye 19 puentes, 2 cruces, 11 km de pantallas acústicas y 6 km de vallado. Actualmente, el tráfico en esta zona discurre por carreteras de primera clase a través de la ciudad de Čadca y el municipio de Svrčinovec, lo que reduce la fluidez del tráfico.",
-          "impact": "Una vez finalizada la autopista, el tráfico de tránsito con destino a los pasos fronterizos con la República Checa y Polonia se desviará fuera de la ciudad de Čadca y de la localidad de Svrčinovec, lo que reducirá la duración del trayecto en unos 5 minutos y mejorará la fluidez y la seguridad del tráfico."
-        },
         {
           "title": "La recaudación por peajes en la República Checa durante el primer semestre superó los 10 000 millones de coronas",
           "body": "En las autopistas y en los tramos de carretera de primera clase sujetos a peaje, durante el primer semestre de este año se recaudaron 10 070 millones de coronas en concepto de peaje, lo que supone un aumento interanual del 5,7 %. Más de la mitad (54 %) del importe total recaudado corrió a cargo de transportistas extranjeros, mientras que el 88 % de los peajes lo pagaron transportistas con vehículos que superaban una determinada categoría de peso."
@@ -201,23 +148,15 @@
           "body": "La administración de carreteras lituana Via Lietuva ha publicado un boletín informativo dedicado al proyecto «Via Toll». El comunicado se limita a anunciar la publicación de dicho boletín."
         },
         {
-          "title": "Anuncio relativo a un procedimiento de licitación específico para los puentes del grupo B1",
+          "title": "Anuncio de un procedimiento de licitación específico para los puentes del grupo B1",
           "body": "La Autoridad de Carreteras de Albania (ARRSH) ha publicado un anuncio de licitación relativo a los puentes del grupo B1. Se adjunta al anuncio el documento «260722 – SPN_RFB_Group B1 Bridges.pdf»."
         }
       ]
     },
     "pl": {
-      "title": "Podsumowanie tygodnia: budowa autostrad, opłaty drogowe i projekty infrastrukturalne w Europie",
-      "lead": "W tym tygodniu pojawiły się wiadomości z kilku krajów europejskich dotyczące infrastruktury transportowej. Na Słowacji rozpoczęła się budowa odcinka autostrady D3 w regionie Kysuce, a w Czechach wzrosły wpływy z opłat drogowych w pierwszym półroczu. Uzupełniają je informacje o opóźnieniu modernizacji norweskiego tunelu, litewskim biuletynie poświęconym projektowi Via Toll oraz albańskim przetargu na budowę mostów.",
-      "checklist": [
-        "Należy liczyć się z utrudnieniami w ruchu przez Čadcę i Svrčinovec do czasu ukończenia budowy nowego odcinka autostrady D3 w regionie Kysuce."
-      ],
+      "title": "Podsumowanie tygodnia: opłaty drogowe, tunele i projekty infrastrukturalne w Europie",
+      "lead": "W tym tygodniu pojawiły się wiadomości z kilku krajów europejskich dotyczące infrastruktury transportowej. W Czechach wzrosły wpływy z opłat drogowych w pierwszym półroczu. Uzupełniają je doniesienia o opóźnieniach w modernizacji norweskiego tunelu, litewskim biuletynie poświęconym projektowi Via Toll oraz albańskim przetargu na budowę mostów.",
       "topics": [
-        {
-          "title": "Rozpoczęła się budowa autostrady D3 w regionie Kysuce",
-          "body": "Narodowa Spółka Autostradowa rozpoczęła budowę odcinka autostrady D3 o długości 5 673 m, który obejmuje 19 mostów, 2 skrzyżowania, 11 km ekranów przeciwhałasowych oraz 6 km ogrodzenia. Obecnie ruch w tym rejonie odbywa się drogami pierwszej klasy przebiegającymi przez miasto Čadca i gminę Svrčinovec, co ogranicza płynność ruchu.",
-          "impact": "Po ukończeniu budowy autostrady ruch tranzytowy zmierzający do przejść granicznych z Czechami i Polską zostanie przekierowany poza miasto Čadca i gminę Svrčinovec, co skróci czas przejazdu o około 5 minut oraz poprawi płynność i bezpieczeństwo ruchu."
-        },
         {
           "title": "Wpływy z opłat drogowych w Czechach w pierwszym półroczu przekroczyły 10 miliardów koron",
           "body": "W pierwszym półroczu bieżącego roku na autostradach i płatnych odcinkach dróg I klasy zebrano opłaty drogowe w wysokości 10,07 miliarda koron, co stanowi wzrost o 5,7 procent w porównaniu z analogicznym okresem ubiegłego roku. Ponad połowę (54%) całkowitej zebranej kwoty uiścili przewoźnicy zagraniczni, a 88 procent opłat za przejazd uiścili przewoźnicy korzystający z pojazdów przekraczających określoną kategorię masową."
@@ -237,17 +176,9 @@
       ]
     },
     "nl": {
-      "title": "Overzicht van de week: snelwegbouw, tolheffing en infrastructuurprojecten in Europa",
-      "lead": "Deze week kwam er nieuws uit verschillende Europese landen over de vervoersinfrastructuur. In Slowakije is de aanleg van een deel van de D3-snelweg in Kysuce van start gegaan, en in Tsjechië is de opbrengst uit tolheffing in de eerste helft van het jaar gestegen. Daarnaast zijn er berichten over vertraging bij de modernisering van een Noorse tunnel, een Litouwse nieuwsbrief over het Via Toll-project en een Albanese aanbesteding voor bruggen.",
-      "checklist": [
-        "Houd rekening met een beperkte doorstroming van het verkeer via Čadca en Svrčinovec, totdat het nieuwe deel van de D3-snelweg in Kysuce is voltooid."
-      ],
+      "title": "Weekoverzicht: tolheffing, tunnels en infrastructuurprojecten in Europa",
+      "lead": "Deze week verschenen er berichten uit verschillende Europese landen over de vervoersinfrastructuur. In Tsjechië is de opbrengst uit tolheffing in de eerste helft van het jaar gestegen. Daarnaast zijn er berichten over vertraging bij de modernisering van een Noorse tunnel, een Litouwse nieuwsbrief over het Via Toll-project en een Albanese aanbesteding voor bruggen.",
       "topics": [
-        {
-          "title": "De aanleg van de D3-snelweg in Kysuce is van start gegaan",
-          "body": "De Nationale Snelwegmaatschappij is begonnen met de aanleg van een 5 673 m lang traject van de D3-snelweg, dat 19 bruggen, 2 knooppunten, 11 km geluidsschermen en 6 km omheining omvat. Momenteel wordt het verkeer in dit gebied geleid via eersteklaswegen door de stad Čadca en de gemeente Svrčinovec, wat de doorstroming van het verkeer belemmert.",
-          "impact": "Na voltooiing van de snelweg zal het transitverkeer richting de grensovergangen met Tsjechië en Polen worden omgeleid buiten de stad Čadca en de gemeente Svrčinovec, waardoor de reistijd met ongeveer 5 minuten wordt verkort en zowel de doorstroming als de veiligheid van het verkeer worden verbeterd."
-        },
         {
           "title": "De opbrengst uit tolheffing in Tsjechië bedroeg in de eerste helft van het jaar meer dan 10 miljard korun",
           "body": "Op snelwegen en tolwegen van de eerste klasse werd in de eerste helft van dit jaar 10,07 miljard korun aan tol geïnd, wat neerkomt op een stijging van 5,7 procent ten opzichte van dezelfde periode vorig jaar. Meer dan de helft (54 %) van het totale geïnde bedrag werd betaald door buitenlandse vervoerders, terwijl 88 procent van de tol werd betaald door vervoerders met voertuigen boven een bepaalde gewichtsklasse."
@@ -258,7 +189,7 @@
         },
         {
           "title": "Via Lietuva presenteert de nieuwsbrief van het project „Via Toll“",
-          "body": "De Litouwse wegenbeheerder Via Lietuva heeft een nieuwsbrief gepubliceerd over het project „Via Toll“. Dit bericht dient uitsluitend ter aankondiging van de publicatie van deze nieuwsbrief."
+          "body": "De Litouwse wegenbeheerder Via Lietuva heeft een nieuwsbrief gepubliceerd over het „Via Toll“-project. Dit bericht dient uitsluitend ter aankondiging van de publicatie van deze nieuwsbrief."
         },
         {
           "title": "Aankondiging van een specifieke aanbestedingsprocedure voor bruggen van groep B1",
@@ -267,17 +198,9 @@
       ]
     },
     "ro": {
-      "title": "Sinteza săptămânii: lucrări la autostrăzi, taxele de drum și proiecte de infrastructură în Europa",
-      "lead": "Săptămâna aceasta au apărut știri din mai multe țări europene referitoare la infrastructura de transport. În Slovacia a început construcția unui tronson al autostrăzii D3 în regiunea Kysuce, iar în Cehia au crescut încasările din taxele de drum în primul semestru. La acestea se adaugă știri despre întârzierea modernizării tunelului norvegian, buletinul informativ lituanian privind proiectul Via Toll și licitația albaneză pentru poduri.",
-      "checklist": [
-        "Vă rugăm să vă așteptați la o circulație îngreunată prin Čadca și Svrčinovec până la finalizarea noului tronson al autostrăzii D3 din regiunea Kysuce."
-      ],
+      "title": "Sinteza săptămânii: taxele de drum, tunelurile și proiectele de infrastructură din Europa",
+      "lead": "În această săptămână au apărut știri din mai multe țări europene referitoare la infrastructura de transport. În Cehia, încasările din taxele de drum au crescut în primul semestru. La acestea se adaugă știri despre întârzierea modernizării tunelului norvegian, un buletin informativ lituanian privind proiectul Via Toll și o procedură de licitație albaneză pentru poduri.",
       "topics": [
-        {
-          "title": "A început construcția autostrăzii D3 în regiunea Kysuce",
-          "body": "Compania Națională de Autostrăzi a demarat construcția unui tronson al autostrăzii D3 cu o lungime de 5 673 m, care cuprinde 19 poduri, 2 intersecții, 11 km de ziduri antifonice și 6 km de garduri. În prezent, traficul din această zonă se desfășoară pe drumurile de clasa I care traversează orașul Čadca și comuna Svrčinovec, ceea ce afectează fluiditatea traficului.",
-          "impact": "Odată cu finalizarea autostrăzii, traficul de tranzit îndreptat către punctele de trecere a frontierei cu Cehia și Polonia va fi deviat în afara orașului Čadca și a localității Svrčinovec, ceea ce va reduce durata călătoriei cu aproximativ 5 minute și va spori fluiditatea și siguranța transportului."
-        },
         {
           "title": "Încasările din taxele de drum din Republica Cehă au depășit 10 miliarde de coroane în primul semestru",
           "body": "Pe autostrăzi și pe tronsoanele cu taxă ale drumurilor de clasa I, în prima jumătate a acestui an s-au încasat taxe de drum în valoare de 10,07 miliarde de coroane, ceea ce reprezintă o creștere de 5,7% față de aceeași perioadă a anului trecut. Peste jumătate (54 %) din suma totală încasată a fost achitată de transportatorii străini, iar 88 % din taxele de drum au fost plătite de transportatorii cu vehicule care depășesc o anumită categorie de greutate."
@@ -288,11 +211,11 @@
         },
         {
           "title": "Via Lietuva prezintă buletinul informativ al proiectului „Via Toll”",
-          "body": "Administrația lituaniană a drumurilor, Via Lietuva, a publicat un buletin informativ dedicat proiectului „Via Toll”. Comunicatul se limitează la anunțarea publicării acestui buletin informativ."
+          "body": "Administrația lituaniană a drumurilor, Via Lietuva, a publicat un buletin informativ dedicat proiectului „Via Toll”. Raportul se limitează la a anunța publicarea acestui buletin informativ."
         },
         {
-          "title": "Anunț privind o procedură de achiziție publică specifică pentru podurile din grupa B1",
-          "body": "Autoritatea albaneză pentru drumuri (ARRSH) a publicat un anunț privind procedura de atribuire a contractului referitor la podurile din grupa B1. La anunț este atașat documentul „260722 – SPN_RFB_Group B1 Bridges.pdf”."
+          "title": "Anunț privind o procedură de atribuire specifică pentru podurile din grupa B1",
+          "body": "Autoritatea albaneză pentru drumuri (ARRSH) a publicat un anunț privind procedura de atribuire a contractului referitoare la podurile din grupa B1. La anunț este atașat documentul „260722 – SPN_RFB_Group B1 Bridges.pdf”."
         }
       ]
     }
