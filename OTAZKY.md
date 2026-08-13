@@ -111,6 +111,27 @@ jiným významem v jiném jazyce:
 na candidate.country, aby se "most"/"toll" vyhodnocovaly jinak podle zdrojové
 země) - strukturální změna nad rámec word-boundary opravy z 2026-08-11.
 
+## Zjištěno: `translate-article.mjs` při opravě článku přegeneruje všechny překlady znovu, ne jen diff
+
+Zjištěno 2026-08-13 při opravě `content/articles/2026-08-10-tydenni-prehled.json`
+(odstranění zastaralého SK tématu ze zdroje `sk-nds`, viz výše). Skript
+nedrží stav "co už bylo přeloženo" ani neumí přeložit jen změněná témata -
+při každém spuštění pošle DeepL znovu úplně všechen překladatelný text
+článku (`buildTranslationPlan`) a přepíše celé pole `translations`.
+
+Důsledek: i nezměněná témata (v tomto případě Via Lietuva bulletin a
+oznámení ARRSH o mostech skupiny B1) dostala při opravném běhu drobně
+jinak formulovaný překlad v ES/NL/RO - DeepL nevrací identický výstup na
+identický vstup při opakovaném volání. Věcně to obsah nemění (stejná
+fakta, jen jiná slovní formulace), takže to neprošlo žádnou validací jako
+chyba.
+
+Stojí za zvážení do budoucna: `translate-article.mjs` by mohl překládat
+jen témata/pole, která se od posledního uloženého `translations` skutečně
+změnila (např. porovnáním s předchozí verzí souboru), místo aby vždy
+přepsal všechno - ušetřilo by to DeepL znaky i eliminovalo tenhle
+kosmetický side-effect. Mimo rozsah aktuální opravy, samostatný úkol.
+
 ## Vyřešeno: obsahová pravidla pro `Article.checklist`
 
 Rozhodnuto a implementováno (`scripts/generate-weekly-article.mjs`,
