@@ -20,17 +20,17 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["500", "600", "700"],
 });
 
-const siteUrl = "https://dajc.cz";
+const siteUrl = "https://www.dajc.cz";
 const description =
-  "DAJC — jednotné digitální místo, kde se z nákladu stává řízená přepravní zakázka pro těžkou a nadrozměrnou přepravu.";
+  "DAJC — European heavy and oversized transport platform built from real transport operations.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: {
-    default: "DAJC — platforma pro těžkou a nadrozměrnou přepravu",
-    template: "%s | DAJC",
-  },
+  title: "DAJC",
   description,
+  alternates: {
+    canonical: `${siteUrl}/`,
+  },
   icons: {
     icon: [
       { url: "/brand/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "DAJC — platforma pro těžkou a nadrozměrnou přepravu",
+    title: "DAJC",
     description,
     url: siteUrl,
     siteName: "DAJC",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
         height: 1024,
       },
     ],
-    locale: "cs_CZ",
+    locale: "en_US",
     type: "website",
   },
 };
@@ -77,10 +77,10 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="cs"
+      lang="en"
       className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${spaceGrotesk.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white text-slate-900">
+      <body className="flex min-h-full flex-col bg-dajc-dark text-dajc-white">
         {children}
       </body>
     </html>

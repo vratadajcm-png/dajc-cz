@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
+  --background: #061a33;
+  --foreground: #f5f7fa;
 }
 
 @theme inline {
@@ -11,6 +11,9 @@
   --color-dajc-navy: #00265c;
   --color-dajc-orange: #ff9f00;
   --color-dajc-dark: #061a33;
+  --color-dajc-white: #f5f7fa;
+  --color-dajc-muted: #7c8da6;
+  --color-dajc-line: rgba(124, 141, 166, 0.16);
   --font-sans: var(--font-ibm-plex-sans);
   --font-mono: var(--font-ibm-plex-mono);
   --font-heading: var(--font-space-grotesk);
@@ -20,4 +23,18 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Same grid-overlay treatment as the dajc.eu dark hero, so dajc.cz reads as
+   part of the same brand rather than a separate design. */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-dajc-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-dajc-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, black 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, black 40%, transparent 85%);
+  pointer-events: none;
 }
