@@ -40,7 +40,7 @@ export default function Home() {
             href="https://www.dajc.eu/news/platform/why-dajc-exists/"
             className="mt-6 inline-block font-mono text-xs tracking-[0.06em] text-dajc-orange uppercase hover:underline"
           >
-            Read the full DAJC story &rarr;
+            Přečíst celý příběh DAJC &rarr;
           </a>
         </div>
 
@@ -48,7 +48,7 @@ export default function Home() {
           href="https://www.dajc.eu/"
           className="mt-12 inline-flex items-center justify-center rounded-full bg-dajc-orange px-8 py-4 text-lg font-semibold text-dajc-dark transition hover:brightness-110"
         >
-          Visit dajc.eu
+          Navštívit dajc.eu
         </a>
 
         <nav
@@ -56,13 +56,13 @@ export default function Home() {
           className="mt-8 flex items-center gap-3 font-mono text-xs tracking-[0.06em] text-dajc-orange uppercase"
         >
           <a href="https://www.dajc.eu/news/" className="hover:underline">
-            News
+            Novinky
           </a>
           <span className="text-dajc-line" aria-hidden="true">
             &middot;
           </span>
           <a href="https://www.dajc.eu/partners/" className="hover:underline">
-            Integration Ecosystem
+            Integrační ekosystém
           </a>
         </nav>
       </main>
