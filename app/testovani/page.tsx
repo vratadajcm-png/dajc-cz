@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Testování DAJC Platform – 3. čtvrtletí 2027",
@@ -17,9 +18,9 @@ export default function Testovani() {
   return (
     <main className="relative flex min-h-screen flex-col items-center bg-dajc-dark px-6 py-20 text-dajc-white">
       <div className="w-full max-w-[760px]">
-        <a href="/" className="font-mono text-xs uppercase tracking-[0.08em] text-dajc-orange hover:underline">
+        <Link href="/" className="font-mono text-xs uppercase tracking-[0.08em] text-dajc-orange hover:underline">
           &larr; DAJC.cz
-        </a>
+        </Link>
         <p className="mt-14 font-mono text-xs uppercase tracking-[0.18em] text-dajc-orange">
           DAJC Platform · vývoj a testování
         </p>
