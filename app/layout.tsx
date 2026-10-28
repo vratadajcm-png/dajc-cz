@@ -22,7 +22,7 @@ const spaceGrotesk = Space_Grotesk({
 
 const siteUrl = "https://www.dajc.cz";
 const description =
-  "DAJC — European heavy and oversized transport platform built from real transport operations.";
+  "DAJC – evropská platforma pro těžkou a nadrozměrnou silniční přepravu. Předprodukční testování plánováno na 3. čtvrtletí 2027.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
         height: 1024,
       },
     ],
-    locale: "en_US",
+    locale: "cs_CZ",
     type: "website",
   },
 };
@@ -77,7 +77,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="cs"
       className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${spaceGrotesk.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col bg-dajc-dark text-dajc-white">
