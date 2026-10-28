@@ -44,6 +44,19 @@ export default function Home() {
           </a>
         </div>
 
+        <section className="mt-8 w-full max-w-[720px] rounded-xl border border-dajc-line px-6 py-7 text-left" aria-labelledby="testing-heading">
+          <p className="font-mono text-xs uppercase tracking-[0.16em] text-dajc-orange">DAJC Platform · aktuální plán</p>
+          <h2 id="testing-heading" className="mt-3 text-2xl font-semibold text-dajc-white">Testování ve 3. čtvrtletí 2027</h2>
+          <p className="mt-3 text-[15px] leading-relaxed text-dajc-muted">
+            Předprodukční testování DAJC Platform je plánováno na červenec až září 2027.
+            Přesný termín zahájení zatím není stanoven. Registrace zájemců probíhá,
+            nejde však o spuštění komerční služby. Termín aktualizován 27. října 2026.
+          </p>
+          <a href="/testovani" className="mt-4 inline-block font-mono text-sm text-dajc-orange hover:underline">
+            Informace o testování a registraci &rarr;
+          </a>
+        </section>
+
         <a
           href="https://www.dajc.eu/"
           className="mt-12 inline-flex items-center justify-center rounded-full bg-dajc-orange px-8 py-4 text-lg font-semibold text-dajc-dark transition hover:brightness-110"
@@ -61,8 +74,8 @@ export default function Home() {
           <span className="text-dajc-line" aria-hidden="true">
             &middot;
           </span>
-          <a href="https://www.dajc.eu/partners/" className="hover:underline">
-            Integrační ekosystém
+          <a href="/testovani" className="hover:underline">
+            Testování 2027
           </a>
         </nav>
       </main>
