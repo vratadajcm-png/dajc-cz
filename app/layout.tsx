@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import WebsiteNav from "./components/WebsiteNav";
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
@@ -81,7 +82,9 @@ export default function RootLayout({
       className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${spaceGrotesk.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col bg-dajc-dark text-dajc-white">
+        <WebsiteNav />
         {children}
+        <footer className="relative z-10 mx-auto w-full max-w-6xl border-t border-dajc-line px-5 py-8 text-sm text-dajc-muted">DAJC · Projekt ve vývoji · <a className="text-dajc-orange" href="https://www.dajc.eu/privacy" hrefLang="en">Ochrana osobních údajů (EN)</a> · <a className="text-dajc-orange" href="https://www.dajc.eu/" hrefLang="en">DAJC.eu</a></footer>
       </body>
     </html>
   );
