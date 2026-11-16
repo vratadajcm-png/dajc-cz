@@ -1,58 +1,19 @@
-# dajc.cz
+# DAJC.cz — česká část DAJC
 
-Jednoduchá odkazová landing page pro **DAJC**. Jediný cíl: krátce
-představit DAJC a poslat návštěvníka na hlavní web
-[dajc.eu](https://www.dajc.eu/). Jedna statická stránka — žádná databáze,
-žádný blog, žádný News systém, žádná uživatelská logika, žádná vlastní
-aplikační funkčnost, žádná duplicita obsahu z dajc.eu.
+Samostatný web Next.js 16 (TypeScript, Tailwind), určený českému publiku. Hlavní anglický web: https://www.dajc.eu/.
 
-> **Toto je oddělený projekt od hlavního aplikačního repozitáře DAJC.**
-> Neobsahuje a nesmí obsahovat žádnou závislost na kódu hlavní aplikace ani
-> sdílená npm workspaces — jde o samostatný git repozitář nasazovaný
-> nezávisle.
+Stránky: úvod, /platform, /tar, /testovani, /demo, /faq, /kontakt, /aktuality.
 
-## Stack
+DAJC Platform a DAJC TAR jsou samostatné produkty ve vývoji. Platform: předprodukční testování plánováno na Q3 2027, přesný den není potvrzen. TAR: průzkum a vývoj, žádná živá asistenční služba.
 
-- Next.js 16, App Router, TypeScript (`strict`, žádné `any`)
-- Tailwind CSS v4 (CSS-first konfigurace přes `@theme` v `app/globals.css`)
-- Bez databáze, bez env proměnných/secrets, bez externích API
+Czech testing and research forms send to the existing DAJC.eu APIs using explicit CORS allowlists. The project has no local database or secrets. Requires the matching draft PR for DAJC.eu to allow Czech origins on /api/market-research. Deployment of this branch before that PR is merged would leave Czech research forms unavailable.
 
-## Struktura
+Never claim live provider integrations, official approvals, signed partners or real production access. No separate Early Access or pilot.
 
-```
-app/
-  layout.tsx   # metadata, favicony, OG obrázek
-  page.tsx     # jediná stránka webu (logo, podtitulek, CTA na dajc.eu, patička)
-public/
-  brand/       # logo a favicony z DAJC-logo-pack
-```
+Run checks:
 
-## Vývoj
+    npm ci
+    npm run lint
+    npm run build
 
-```bash
-npm install
-npm run dev      # http://localhost:3000
-npm run build    # produkční build
-```
-
-## Brand pravidla (závazné)
-
-Zdroj: `C:\Users\mirda\DAJC-logo-pack\README.md`. Shrnutí:
-
-- Barvy: `dajc-navy` `#00265C`, `dajc-orange` `#FF9F00`, tmavé pozadí
-  `dajc-dark` `#061A33` — definované jako Tailwind tokeny v
-  `app/globals.css`, stejné jako na dajc.eu.
-- Na světlém pozadí používat barevnou/tmavou variantu loga, na tmavém
-  pozadí bílou/oranžovou variantu (`DAJC-logo-dark-*.png`).
-- Logo nikdy nedeformovat, neprotahovat, nepřidávat stín ani záři.
-- Minimální šířka loga na webu: **140 px**.
-- Kolem loga ponechat volný prostor alespoň ve výšce písmene „D“.
-
-## Obsahová pravidla
-
-- Termín „AI-first“ se v žádném textu na webu nepoužívá.
-- Stránka je v angličtině (stejně jako dajc.eu) - jde o jednu krátkou
-  odkazovou stránku, ne o lokalizovaný obsah, takže překlad do češtiny
-  není potřeba.
-- Nepřidávat sem News systém, blog, CMS ani žádnou duplicitu obsahu
-  z dajc.eu - dajc.cz je čistě vstupní bod na dajc.eu.
+Before deployment, verify cross-domain CORS preflight, both forms, negative/timeout scenarios, production privacy notice and accessibility on mobile. Do not deploy automatically.
