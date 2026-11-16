@@ -35,3 +35,6 @@ jobs:
           npx tsc --noEmit
       - name: Production build
         run: npm run build
+
+      - name: Smoke-test Czech routes, metadata and cross-site links
+        run: node tests/smoke-public.mjs

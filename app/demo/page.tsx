@@ -1,0 +1,11 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+export const metadata:Metadata={title:"Průvodce demem DAJC Platform | DAJC.cz",description:"Český postup pro ukázkové demo D-ID Platform. Syntetická data, demonstrace bez produkčních integrací.",alternates:{canonical:"https://www.dajc.cz/demo",languages:{"cs-CZ":"https://www.dajc.cz/demo",en:"https://www.dajc.eu/demo-guide"}}};
+const steps=[
+ ["Přehled","Prohlédněte si ukázkové přepravy, milníky a otevřené úkoly."],
+ ["D-ID objednávky","Otevřete ukázkovou přepravu D-2026-00482 a podívejte se na souvislosti nákladu, trasy a účastníků."],
+ ["Command Center","Zkontrolujte Readiness Gates a Critical Blockers. Značky vyjadřují pouze ukázkový stav."],
+ ["Dokumenty","Projděte schválené, starší a chybějící dokumenty v jednom kontextu D-ID."],
+ ["Integrace","Hodnota Integration Health v demu vyjadřuje stav demonstrace, nikoli počet dokončených produkčních napojení. Žádnou integraci nepovažujte za potvrzenou."],
+];
+export default function Demo(){return <main className="relative z-10 mx-auto max-w-4xl px-5 py-16"><p className="font-mono text-xs uppercase tracking-wider text-dajc-orange">Pouze názorná ukázka</p><h1 className="mt-4 text-4xl font-semibold">Jak projít demo DAJC Platform</h1><p className="mt-6 leading-relaxed text-dajc-muted">Demo běží se syntetickými údaji a není určeno pro skutečnou dopravu. Neověřuje platnost povolení, průjezdnost tras, připojené poskytovatele ani aktuální stav vývoje.</p><ol className="mt-10 space-y-4">{steps.map(([title,copy],i)=><li key={title} className="rounded-lg border border-dajc-line p-5"><strong className="text-dajc-orange">{i+1}. {title}</strong><p className="mt-2 leading-relaxed text-dajc-muted">{copy}</p></li>)}</ol><div className="mt-9 flex flex-wrap gap-3"><a href="https://demo.dajc.eu/" target="_blank" rel="noopener noreferrer" className="rounded-lg bg-dajc-orange px-6 py-3 font-semibold text-dajc-dark">Otevřít demo ↗</a><Link href="/testovani" className="rounded-lg border border-dajc-orange px-6 py-3 text-dajc-orange">Registrace k testování</Link></div><p className="mt-6 text-sm text-dajc-muted">Do dema nevkládejte skutečné údaje o zákaznících, přepravách ani přístupová hesla.</p></main>;}
