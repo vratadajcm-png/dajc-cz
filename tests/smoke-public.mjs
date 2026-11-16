@@ -35,6 +35,24 @@ try {
     if(['/testovani','/platform','/tar'].includes(path)) {
       assert.match(html,/<form\b/, 'Missing questionnaire form '+path);
     }
+    if(path==='/'){
+      assert.ok(html.includes('Co připravuje DAJC Platform'),'Homepage must introduce Platform');
+      assert.ok(html.includes('Co připravuje DAJC TAR'),'Homepage must introduce TAR');
+      assert.ok(!html.includes('Funkce a způsob jejich využití'),'Detailed product catalogue should not be on homepage');
+      assert.ok(!html.includes('Jeden proces od začátku do konce'),'Product workflow should not be on homepage');
+    }
+    if(path==='/platform'){
+      assert.ok(html.includes('Funkce a způsob jejich využití'),'Platform feature catalogue missing');
+      assert.ok(html.includes('všech 25 plánovaných funkcí'),'Expected complete set of 25 Platform functions');
+      assert.ok(html.includes('Historical Permit Matching'),'Expected advanced permit feature');
+      assert.ok(html.includes('Automatizované vydání se souhlasem úřadu'),'Expected authority-gated permit feature');
+    }
+    if(path==='/tar'){
+      assert.ok(html.includes('Funkce a způsob jejich využití'),'TAR feature catalogue missing');
+      assert.ok(html.includes('všech 23 plánovaných funkcí'),'Expected complete set of 23 TAR functions');
+      assert.ok(html.includes('Bluetooth OBD-II'),'Expected diagnostic integration');
+      assert.ok(html.includes('Partner Hub'),'Expected partner dispatch capability');
+    }
     process.stdout.write('OK '+path+'\n');
   }
   const sitemap=await fetch(base+'/sitemap.xml');
