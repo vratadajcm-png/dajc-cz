@@ -84,7 +84,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-dajc-dark text-dajc-white">
         <WebsiteNav />
         {children}
-        <footer className="relative z-10 mx-auto w-full max-w-6xl border-t border-dajc-line px-5 py-8 text-sm text-dajc-muted">DAJC · Projekt ve vývoji · <a className="text-dajc-orange" href="https://www.dajc.eu/privacy" hrefLang="en">Ochrana osobních údajů (EN)</a> · <a className="text-dajc-orange" href="https://www.dajc.eu/" hrefLang="en">DAJC.eu</a></footer>
+        <footer className="relative z-10 mx-auto w-full max-w-6xl border-t border-dajc-line px-5 py-8 text-sm text-dajc-muted">DAJC · Projekt ve vývoji · <a className="text-dajc-orange" href="/soukromi">Ochrana osobních údajů</a> · <a className="text-dajc-orange" href="https://www.dajc.eu/" hrefLang="en">DAJC.eu</a></footer>
       </body>
     </html>
   );

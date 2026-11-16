@@ -39,7 +39,7 @@ export default function Kontakt() {
         </section>
         <p className="mt-8 text-sm text-dajc-muted">
           Informace o zpracování osobních údajů naleznete v{" "}
-          <a href="https://www.dajc.eu/privacy" className="text-dajc-orange underline">zásadách ochrany soukromí</a>.
+          <a href="/soukromi" className="text-dajc-orange underline">zásadách ochrany soukromí</a>.
         </p>
       </div>
     </main>
