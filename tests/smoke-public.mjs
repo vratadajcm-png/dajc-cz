@@ -43,13 +43,13 @@ try {
     }
     if(path==='/platform'){
       assert.ok(html.includes('Funkce a způsob jejich využití'),'Platform feature catalogue missing');
-      assert.ok(html.includes('všech 25 plánovaných funkcí'),'Expected complete set of 25 Platform functions');
+      assert.ok(html.includes('data-capability-count="25"'),'Expected complete set of 25 Platform functions');
       assert.ok(html.includes('Historical Permit Matching'),'Expected advanced permit feature');
       assert.ok(html.includes('Automatizované vydání se souhlasem úřadu'),'Expected authority-gated permit feature');
     }
     if(path==='/tar'){
       assert.ok(html.includes('Funkce a způsob jejich využití'),'TAR feature catalogue missing');
-      assert.ok(html.includes('všech 23 plánovaných funkcí'),'Expected complete set of 23 TAR functions');
+      assert.ok(html.includes('data-capability-count="23"'),'Expected complete set of 23 TAR functions');
       assert.ok(html.includes('Bluetooth OBD-II'),'Expected diagnostic integration');
       assert.ok(html.includes('Partner Hub'),'Expected partner dispatch capability');
     }

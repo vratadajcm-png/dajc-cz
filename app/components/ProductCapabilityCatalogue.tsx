@@ -121,7 +121,7 @@ export default function ProductCapabilityCatalogue({ product }: { product: Produ
   const groups = product === "platform" ? platform : tar;
   const total = groups.reduce((sum, group) => sum + group.features.length, 0);
   return (
-    <section id="funkce" aria-labelledby="funkce-title" className="mt-16 scroll-mt-12 border-t border-dajc-line pt-10">
+    <section id="funkce" data-capability-count={total} aria-labelledby="funkce-title" className="mt-16 scroll-mt-12 border-t border-dajc-line pt-10">
       <p className="font-mono text-xs uppercase tracking-[0.16em] text-dajc-orange">Kompletní návrh produktu</p>
       <h2 id="funkce-title" className="mt-3 max-w-4xl font-heading text-3xl font-semibold sm:text-4xl">Funkce a způsob jejich využití</h2>
       <p className="mt-4 max-w-4xl leading-relaxed text-dajc-muted">Projděte si všech {total} plánovaných funkcí v {groups.length} oblastech. Každá funkce popisuje zamýšlený výsledek; nejde o tvrzení, že již byla dodána nebo že je napojení dostupné v produkci.</p>
