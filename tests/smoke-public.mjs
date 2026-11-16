@@ -29,8 +29,8 @@ try {
     const canonical = 'https://www.dajc.cz'+path;
     assert.ok(html.includes('rel="canonical"') && html.includes(canonical), 'Missing canonical '+path);
     if(['/','/platform','/tar','/testovani','/demo'].includes(path)){
-      assert.match(html,/hreflang="en"/,'Missing English alternate '+path);
-      assert.match(html,/hreflang="cs-CZ"/,'Missing Czech alternate '+path);
+      assert.match(html,/hreflang="en"/i,'Missing English alternate '+path);
+      assert.match(html,/hreflang="cs-CZ"/i,'Missing Czech alternate '+path);
     }
     if(['/testovani','/platform','/tar'].includes(path)) {
       assert.match(html,/<form\b/, 'Missing questionnaire form '+path);
