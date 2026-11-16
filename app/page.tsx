@@ -18,15 +18,14 @@ export default function Home() {
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-dajc-orange">Evropská koordinace dopravy a zásahů</p>
         <h1 className="mt-5 max-w-4xl font-heading text-4xl font-bold leading-tight sm:text-6xl">Méně roztříštěnosti. <span className="text-dajc-orange">Jasnější koordinace.</span></h1>
         <p className="mt-7 max-w-3xl text-lg leading-relaxed text-dajc-muted">DAJC vyvíjí dvě samostatná řešení: Platform pro těžkou a nadrozměrnou přepravu a TAR pro odtahové, asistenční a vyprošťovací provozy. Naším cílem je propojit lidi a jejich stávající systémy, ne je nahrazovat.</p>
+        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-dajc-muted">Platform připravuje předprodukční testování na 3. čtvrtletí 2027. TAR je ve vývoji a průzkumu trhu; nejde o provozovanou asistenční službu.</p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/testovani" className="rounded-lg bg-dajc-orange px-6 py-3 font-semibold text-dajc-dark hover:brightness-110">Registrace k testování Platform</Link>
-          <Link href="/tar#pruzkum" className="rounded-lg border border-dajc-orange px-6 py-3 font-semibold text-dajc-orange hover:bg-dajc-navy">Pomoci s průzkumem TAR</Link>
-          <Link href="/demo" className="rounded-lg border border-dajc-line px-6 py-3 font-semibold hover:border-dajc-orange">Průvodce ukázkou</Link>
+          <Link href="/platform" className="rounded-lg bg-dajc-orange px-6 py-3 font-semibold text-dajc-dark hover:brightness-110">Co připravuje DAJC Platform →</Link>
+          <Link href="/tar" className="rounded-lg border border-dajc-orange px-6 py-3 font-semibold text-dajc-orange hover:bg-dajc-navy">Co připravuje DAJC TAR →</Link>
         </div>
-        <p className="mt-5 text-sm text-dajc-muted">Platform: plánované předprodukční testování červenec–září 2027, přesné datum není potvrzeno. TAR: vývoj a průzkum trhu, žádná živá služba.</p>
       </section>
       <section aria-labelledby="products-title" className="border-t border-dajc-line py-12">
-        <h2 id="products-title" className="font-heading text-3xl font-semibold">Dva produkty, dvě oblasti provozu</h2>
+        <h2 id="products-title" className="font-heading text-3xl font-semibold">Dva produkty. Podrobnosti na vlastních stránkách.</h2>
         <div className="mt-8 grid gap-5 md:grid-cols-2">{products.map(p => <article key={p.name} className="flex flex-col rounded-xl border border-dajc-line bg-dajc-navy/20 p-7">
           <p className="text-sm font-medium text-dajc-orange">{p.subtitle}</p>
           <h3 className="mt-3 text-3xl font-semibold">{p.name}</h3>
@@ -34,15 +33,6 @@ export default function Home() {
           <p className="mt-6 text-xs text-dajc-muted">{p.status}</p>
           <Link href={p.href} className="mt-5 inline-flex w-fit rounded-lg border border-dajc-orange px-5 py-3 font-semibold text-dajc-orange hover:bg-dajc-orange hover:text-dajc-dark">{p.action} →</Link>
         </article>)}</div>
-      </section>
-      <section aria-labelledby="example-title" className="border-t border-dajc-line py-12">
-        <p className="font-mono text-xs uppercase tracking-wider text-dajc-orange">Ukázka zamýšlených procesů</p>
-        <h2 id="example-title" className="mt-2 text-3xl font-semibold">Od první informace až po doložený výsledek</h2>
-        <div className="mt-7 grid gap-4 md:grid-cols-2">
-          <div className="rounded-lg border border-dajc-line p-6"><h3 className="font-semibold">D-ID · Platform</h3><p className="mt-3 leading-relaxed text-dajc-muted">Poptávka → náklad → trasa a povolení → schválené provedení → předání a vyúčtování.</p></div>
-          <div className="rounded-lg border border-dajc-line p-6"><h3 className="font-semibold">Recovery Passport · TAR</h3><p className="mt-3 leading-relaxed text-dajc-muted">Nahlášení → přidělení techniky → práce na místě → dokumentace → uzavření případu.</p></div>
-        </div>
-        <p className="mt-4 text-sm text-dajc-muted">Jde o navrhované workflow, nikoli důkaz hotových integrací, úředního schvalování či nasazené asistenční sítě.</p>
       </section>
       <section aria-labelledby="trust-title" className="border-t border-dajc-line py-12">
         <h2 id="trust-title" className="text-3xl font-semibold">Proč vzniká DAJC</h2>

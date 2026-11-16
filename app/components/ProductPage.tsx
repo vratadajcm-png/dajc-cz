@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ResearchForm from "./ResearchForm";
+import ProductCapabilityCatalogue from "./ProductCapabilityCatalogue";
 type Product = "platform" | "tar";
 const content = {
   platform: {
@@ -34,6 +35,7 @@ export default function ProductPage({ product }: { product: Product }) {
     <p className="mt-5 rounded border-l-2 border-dajc-orange pl-4 text-sm text-dajc-muted">{item.status}</p>
     <div className="mt-7 flex flex-wrap gap-3">
       {product === "platform" ? <Link className="rounded-lg bg-dajc-orange px-5 py-3 font-semibold text-dajc-dark" href="/testovani">Registrace k testování Platform</Link> : <a className="rounded-lg bg-dajc-orange px-5 py-3 font-semibold text-dajc-dark" href="#pruzkum">Vyplnit průzkum TAR</a>}
+      <a href="#funkce" className="rounded-lg border border-dajc-line px-5 py-3 text-dajc-white hover:border-dajc-orange">Všechny funkce ↓</a>
       <a className="rounded-lg border border-dajc-orange px-5 py-3 text-dajc-orange" href={product === "platform" ? "https://www.dajc.eu/platform/integrations" : "https://www.dajc.eu/tar/integrations"} hrefLang="en">Technické integrace (EN) →</a>
       {product === "platform" && <Link href="/demo" className="rounded-lg border border-dajc-line px-5 py-3">Průvodce demem</Link>}
     </div>
@@ -44,7 +46,8 @@ export default function ProductPage({ product }: { product: Product }) {
       <ol className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">{item.steps.map((step,i)=><li key={step} className="rounded border-t-2 border-dajc-orange bg-dajc-navy/20 p-4"><span className="font-mono text-xs text-dajc-orange">{String(i+1).padStart(2,"0")}</span><p className="mt-2 text-sm font-medium">{step}</p></li>)}</ol>
       <p className="mt-5 text-sm text-dajc-muted">{item.safety}</p>
     </section>
-    <section className="mt-14 border-t border-dajc-line pt-9"><h2 className="text-3xl font-semibold">Hlavní připravované funkce</h2><ul className="mt-6 grid gap-3 md:grid-cols-2">{item.advantages.map(s=><li key={s} className="rounded-lg border border-dajc-line p-4 text-dajc-muted">✓ {s}</li>)}</ul><p className="mt-5 text-sm text-dajc-muted">Zatím jde o produktový plán, nikoli potvrzení nasazení nebo dostupnosti jednotlivých integrací.</p></section>
+    <section className="mt-14 border-t border-dajc-line pt-9"><h2 className="text-3xl font-semibold">Pět klíčových přínosů</h2><ul className="mt-6 grid gap-3 md:grid-cols-2">{item.advantages.map(s=><li key={s} className="rounded-lg border border-dajc-line p-4 text-dajc-muted">✓ {s}</li>)}</ul><p className="mt-5 text-sm text-dajc-muted">Zatím jde o produktový plán, nikoli potvrzení nasazení nebo dostupnosti jednotlivých integrací.</p></section>
+    <ProductCapabilityCatalogue product={product}/>
     <section id="pruzkum" className="mt-14 scroll-mt-8 border-t border-dajc-line pt-9"><h2 className="text-3xl font-semibold">Pomozte ověřit, co má smysl vyvíjet</h2><p className="mt-4 max-w-3xl leading-relaxed text-dajc-muted">Průzkum je určený odborníkům z praxe. Neslouží jako objednávka, smlouva ani registrace k testování. Neuvádějte osobní údaje svých zákazníků, řidičů ani účastníků událostí.</p><ResearchForm product={product}/></section>
   </main>;
 }
